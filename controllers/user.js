@@ -16,3 +16,32 @@ exports.userById = (req, res, next, id) => {
             next();
         });
 };
+
+exports.read = (req, res) => {
+    req.profile.hashed_password = undefined
+    req.profile.salt = undefined
+    return res.json(req.profile)
+}
+
+/**
+ * find user by Id, then set updated info in request body
+ * new updated records will bve sent to front end in json response.
+ */
+
+exports.update = (req, res) => {
+    User.findOneAndUpdate(
+        {_id: req.profile._id}, 
+        {$set: req.body}, 
+        {new: true},
+        (err, user) => {
+            if(err){
+                return res.status(400).json({
+                    error: 'You are not authorized to do that'
+                })
+            }
+            user.hashed_password = undefined
+            user.salt = undefined
+            res.json(user);
+        }
+    );
+}

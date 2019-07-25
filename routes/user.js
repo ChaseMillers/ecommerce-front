@@ -3,7 +3,7 @@ const router = express.Router()
 
 const { requireSignin, isAuth, isAdmin } = require('../controllers/auth') 
 
-const { userById } = require("../controllers/user"); 
+const { userById, read, update } = require("../controllers/user"); 
 
 // makes user id information available 
 // isAuth makes it so other users can't access other users Ids, because Ids must match.
@@ -13,6 +13,10 @@ router.get('/secret/:userId', requireSignin, isAuth, isAdmin, (req, res) =>{
         user: req.profile
     });
 });
+
+
+router.get('/user/:userId', requireSignin, isAuth, read)
+router.put('/user/:userId', requireSignin, isAuth, update)
 
 // If there is a userId in the route parameter, execute userById method
 // makes user information available in the request object
