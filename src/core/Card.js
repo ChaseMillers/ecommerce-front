@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Link, Redirect } from "react-router-dom";
-import ShowImage from "./ShowImage.js";
-// import moment from "moment";
-// import { addItem, updateItem, removeItem } from "./cartHelpers";
+import ShowImage from "./ShowImage";
+// moment removes the need to use the native JavaScript Date object directly
+import moment from "moment";
+import { addItem, updateItem, removeItem } from "./cartHelpers";
 
 const Card = ({
     product,
@@ -26,11 +27,11 @@ const Card = ({
         );
     };
 
-    // const addToCart = () => {
-    //     addItem(product, () => {
-    //         setRedirect(true);
-    //     });
-    // };
+    const addToCart = () => {
+        addItem(product, () => {
+            setRedirect(true);
+        });
+    };
 
     const shouldRedirect = redirect => {
         if (redirect) {
@@ -38,31 +39,31 @@ const Card = ({
         }
     };
 
-    // const showAddToCart = showAddToCartButton => {
-    //     return (
-    //         showAddToCartButton && (
-    //             <button
-    //                 onClick={addToCart}
-    //                 className="btn btn-outline-warning mt-2 mb-2"
-    //             >
-    //                 Add to cart
-    //             </button>
-    //         )
-    //     );
-    // };
+    const showAddToCart = showAddToCartButton => {
+        return (
+            showAddToCartButton && (
+                <button
+                    onClick={addToCart}
+                    className="btn btn-outline-warning mt-2 mb-2"
+                >
+                    Add to cart
+                </button>
+            )
+        );
+    };
 
-    // const showRemoveButton = showRemoveProductButton => {
-    //     return (
-    //         showRemoveProductButton && (
-    //             <button
-    //                 onClick={() => removeItem(product._id)}
-    //                 className="btn btn-outline-danger mt-2 mb-2"
-    //             >
-    //                 Remove Product
-    //             </button>
-    //         )
-    //     );
-    // };
+    const showRemoveButton = showRemoveProductButton => {
+        return (
+            showRemoveProductButton && (
+                <button
+                    onClick={() => removeItem(product._id)}
+                    className="btn btn-outline-danger mt-2 mb-2"
+                >
+                    Remove Product
+                </button>
+            )
+        );
+    };
 
     const showStock = quantity => {
         return quantity > 0 ? (
@@ -72,12 +73,12 @@ const Card = ({
         );
     };
 
-    // const handleChange = productId => event => {
-    //     setCount(event.target.value < 1 ? 1 : event.target.value);
-    //     if (event.target.value >= 1) {
-    //         updateItem(productId, event.target.value);
-    //     }
-    // };
+    const handleChange = productId => event => {
+        setCount(event.target.value < 1 ? 1 : event.target.value);
+        if (event.target.value >= 1) {
+            updateItem(productId, event.target.value);
+        }
+    };
 
     const showCartUpdateOptions = cartUpdate => {
         return (
@@ -93,7 +94,7 @@ const Card = ({
                             type="number"
                             className="form-control"
                             value={count}
-                            // onChange={handleChange(product._id)}
+                            onChange={handleChange(product._id)}
                         />
                     </div>
                 </div>
@@ -114,11 +115,11 @@ const Card = ({
                 <p className="black-9">
                     Category: {product.category && product.category.name}
                 </p>
-                {/* <p className="black-8">
+                <p className="black-8">
                     Added on {moment(product.createdAt).fromNow()}
-                </p> */}
+                </p>
 
-                {/* {showStock(product.quantity)}
+                {showStock(product.quantity)}
                 <br />
 
                 {showViewButton(showViewProductButton)}
@@ -127,7 +128,7 @@ const Card = ({
 
                 {showRemoveButton(showRemoveProductButton)}
 
-                {showCartUpdateOptions(cartUpdate)} */}
+                {showCartUpdateOptions(cartUpdate)}
             </div>
         </div>
     );
