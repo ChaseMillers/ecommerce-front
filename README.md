@@ -1,4 +1,5 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## MY SECOUND CAPSTONE AWWWWWWWWWWW YAAAAAAAAAAAAY BOY!
+## This is the front end
 
 ## Available Scripts
 
