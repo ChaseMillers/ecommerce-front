@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Route, Redirect } from "react-router-dom";
 import { isAuthenticated } from "./index";
 
-// checks if user is authenticated, so logged in users only
+// checks if user is authenticated, so logged in users only.
 const PrivateRoute = ({ component: Component, ...rest }) => (
     <Route
         {...rest}
