@@ -1,25 +1,25 @@
-const express = require('express')
-const router = express.Router()
+const express = require("express");
+const router = express.Router();
 
-const { requireSignin, isAuth, isAdmin } = require('../controllers/auth') 
+const { requireSignin, isAuth, isAdmin } = require("../controllers/auth");
 
-const { userById, read, update } = require("../controllers/user"); 
+const {
+    userById,
+    read,
+    update,
+    purchaseHistory
+} = require("../controllers/user");
 
-// makes user id information available 
-// isAuth makes it so other users can't access other users Ids, because Ids must match.
-// isAdmin meens we must also be the Admin, role must be set to 1.
-router.get('/secret/:userId', requireSignin, isAuth, isAdmin, (req, res) =>{
+router.get("/secret/:userId", requireSignin, isAuth, isAdmin, (req, res) => {
     res.json({
         user: req.profile
     });
 });
 
+router.get("/user/:userId", requireSignin, isAuth, read);
+router.put("/user/:userId", requireSignin, isAuth, update);
+router.get("/orders/by/user/:userId", requireSignin, isAuth, purchaseHistory);
 
-router.get('/user/:userId', requireSignin, isAuth, read)
-router.put('/user/:userId', requireSignin, isAuth, update)
-
-// If there is a userId in the route parameter, execute userById method
-// makes user information available in the request object
-router.param('userId', userById);
+router.param("userId", userById);
 
 module.exports = router;
