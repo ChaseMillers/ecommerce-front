@@ -119,6 +119,13 @@ ul {
     display: -ms-flexbox;
     display: flex; 
 }
+.input-group>.form-control {
+    position: relative;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    width: 1%;
+    margin-bottom: 0;
+}
 .mr-2, .mx-2 {
     margin-right: .5rem!important;
 }
