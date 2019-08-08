@@ -46,19 +46,19 @@ const AddCategory = () => {
                     required
                 />
             </div>
-            <button className="btn btn-outline-primary">Create Category</button>
+            <button className="button button-blue">Create Category</button>
         </form>
     );
 
     const showSuccess = () => {
         if (success) {
-            return <h3 className="text-success">{name} is created</h3>;
+            return <h4 className="text-success">{name} is created</h4>;
         }
     };
 
     const showError = () => {
         if (error) {
-            return <h3 className="text-danger">Category should be unique</h3>;
+            return <h4 className="text-danger">Category should be unique</h4>;
         }
     };
 

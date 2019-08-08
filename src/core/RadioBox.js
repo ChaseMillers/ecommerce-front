@@ -17,7 +17,7 @@ const RadioBox = ({ prices, handleFilters }) => {
                 value={`${p._id}`}
                 name={p}
                 type="radio"
-                className="mr-2 ml-4"
+                className="price-filters"
             />
             <label className="form-check-label">{p.name}</label>
         </div>

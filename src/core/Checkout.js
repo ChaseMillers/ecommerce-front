@@ -54,7 +54,7 @@ const Checkout = ({ products }) => {
             <div>{showDropIn()}</div>
         ) : (
             <Link to="/signin">
-                <button className="btn btn-primary">Sign in to checkout</button>
+                <button className="button button-blue">Sign in to checkout</button>
             </Link>
         );
     };
@@ -132,7 +132,7 @@ const Checkout = ({ products }) => {
                         <label className="text-muted">Delivery address:</label>
                         <textarea
                             onChange={handleAddress}
-                            className="form-control"
+                            className="search-bar "
                             value={data.address}
                             placeholder="Type your delivery address here..."
                         />
@@ -147,7 +147,7 @@ const Checkout = ({ products }) => {
                         }}
                         onInstance={instance => (data.instance = instance)}
                     />
-                    <button onClick={buy} className="btn btn-success btn-block">
+                    <button onClick={buy} className="button">
                         Pay
                     </button>
                 </div>
@@ -157,7 +157,7 @@ const Checkout = ({ products }) => {
 
     const showError = error => (
         <div
-            className="alert alert-danger"
+            className="caution "
             style={{ display: error ? "" : "none" }}
         >
             {error}
@@ -166,7 +166,7 @@ const Checkout = ({ products }) => {
 
     const showSuccess = success => (
         <div
-            className="alert alert-info"
+            className="caution caution-text"
             style={{ display: success ? "" : "none" }}
         >
             Thanks! Your payment was successful!
@@ -174,11 +174,11 @@ const Checkout = ({ products }) => {
     );
 
     const showLoading = loading =>
-        loading && <h2 className="text-danger">Loading...</h2>;
+        loading && <h4 className="text-danger">Loading...</h4>;
 
     return (
         <div>
-            <h2>Total: ${getTotal()}</h2>
+            <h4>Total: ${getTotal()}</h4>
             {showLoading(data.loading)}
             {showSuccess(data.success)}
             {showError(data.error)}

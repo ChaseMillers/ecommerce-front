@@ -39,12 +39,12 @@ const Orders = () => {
     const showOrdersLength = () => {
         if (orders.length > 0) {
             return (
-                <h1 className="text-danger display-2">
+                <h4 className="text-danger display-2">
                     Total orders: {orders.length}
-                </h1>
+                </h4>
             );
         } else {
-            return <h1 className="text-danger">No orders</h1>;
+            return <h4 className="text-danger">No orders</h4>;
         }
     };
 
@@ -76,7 +76,7 @@ const Orders = () => {
 
     const showStatus = o => (
         <div className="form-group">
-            <h3 className="mark mb-4">Status: {o.status}</h3>
+            <h4 className="mark mb-4">Status: {o.status}</h4>
             <select
                 className="form-control"
                 onChange={e => handleStatusChange(e, o._id)}
@@ -97,7 +97,7 @@ const Orders = () => {
             description={`G'day ${
                 user.name
             }, you can manage all the orders here`}
-            className="container-fluid"
+            className="main-container"
         >
             <div className="row">
                 <div className="col-md-8 offset-md-2">
@@ -110,11 +110,11 @@ const Orders = () => {
                                 key={oIndex}
                                 style={{ borderBottom: "5px solid indigo" }}
                             >
-                                <h2 className="mb-5">
+                                <h4 className="mb-5">
                                     <span className="bg-primary">
                                         Order ID: {o._id}
                                     </span>
-                                </h2>
+                                </h4>
 
                                 <ul className="list-group mb-2">
                                     <li className="list-group-item">
@@ -138,10 +138,10 @@ const Orders = () => {
                                     </li>
                                 </ul>
 
-                                <h3 className="mt-4 mb-4 font-italic">
+                                <h4 className="mt-4 mb-4 font-italic">
                                     Total products in the order:{" "}
                                     {o.products.length}
-                                </h3>
+                                </h4>
 
                                 {o.products.map((p, pIndex) => (
                                     <div

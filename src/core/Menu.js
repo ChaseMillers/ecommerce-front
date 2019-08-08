@@ -44,7 +44,7 @@ const Menu = ({ history }) => (
                 >
                     Cart{" "}
                     <sup>
-                        <small className="cart-badge">{itemTotal()}</small>
+                        <small className="cart-number">{itemTotal()}</small>
                     </sup>
                 </Link>
             </li>

@@ -91,7 +91,7 @@ const Profile = ({ match }) => {
                 />
             </div>
 
-            <button onClick={clickSubmit} className="btn btn-primary">
+            <button onClick={clickSubmit} className="button button-blue">
                 Submit
             </button>
         </form>
@@ -101,9 +101,9 @@ const Profile = ({ match }) => {
         <Layout
             title="Profile"
             description="Update your profile"
-            className="container-fluid"
+            className="main-container"
         >
-            <h2 className="mb-4">Profile update</h2>
+            <h4 className="mb-4">Profile update</h4>
             {profileUpdate(name, email, password)}
             {redirectUser(success)}
         </Layout>

@@ -10,8 +10,8 @@ const AdminDashboard = () => {
 
     const adminLinks = () => {
         return (
-            <div className="card">
-                <h4 className="card-header">Admin Links</h4>
+            <div className="product">
+                <h4 className="product-header">Admin Links</h4>
                 <ul className="list-group">
                     <li className="list-group-item">
                         <Link className="nav-link" to="/create/category">
@@ -40,8 +40,8 @@ const AdminDashboard = () => {
 
     const adminInfo = () => {
         return (
-            <div className="card mb-5">
-                <h3 className="card-header">User Information</h3>
+            <div className="product">
+                <h4 className="product-header">User Information</h4>
                 <ul className="list-group">
                     <li className="list-group-item">{name}</li>
                     <li className="list-group-item">{email}</li>
@@ -57,7 +57,7 @@ const AdminDashboard = () => {
         <Layout
             title="Dashboard"
             description={`G'day ${name}!`}
-            className="container-fluid"
+            className="main-container"
         >
             <div className="row">
                 <div className="col-3">{adminLinks()}</div>

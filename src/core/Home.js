@@ -38,22 +38,22 @@ const Home = () => {
         <Layout
             title="FullStack React Node MongoDB Ecommerce App"
             description="Node React E-commerce App"
-            className="container-fluid"
+            className="main-container"
         >
         <Search />
-        <h2 className="mb-4">New Arrivals</h2>
+        <h4 className="mb-4">New Arrivals</h4>
         <div className="row">
             {productsByArrival.map((product, i) => (
-                <div key={i} className="col-4 mb-3">
+                <div key={i} className="shop-layout ">
                     <Card product={product} />
                 </div>
             ))}
         </div>
 
-        <h2 className="mb-4">Best Sellers</h2>
+        <h4 className="mb-4">Best Sellers</h4>
         <div className="row">
             {productsBySell.map((product, i) => (
-                <div key={i} className="col-4 mb-3">
+                <div key={i} className="shop-layout ">
                     <Card product={product} />
                 </div>
             ))}

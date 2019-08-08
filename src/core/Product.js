@@ -39,19 +39,19 @@ const Product = props => {
                 product.description &&
                 product.description.substring(0, 100)
             }
-            className="container-fluid"
+            className="main-container"
         >
             <div className="row">
-                <div className="col-8">
+                <div className="filters-layout">
                     {product && product.description && (
                         <Card product={product} showViewProductButton={false} />
                     )}
                 </div>
 
-                <div className="col-4">
+                <div className="dash-layout">
                     <h4>Related products</h4>
                     {relatedProduct.map((p, i) => (
-                        <div className="mb-3">
+                        <div className="related">
                             <Card key={i} product={p} />
                         </div>
                     ))}

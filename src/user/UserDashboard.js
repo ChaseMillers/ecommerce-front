@@ -29,8 +29,8 @@ const Dashboard = () => {
 
     const userLinks = () => {
         return (
-            <div className="card">
-                <h4 className="card-header">User Links</h4>
+            <div className="product">
+                <h4 className="product-header">User Links</h4>
                 <ul className="list-group">
                     <li className="list-group-item">
                         <Link className="nav-link" to="/cart">
@@ -49,8 +49,8 @@ const Dashboard = () => {
 
     const userInfo = () => {
         return (
-            <div className="card mb-5">
-                <h3 className="card-header">User Information</h3>
+            <div className="product">
+                <h4 className="product-header">User Information</h4>
                 <ul className="list-group">
                     <li className="list-group-item">{name}</li>
                     <li className="list-group-item">{email}</li>
@@ -64,8 +64,8 @@ const Dashboard = () => {
 
     const purchaseHistory = history => {
         return (
-            <div className="card mb-5">
-                <h3 className="card-header">Purchase history</h3>
+            <div className="product">
+                <h4 className="product-header">Purchase history</h4>
                 <ul className="list-group">
                     <li className="list-group-item">
                         {history.map((h, i) => {
@@ -75,16 +75,16 @@ const Dashboard = () => {
                                     {h.products.map((p, i) => {
                                         return (
                                             <div key={i}>
-                                                <h6>Product name: {p.name}</h6>
-                                                <h6>
+                                                <p>Product name: {p.name}</p>
+                                                <p>
                                                     Product price: ${p.price}
-                                                </h6>
-                                                <h6>
+                                                </p>
+                                                <p>
                                                     Purchased date:{" "}
                                                     {moment(
                                                         p.createdAt
                                                     ).fromNow()}
-                                                </h6>
+                                                </p>
                                             </div>
                                         );
                                     })}
@@ -101,11 +101,11 @@ const Dashboard = () => {
         <Layout
             title="Dashboard"
             description={`G'day ${name}!`}
-            className="container-fluid"
+            className="main-container"
         >
             <div className="row">
-                <div className="col-3">{userLinks()}</div>
-                <div className="col-9">
+                <div className="dash-layout">{userLinks()}</div>
+                <div className="dash-extention">
                     {userInfo()}
                     {purchaseHistory(history)}
                 </div>

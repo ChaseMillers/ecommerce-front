@@ -69,7 +69,7 @@ const Signup = () => {
                     value={password}
                 />
             </div>
-            <button onClick={clickSubmit} className="btn btn-primary">
+            <button onClick={clickSubmit} className="button button-blue">
                 Submit
             </button>
         </form>
@@ -77,7 +77,7 @@ const Signup = () => {
 
     const showError = () => (
         <div
-            className="alert alert-danger"
+            className="caution "
             style={{ display: error ? "" : "none" }}
         >
             {error}
@@ -86,7 +86,7 @@ const Signup = () => {
 
     const showSuccess = () => (
         <div
-            className="alert alert-info"
+            className="caution caution-text"
             style={{ display: success ? "" : "none" }}
         >
             New account is created. Please <Link to="/signin">Signin</Link>

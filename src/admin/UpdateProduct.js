@@ -114,7 +114,7 @@ const UpdateProduct = ({ match }) => {
         <form className="mb-3" onSubmit={clickSubmit}>
             <h4>Post Photo</h4>
             <div className="form-group">
-                <label className="btn btn-secondary">
+                <label className="button button-yellow">
                     <input
                         onChange={handleChange("photo")}
                         type="file"
@@ -191,13 +191,13 @@ const UpdateProduct = ({ match }) => {
                 />
             </div>
 
-            <button className="btn btn-outline-primary">Update Product</button>
+            <button className="button button-blue">Update Product</button>
         </form>
     );
 
     const showError = () => (
         <div
-            className="alert alert-danger"
+            className="caution "
             style={{ display: error ? "" : "none" }}
         >
             {error}
@@ -206,17 +206,17 @@ const UpdateProduct = ({ match }) => {
 
     const showSuccess = () => (
         <div
-            className="alert alert-info"
+            className="caution caution-text"
             style={{ display: createdProduct ? "" : "none" }}
         >
-            <h2>{`${createdProduct}`} is updated!</h2>
+            <h4>{`${createdProduct}`} is updated!</h4>
         </div>
     );
 
     const showLoading = () =>
         loading && (
-            <div className="alert alert-success">
-                <h2>Loading...</h2>
+            <div className="caution">
+                <h4>Loading...</h4>
             </div>
         );
 

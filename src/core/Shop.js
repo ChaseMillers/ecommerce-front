@@ -58,7 +58,7 @@ const Shop = () => {
         return (
             size > 0 &&
             size >= limit && (
-                <button onClick={loadMore} className="btn btn-warning mb-5">
+                <button onClick={loadMore} className="button button-yellow mb-5">
                     Load more
                 </button>
             )
@@ -99,10 +99,10 @@ const Shop = () => {
         <Layout
             title="Shop Page"
             description="Search and find books of your choice"
-            className="container-fluid"
+            className="main-container"
         >
             <div className="row">
-                <div className="col-4">
+                <div className="shop-layout">
                     <h4>Filter by categories</h4>
                     <ul>
                         <Checkbox
@@ -124,11 +124,11 @@ const Shop = () => {
                     </div>
                 </div>
 
-                <div className="col-8">
-                    <h2 className="mb-4">Products</h2>
+                <div className="filters-layout">
+                    <h4 className="mb-4">Products</h4>
                     <div className="row">
                         {filteredResults.map((product, i) => (
-                            <div key={i} className="col-4 mb-3">
+                            <div key={i} className="shop-layout">
                                 <Card product={product} />
                             </div>
                         ))}

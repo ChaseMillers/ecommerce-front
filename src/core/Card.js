@@ -19,7 +19,7 @@ const Card = ({
         return (
             showViewProductButton && (
                 <Link to={`/product/${product._id}`} className="mr-2">
-                    <button className="btn btn-outline-primary mt-2 mb-2">
+                    <button className="button button-blue mt-2 mb-2">
                         View Product
                     </button>
                 </Link>
@@ -44,7 +44,7 @@ const Card = ({
             showAddToCartButton && (
                 <button
                     onClick={addToCart}
-                    className="btn btn-outline-warning mt-2 mb-2"
+                    className="button button-yellow"
                 >
                     Add to cart
                 </button>
@@ -57,7 +57,7 @@ const Card = ({
             showRemoveProductButton && (
                 <button
                     onClick={() => removeItem(product._id)}
-                    className="btn btn-outline-danger mt-2 mb-2"
+                    className="button button-yellow"
                 >
                     Remove Product
                 </button>
@@ -67,9 +67,9 @@ const Card = ({
 
     const showStock = quantity => {
         return quantity > 0 ? (
-            <span className="badge badge-primary badge-pill">In Stock</span>
+            <span className="in-stock">In Stock</span>
         ) : (
-            <span className="badge badge-danger badge-pill">Out of Stock</span>
+            <span className="in-stock ">Out of Stock</span>
         );
     };
 
@@ -103,19 +103,19 @@ const Card = ({
     };
 
     return (
-        <div className="card">
-            <div className="card-header name">{product.name}</div>
-            <div className="card-body">
+        <div className="product">
+            <div className="product-header name">{product.name}</div>
+            <div className="product-container">
                 {shouldRedirect(redirect)}
                 <ShowImage item={product} url="product" />
-                <p className="lead mt-2">
+                <p className="product-title">
                     {product.description.substring(0, 100)}
                 </p>
-                <p className="black-10">${product.price}</p>
-                <p className="black-9">
+                <p className="highlight">${product.price}</p>
+                <p className="highlight">
                     Category: {product.category && product.category.name}
                 </p>
-                <p className="black-8">
+                <p className="highlight">
                     Added on {moment(product.createdAt).fromNow()}
                 </p>
 

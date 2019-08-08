@@ -89,7 +89,7 @@ const AddProduct = () => {
         <form className="mb-3" onSubmit={clickSubmit}>
             <h4>Post Photo</h4>
             <div className="form-group">
-                <label className="btn btn-secondary">
+                <label className="button button-blue">
                     <input
                         onChange={handleChange("photo")}
                         type="file"
@@ -166,13 +166,13 @@ const AddProduct = () => {
                 />
             </div>
 
-            <button className="btn btn-outline-primary">Create Product</button>
+            <button className="button button-blue">Create Product</button>
         </form>
     );
 
     const showError = () => (
         <div
-            className="alert alert-danger"
+            className="caution "
             style={{ display: error ? "" : "none" }}
         >
             {error}
@@ -181,17 +181,17 @@ const AddProduct = () => {
 
     const showSuccess = () => (
         <div
-            className="alert alert-info"
+            className="caution caution-text"
             style={{ display: createdProduct ? "" : "none" }}
         >
-            <h2>{`${createdProduct}`} is created!</h2>
+            <h4>{`${createdProduct}`} is created!</h4>
         </div>
     );
 
     const showLoading = () =>
         loading && (
-            <div className="alert alert-success">
-                <h2>Loading...</h2>
+            <div className="caution">
+                <h4>Loading...</h4>
             </div>
         );
 
