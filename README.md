@@ -4,7 +4,7 @@
 
 ## Summery 
 This e-commerce website was designed as a template for anyone that wants to sell products. 
-It was made to have all the basic features you would expect from an e-commerce website as well as features that let the admin add/delete and change products for the shopping page. It also creates a purchase summery page for user and admin. The front end is deployed from Zeit and backend with Heroku. 
+It was made to have all the basic features you would expect from an e-commerce website as well as features that let the admin add/delete and change products for the shopping page. It includes a purchase summary page for user and admin. The front end is deployed from Zeit and backend with Heroku.  
 
 Software used:
 <br/>React
