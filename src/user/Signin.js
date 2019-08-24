@@ -43,7 +43,7 @@ const Signin = () => {
                 <input
                     onChange={handleChange("email")}
                     type="email"
-                    className="form-control"
+                    className="form-inputs"
                     value={email}
                 />
             </div>
@@ -53,7 +53,7 @@ const Signin = () => {
                 <input
                     onChange={handleChange("password")}
                     type="password"
-                    className="form-control"
+                    className="form-inputs"
                     value={password}
                 />
             </div>

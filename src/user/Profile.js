@@ -63,30 +63,30 @@ const Profile = ({ match }) => {
 
     const profileUpdate = (name, email, password) => (
         <form>
-            <div className="form-group">
-                <label className="text-muted">Name</label>
+            <div className="form-container">
+                <label className="sign-up">Name</label>
                 <input
                     type="text"
                     onChange={handleChange("name")}
-                    className="form-control"
+                    className="form-inputs"
                     value={name}
                 />
             </div>
-            <div className="form-group">
-                <label className="text-muted">Email</label>
+            <div className="form-container">
+                <label className="sign-up">Email</label>
                 <input
                     type="email"
                     onChange={handleChange("email")}
-                    className="form-control"
+                    className="form-inputs"
                     value={email}
                 />
             </div>
-            <div className="form-group">
-                <label className="text-muted">Password</label>
+            <div className="form-container">
+                <label className="sign-up">Password</label>
                 <input
                     type="password"
                     onChange={handleChange("password")}
-                    className="form-control"
+                    className="form-inputs"
                     value={password}
                 />
             </div>
@@ -103,7 +103,7 @@ const Profile = ({ match }) => {
             description="Update your profile"
             className="main-container"
         >
-            <h4 className="mb-4">Profile update</h4>
+            <h4 className="margin-bottom">Profile update</h4>
             {profileUpdate(name, email, password)}
             {redirectUser(success)}
         </Layout>

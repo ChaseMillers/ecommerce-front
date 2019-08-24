@@ -48,7 +48,7 @@ const Cart = () => {
                 </div>
 
                 <div className="cart-layout">
-                    <h4 className="mb-4">Your cart summary</h4>
+                    <h4 className="margin-bottom">Your cart summary</h4>
                     <hr />
                     <Checkout products={items} />
                 </div>

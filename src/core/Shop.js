@@ -58,7 +58,7 @@ const Shop = () => {
         return (
             size > 0 &&
             size >= limit && (
-                <button onClick={loadMore} className="button button-yellow mb-5">
+                <button onClick={loadMore} className="button button-yellow margin-bottom">
                     Load more
                 </button>
             )
@@ -102,8 +102,9 @@ const Shop = () => {
             className="main-container"
         >
             <div className="row">
-                <div className="shop-layout">
-                    <h4>Filter by categories</h4>
+                <div className="filter-container">
+                    <div className="filter">
+                    <h4>Filter by type</h4>
                     <ul>
                         <Checkbox
                             categories={categories}
@@ -112,8 +113,9 @@ const Shop = () => {
                             }
                         />
                     </ul>
-
-                    <h4>Filter by price range</h4>
+                    </div>
+                    <div className="filter">
+                    <h4>Filter by price</h4>
                     <div>
                         <RadioBox
                             prices={prices}
@@ -122,10 +124,11 @@ const Shop = () => {
                             }
                         />
                     </div>
+                    </div>
                 </div>
 
                 <div className="filters-layout">
-                    <h4 className="mb-4">Products</h4>
+                    <h4 className="margin-bottom">Products</h4>
                     <div className="row">
                         {filteredResults.map((product, i) => (
                             <div key={i} className="shop-layout">

@@ -111,9 +111,9 @@ const UpdateProduct = ({ match }) => {
     };
 
     const newPostForm = () => (
-        <form className="mb-3" onSubmit={clickSubmit}>
+        <form className="margin-bottom" onSubmit={clickSubmit}>
             <h4>Post Photo</h4>
-            <div className="form-group">
+            <div className="form-container">
                 <label className="button button-yellow">
                     <input
                         onChange={handleChange("photo")}
@@ -124,40 +124,40 @@ const UpdateProduct = ({ match }) => {
                 </label>
             </div>
 
-            <div className="form-group">
-                <label className="text-muted">Name</label>
+            <div className="form-container">
+                <label className="product-text">Name</label>
                 <input
                     onChange={handleChange("name")}
                     type="text"
-                    className="form-control"
+                    className="form-inputs"
                     value={name}
                 />
             </div>
 
-            <div className="form-group">
-                <label className="text-muted">Description</label>
+            <div className="form-container">
+                <label className="product-text">Description</label>
                 <textarea
                     onChange={handleChange("description")}
-                    className="form-control"
+                    className="form-inputs"
                     value={description}
                 />
             </div>
 
-            <div className="form-group">
-                <label className="text-muted">Price</label>
+            <div className="form-container">
+                <label className="product-text">Price</label>
                 <input
                     onChange={handleChange("price")}
                     type="number"
-                    className="form-control"
+                    className="form-inputs"
                     value={price}
                 />
             </div>
 
-            <div className="form-group">
-                <label className="text-muted">Category</label>
+            <div className="form-container">
+                <label className="product-text">Category</label>
                 <select
                     onChange={handleChange("category")}
-                    className="form-control"
+                    className="form-inputs"
                 >
                     <option>Please select</option>
                     {categories &&
@@ -169,11 +169,11 @@ const UpdateProduct = ({ match }) => {
                 </select>
             </div>
 
-            <div className="form-group">
-                <label className="text-muted">Shipping</label>
+            <div className="form-container">
+                <label className="product-text">Shipping</label>
                 <select
                     onChange={handleChange("shipping")}
-                    className="form-control"
+                    className="form-inputs"
                 >
                     <option>Please select</option>
                     <option value="0">No</option>
@@ -181,12 +181,12 @@ const UpdateProduct = ({ match }) => {
                 </select>
             </div>
 
-            <div className="form-group">
-                <label className="text-muted">Quantity</label>
+            <div className="form-container">
+                <label className="product-text">Quantity</label>
                 <input
                     onChange={handleChange("quantity")}
                     type="number"
-                    className="form-control"
+                    className="form-inputs"
                     value={quantity}
                 />
             </div>
@@ -234,7 +234,7 @@ const UpdateProduct = ({ match }) => {
             description={`G'day ${user.name}, ready to add a new product?`}
         >
             <div className="row">
-                <div className="col-md-8 offset-md-2">
+                <div className="filters-layout show-off">
                     {showLoading()}
                     {showSuccess()}
                     {showError()}

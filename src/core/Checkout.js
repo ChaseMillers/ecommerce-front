@@ -128,8 +128,8 @@ const Checkout = ({ products }) => {
         <div onBlur={() => setData({ ...data, error: "" })}>
             {data.clientToken !== null && products.length > 0 ? (
                 <div>
-                    <div className="gorm-group mb-3">
-                        <label className="text-muted">Delivery address:</label>
+                    <div className="form-container margin-bottom">
+                        <label className="sign-up">Delivery address:</label>
                         <textarea
                             onChange={handleAddress}
                             className="search-bar "
@@ -174,7 +174,7 @@ const Checkout = ({ products }) => {
     );
 
     const showLoading = loading =>
-        loading && <h4 className="text-danger">Loading...</h4>;
+        loading && <h4 className="red-text">Loading...</h4>;
 
     return (
         <div>

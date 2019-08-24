@@ -36,12 +36,12 @@ const Home = () => {
 
     return (
         <Layout
-            title="FullStack React Node MongoDB Ecommerce App"
-            description="Node React E-commerce App"
+            title="E-commerce App"
+            description="React Node MongoDB"
             className="main-container"
         >
         <Search />
-        <h4 className="mb-4">New Arrivals</h4>
+        <h4 className="margin-bottom">New Arrivals</h4>
         <div className="row">
             {productsByArrival.map((product, i) => (
                 <div key={i} className="shop-layout ">
@@ -50,7 +50,7 @@ const Home = () => {
             ))}
         </div>
 
-        <h4 className="mb-4">Best Sellers</h4>
+        <h4 className="margin">Best Sellers</h4>
         <div className="row">
             {productsBySell.map((product, i) => (
                 <div key={i} className="shop-layout ">

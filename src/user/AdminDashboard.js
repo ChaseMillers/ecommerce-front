@@ -10,25 +10,25 @@ const AdminDashboard = () => {
 
     const adminLinks = () => {
         return (
-            <div className="product">
+            <div className="dashboard">
                 <h4 className="product-header">Admin Links</h4>
-                <ul className="list-group">
-                    <li className="list-group-item">
+                <ul className="column">
+                    <li className="column-list">
                         <Link className="nav-link" to="/create/category">
                             Create Category
                         </Link>
                     </li>
-                    <li className="list-group-item">
+                    <li className="column-list">
                         <Link className="nav-link" to="/create/product">
                             Create Product
                         </Link>
                     </li>
-                    <li className="list-group-item">
+                    <li className="column-list">
                         <Link className="nav-link" to="/admin/orders">
                             View Orders
                         </Link>
                     </li>
-                    <li className="list-group-item">
+                    <li className="column-list">
                         <Link className="nav-link" to="/admin/products">
                             Manage Products
                         </Link>
@@ -40,12 +40,12 @@ const AdminDashboard = () => {
 
     const adminInfo = () => {
         return (
-            <div className="product">
+            <div className="dashboard">
                 <h4 className="product-header">User Information</h4>
-                <ul className="list-group">
-                    <li className="list-group-item">{name}</li>
-                    <li className="list-group-item">{email}</li>
-                    <li className="list-group-item">
+                <ul className="column">
+                    <li className="column-list">{name}</li>
+                    <li className="column-list">{email}</li>
+                    <li className="column-list">
                         {role === 1 ? "Admin" : "Registered User"}
                     </li>
                 </ul>
@@ -60,8 +60,8 @@ const AdminDashboard = () => {
             className="main-container"
         >
             <div className="row">
-                <div className="col-3">{adminLinks()}</div>
-                <div className="col-9">{adminInfo()}</div>
+                <div className="admin-links">{adminLinks()}</div>
+                <div className="admin-info">{adminInfo()}</div>
             </div>
         </Layout>
     );

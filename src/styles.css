@@ -14,16 +14,16 @@
     color:rgb(110, 110, 110);
     display:inline-block;
     flex-grow:1
-  }
-  .how-it-works-container{
+}
+.how-it-works-container{
     border-style: solid;
-  }
-  .how-it-works img{
+}
+.how-it-works img{
     width:100%;
-  }
-  .how-it-works p{  
+}
+.how-it-works p{  
     font-size:1.2em;
-  }
+}
 
 body {
     font-family: -apple-system,BlinkMacSystemFont,
@@ -39,7 +39,7 @@ body {
 }
 
 
-h4{
+h4 {
     font-weight: 490;
     font-size: 1.9rem;
     line-height: 1.1;
@@ -48,8 +48,38 @@ h4{
 }
 
 p {
-    margin-bottom: .99rem;
+    margin-bottom: 5px;
     margin-top: 0;
+}
+
+.red-text {
+    color: #dc3545;
+}
+
+.form-inputs {
+    font-size: 16px;
+    border: 1px solid #ced4da;
+    background-color:#cfe0f1a2;
+    border-radius: 5px;
+    width: 100%;
+    padding: 8px 8px;
+}
+
+.list {
+    padding-left: 0;
+    list-style: none;
+}
+
+.margin-left {
+    margin-left: 16%;
+}
+
+.margin-top {
+    margin-top: 3rem;
+}
+  
+.color-blue {
+    background-color: #007bff;
 }
 
 /**
@@ -62,6 +92,11 @@ p {
     display: flex;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
+}
+
+ul{
+    list-style-type: none;
+    line-height: 20px;
 }
 .nav-link {
     padding: .4rem 1.1rem;
@@ -77,16 +112,64 @@ p {
     margin-bottom: 0;
 }
 
-
 .product-title {
     margin-top:5px;
     font-size: 1.4rem;
     font-weight: 310;
 }
 
+.margin-bottom{
+    margin-bottom: 1.5rem; 
+}
+
+.margin {
+    margin: 1.5rem 0; 
+}
+
+.column {
+    padding-left: 0;
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.column-list {
+    padding: 12px 18px;
+    margin-bottom: -1px;
+    position: relative;
+    display: block;
+    border: 2px solid rgba(0, 0, 0, 0.125);
+}
+
+
 /**
 * Main 
 */
+
+.dashboard {
+    
+    width:100%;
+}
+
+.user-links-layout{
+    position: relative;
+    max-width: 30%;
+    width: 100%;
+    margin-left:15px;
+    border-right: 4px solid rgba(0, 0, 0, 0.125);
+}
+
+.user-info-layout{
+    position: relative;
+    max-width: 30%;
+    width: 100%;
+    margin-left:15px;
+}
+
+a.user-link{
+    line-height: 20px;
+}
+
 .main-container {
     margin-right: auto;
     margin-left: auto;
@@ -94,9 +177,45 @@ p {
     padding-right: 14px;
     padding-left: 14px;
 }
+
+.manage-products{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.destroy {
+    border: 1px solid #000;
+    color: rgb(231, 231, 231);
+    background-color: #ffc107;
+    padding-right: 0.6em;
+    padding-left: 0.6em;
+    border-radius: 10rem;
+}
+
+.destroy:hover {
+    background-color: #dc3545;
+    color: #212529;
+}
+
+.update {
+    border: 1px solid #000;
+    color: rgb(231, 231, 231);
+    background-color: #368ddf;
+    padding-right: 0.6em;
+    padding-left: 0.6em;
+    border-radius: 10rem;
+}
+
+.update:hover {
+    background-color: #d9dc35;
+    color: #212529;
+}
+
 /**
 * Buttons 
 */
+
 .button-blue {
     background-color:transparent;
     color: #007bff;
@@ -121,16 +240,10 @@ p {
 }
 
 .button {
-    display: inline-block;
-    font-weight: 390;
     font-size: .99rem;
-    line-height: 1.4;
-    text-align: center;
-    vertical-align: middle;
-    user-select: none;
     padding: .385rem .85rem;
-    border-radius: .24rem;
     transition:.16s ease-in-out;
+    margin-right: 5px;
     -webkit-appearance: button;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -140,9 +253,11 @@ p {
 button:not(:disabled) {
     cursor: pointer;
 }
+
 /**
 * Search
 */
+
 .container {
     margin-right: auto;
     margin-left: auto;
@@ -169,7 +284,6 @@ button:not(:disabled) {
     width: 1%;
     margin-bottom: 0;
 }
-
 
 select {
     word-wrap: normal;
@@ -204,11 +318,13 @@ select {
 
 .sign-in{
     margin: 10px 0px;
+    line-height: 25px;
 }
 
 .email-pass{
-margin: 0px 8px;
+    margin: 0px 8px;
 }
+
 /**
 * Products
 */
@@ -220,10 +336,10 @@ margin: 0px 8px;
 .product-header {
     padding: .75rem 1.25rem;
     margin-bottom: 0;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.125);
 }
 .product {
     border: 1px solid rgba(0,0,0,.125);
-   
 }
 
 /**
@@ -252,7 +368,6 @@ margin: 0px 8px;
     padding-left: 15px;
 }
 .cart-layout {
-    -ms-flex: 0 0 50%;
     flex: 0 0 50%;
     max-width: 50%; 
     position: relative;
@@ -260,33 +375,74 @@ margin: 0px 8px;
     padding-right: 15px;
     padding-left: 15px;
 }
+
+.filter{
+margin-left:10px;
+}
+
 .filters-layout {
     flex: 0 0 67%;
     max-width: 67%;
     padding-right: 15px;
     padding-left: 15px;
 }
+
+.admin-links {
+    flex: 0 0 25%;
+    max-width: 25%;
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.admin-info {
+    flex: 0 0 75%;
+    max-width: 75%;
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+manage-products-layout{
+    flex: 0 0 100%;
+    max-width: 100%;
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.center-text {
+    text-align: center;
+}
+
 /**
  * Part of User Links */
-a {
+
+a.user-link {
     text-decoration: none;
     color: #007bff;
+    font-size: 18px;
+    font-weight: bold
+}
+a.user-link:hover {
+    color: #8fc0f5;
 }
 
-li {
-    margin: 5px 0;
-   
-}
-ul {
-    margin-block-start: .6em;
-    margin-block-end: .6em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    padding-inline-start: 35px;
-    display: block;
-    list-style-type: disc;
+a.nav-link {
+    text-decoration: none;
 }
 
+a.nav-link:hover {
+    color: #000;
+}
+
+
+li.nav-item {
+    margin: 5px 0;  
+}
 
 img {
     border-style: none; 
@@ -308,7 +464,6 @@ img {
     background-color: #007bff;
 }
 
-
 /**
  * Shop Page Filters
  */
@@ -326,8 +481,14 @@ img {
 
 /**
  * Shopping Cart
- */
- .caution {
+*/
+
+.cream-color{
+    padding: 0.2em;
+    background-color: #fcf8e3;
+}
+
+.caution {
     border: 1px solid transparent; 
     border-radius: .25rem;
     position: relative; 
@@ -339,6 +500,7 @@ img {
     border-color: #bee5eb;
     color: #0c5460;
 }
+
 hr {
     border: 0;
     border-top: 1px solid rgba(0,0,0,.1);
@@ -346,16 +508,25 @@ hr {
     margin-bottom: 1rem;
 }
 
+.total-orders {
+    font-size: 5.5rem;
+    font-weight: 300;
+    line-height: 1.2;
+}
  
  /* cart badge */
  
- .cart-number,
- .cart-number:hover {
+ .cart-number {
     font-style: italic;
     background: rgb(42, 143, 224);
-     border-radius: 50%;
-     font-size: 12px;
+    border-radius: 50%;
+    font-size: 12px;
  }
+
+.number {
+    line-height: 10px;
+}
+
  /**
   * single product page - product name
   */
@@ -367,10 +538,9 @@ hr {
  }
  
  
- .highlight {
-     background: #b7ccbe94;
- }
-
+.highlight {
+    background: #b7ccbe94;
+}
 
  /**
   * product image on card
@@ -399,6 +569,12 @@ hr {
         padding-right: 15px;
         padding-left: 15px;
     }
+    .filter-container{
+        display: flex;
+        justify-content: space-around;
+        flex: 0 0 99%;
+        max-width: 99%;
+    }
 }
 
  @media screen and (max-width: 676px){
@@ -406,15 +582,21 @@ hr {
         flex: 0 0 99%;
         max-width: 99%;
     }
-    .dash-layout{
-        max-width: 70%;
-        padding-left:15px;
-    }
     .filters-layout {
         flex: 0 0 100%;
         max-width: 100%;
         padding-right: 15px;
         padding-left: 15px;
+    }
+    .user-links-layout{
+        max-width: 90%;
+        width: 100%;
+        border-right: none;
+    }
+    
+    .user-info-layout{
+        max-width: 90%;
+        width: 100%;
     }
 }
 
@@ -435,13 +617,12 @@ hr {
   .banner-container{
     padding: 2rem 1rem;
     margin-bottom: 2rem;
-     height: 180px;
-     color: #fff;
-     background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-     background-size: 400% 400%;
-     -webkit-animation: Gradient 15s ease infinite;
-     -moz-animation: Gradient 15s ease infinite;
-     animation: Gradient 15s ease infinite;
+    color: #fff;
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    -webkit-animation: Gradient 15s ease infinite;
+    -moz-animation: Gradient 15s ease infinite;
+    animation: Gradient 15s ease infinite;
  }
 
  @media only screen and (max-width: 600px) {

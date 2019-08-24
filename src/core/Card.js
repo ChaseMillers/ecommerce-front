@@ -18,8 +18,8 @@ const Card = ({
     const showViewButton = showViewProductButton => {
         return (
             showViewProductButton && (
-                <Link to={`/product/${product._id}`} className="mr-2">
-                    <button className="button button-blue mt-2 mb-2">
+                <Link to={`/product/${product._id}`} className="show-product">
+                    <button className="button button-blue margin-bottom">
                         View Product
                     </button>
                 </Link>
@@ -84,15 +84,15 @@ const Card = ({
         return (
             cartUpdate && (
                 <div>
-                    <div className="input-group mb-3">
-                        <div className="input-group-prepend">
-                            <span className="input-group-text">
+                    <div className="update-options-container margin-bottom">
+                        <div className="update-options">
+                            <span className="update-options-text">
                                 Adjust Quantity
                             </span>
                         </div>
                         <input
                             type="number"
-                            className="form-control"
+                            className="form-inputs"
                             value={count}
                             onChange={handleChange(product._id)}
                         />

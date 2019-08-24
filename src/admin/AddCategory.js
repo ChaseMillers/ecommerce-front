@@ -35,11 +35,11 @@ const AddCategory = () => {
 
     const newCategoryFom = () => (
         <form onSubmit={clickSubmit}>
-            <div className="form-group">
-                <label className="text-muted">Name</label>
+            <div className="form-container">
+                <label className="sign-up">Name</label>
                 <input
                     type="text"
-                    className="form-control"
+                    className="form-inputs"
                     onChange={handleChange}
                     value={name}
                     autoFocus
@@ -76,7 +76,7 @@ const AddCategory = () => {
             description={`G'day ${user.name}, ready to add a new category?`}
         >
             <div className="row">
-                <div className="col-md-8 offset-md-2">
+                <div className="filters-layout margin-left">
                     {showSuccess()}
                     {showError()}
                     {newCategoryFom()}

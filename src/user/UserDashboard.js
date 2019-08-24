@@ -29,16 +29,16 @@ const Dashboard = () => {
 
     const userLinks = () => {
         return (
-            <div className="product">
+            <div className="dashboard">
                 <h4 className="product-header">User Links</h4>
-                <ul className="list-group">
-                    <li className="list-group-item">
-                        <Link className="nav-link" to="/cart">
+                <ul>
+                    <li>
+                        <Link className="user-link" to="/cart">
                             My Cart
                         </Link>
                     </li>
-                    <li className="list-group-item">
-                        <Link className="nav-link" to={`/profile/${_id}`}>
+                    <li>
+                        <Link className="user-link" to={`/profile/${_id}`}>
                             Update Profile
                         </Link>
                     </li>
@@ -49,12 +49,12 @@ const Dashboard = () => {
 
     const userInfo = () => {
         return (
-            <div className="product">
+            <div className="dashboard">
                 <h4 className="product-header">User Information</h4>
-                <ul className="list-group">
-                    <li className="list-group-item">{name}</li>
-                    <li className="list-group-item">{email}</li>
-                    <li className="list-group-item">
+                <ul>
+                    <li>{name}</li>
+                    <li>{email}</li>
+                    <li>
                         {role === 1 ? "Admin" : "Registered User"}
                     </li>
                 </ul>
@@ -64,14 +64,13 @@ const Dashboard = () => {
 
     const purchaseHistory = history => {
         return (
-            <div className="product">
+            <div className="dashboard">
                 <h4 className="product-header">Purchase history</h4>
-                <ul className="list-group">
-                    <li className="list-group-item">
+                <ul>
+                    <li>
                         {history.map((h, i) => {
                             return (
                                 <div>
-                                    <hr />
                                     {h.products.map((p, i) => {
                                         return (
                                             <div key={i}>
@@ -104,8 +103,8 @@ const Dashboard = () => {
             className="main-container"
         >
             <div className="row">
-                <div className="dash-layout">{userLinks()}</div>
-                <div className="dash-extention">
+                <div className="user-links-layout">{userLinks()}</div>
+                <div className="user-info-layout">
                     {userInfo()}
                     {purchaseHistory(history)}
                 </div>

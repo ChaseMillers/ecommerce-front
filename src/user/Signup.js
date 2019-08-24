@@ -40,32 +40,32 @@ const Signup = () => {
 
     const signUpForm = () => (
         <form>
-            <div className="form-group">
-                <label className="text-muted">Name</label>
+            <div className="form-container">
+                <label className="sign-in">Name</label>
                 <input
                     onChange={handleChange("name")}
                     type="text"
-                    className="form-control"
+                    className="form-inputs"
                     value={name}
                 />
             </div>
 
-            <div className="form-group">
-                <label className="text-muted">Email</label>
+            <div className="form-container">
+                <label className="sign-in">Email</label>
                 <input
                     onChange={handleChange("email")}
                     type="email"
-                    className="form-control"
+                    className="form-inputs"
                     value={email}
                 />
             </div>
 
-            <div className="form-group">
-                <label className="text-muted">Password</label>
+            <div className="form-container">
+                <label className="sign-in">Password</label>
                 <input
                     onChange={handleChange("password")}
                     type="password"
-                    className="form-control"
+                    className="form-inputs"
                     value={password}
                 />
             </div>

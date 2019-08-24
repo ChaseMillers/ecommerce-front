@@ -39,24 +39,24 @@ const Orders = () => {
     const showOrdersLength = () => {
         if (orders.length > 0) {
             return (
-                <h4 className="text-danger display-2">
+                <h4 className="red-text total-orders">
                     Total orders: {orders.length}
                 </h4>
             );
         } else {
-            return <h4 className="text-danger">No orders</h4>;
+            return <h4 className="red-text">No orders</h4>;
         }
     };
 
     const showInput = (key, value) => (
-        <div className="input-group mb-2 mr-sm-2">
-            <div className="input-group-prepend">
-                <div className="input-group-text">{key}</div>
+        <div className="show-input-container margin-bottom">
+            <div className="show-input">
+                <div className="show-input-text">{key}</div>
             </div>
             <input
                 type="text"
                 value={value}
-                className="form-control"
+                className="form-inputs"
                 readOnly
             />
         </div>
@@ -75,10 +75,10 @@ const Orders = () => {
     };
 
     const showStatus = o => (
-        <div className="form-group">
-            <h4 className="mark mb-4">Status: {o.status}</h4>
+        <div className="form-container">
+            <h4 className="cream-color margin-bottom">Status: {o.status}</h4>
             <select
-                className="form-control"
+                className="form-inputs"
                 onChange={e => handleStatusChange(e, o._id)}
             >
                 <option>Update Status</option>
@@ -100,52 +100,52 @@ const Orders = () => {
             className="main-container"
         >
             <div className="row">
-                <div className="col-md-8 offset-md-2">
+                <div className=".filters-layout margin-left">
                     {showOrdersLength()}
 
                     {orders.map((o, oIndex) => {
                         return (
                             <div
-                                className="mt-5"
+                                className="margin-top"
                                 key={oIndex}
                                 style={{ borderBottom: "5px solid indigo" }}
                             >
-                                <h4 className="mb-5">
-                                    <span className="bg-primary">
+                                <h4 className="margin-bottom">
+                                    <span className="color-blue">
                                         Order ID: {o._id}
                                     </span>
                                 </h4>
 
-                                <ul className="list-group mb-2">
-                                    <li className="list-group-item">
+                                <ul className="column margin-bottom">
+                                    <li className="column-list">
                                         {showStatus(o)}
                                     </li>
-                                    <li className="list-group-item">
+                                    <li className="column-list">
                                         Transaction ID: {o.transaction_id}
                                     </li>
-                                    <li className="list-group-item">
+                                    <li className="column-list">
                                         Amount: ${o.amount}
                                     </li>
-                                    <li className="list-group-item">
+                                    <li className="column-list">
                                         Ordered by: {o.user.name}
                                     </li>
-                                    <li className="list-group-item">
+                                    <li className="column-list">
                                         Ordered on:{" "}
                                         {moment(o.createdAt).fromNow()}
                                     </li>
-                                    <li className="list-group-item">
+                                    <li className="column-list">
                                         Delivery address: {o.address}
                                     </li>
                                 </ul>
 
-                                <h4 className="mt-4 mb-4 font-italic">
+                                <h4 className="margin">
                                     Total products in the order:{" "}
                                     {o.products.length}
                                 </h4>
 
                                 {o.products.map((p, pIndex) => (
                                     <div
-                                        className="mb-4"
+                                        className="margin-bottom"
                                         key={pIndex}
                                         style={{
                                             padding: "20px",
