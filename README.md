@@ -1,6 +1,6 @@
 ## Ecommerce Website Template
 
-## Live - https://ecommerce-app-r5r9ffxea.now.sh/
+## Live - https://ecommerce-app-b6wa5jwhs.now.sh/
 
 ## Summery 
 This e-commerce website was designed as a template for anyone that wants to sell products. 
