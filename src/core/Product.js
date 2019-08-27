@@ -6,7 +6,7 @@ import Card from "./Card";
 const Product = props => {
     const [product, setProduct] = useState({});
     const [relatedProduct, setRelatedProduct] = useState([]);
-    const [error, setError] = useState(false);
+    const [setError] = useState(false);
 
     const loadSingleProduct = productId => {
         read(productId).then(data => {
@@ -29,6 +29,7 @@ const Product = props => {
     useEffect(() => {
         const productId = props.match.params.productId;
         loadSingleProduct(productId);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [props]);
 
     return (
@@ -51,7 +52,7 @@ const Product = props => {
                 <div className="dash-layout">
                     <h4>Related products</h4>
                     {relatedProduct.map((p, i) => (
-                        <div className="related">
+                        <div key={i} className="related">
                             <Card key={i} product={p} />
                         </div>
                     ))}

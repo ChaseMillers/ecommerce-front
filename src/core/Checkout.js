@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react";
 import {
-    getProducts,
     getBraintreeClientToken,
     processPayment,
     createOrder
 } from "./apiCore";
 import { emptyCart } from "./cartHelpers";
-import Card from "./Card";
 import { isAuthenticated } from "../auth";
 import { Link } from "react-router-dom";
 import "braintree-web";
@@ -37,7 +35,7 @@ const Checkout = ({ products }) => {
 
     useEffect(() => {
         getToken(userId, token);
-    }, []);
+    }, [userId, token]);
 
     const handleAddress = event => {
         setData({ ...data, address: event.target.value });
@@ -66,10 +64,10 @@ const Checkout = ({ products }) => {
         // send the nonce to your server
         // nonce = data.instance.requestPaymentMethod()
         let nonce;
-        let getNonce = data.instance
+        
+        data.instance
             .requestPaymentMethod()
             .then(data => {
-                // console.log(data);
                 nonce = data.nonce;
                 // once you have nonce (card type, card number) send nonce as 'paymentMethodNonce'
                 // and also total to be charged
@@ -119,7 +117,6 @@ const Checkout = ({ products }) => {
                     });
             })
             .catch(error => {
-                // console.log("dropin error: ", error);
                 setData({ ...data, error: error.message });
             });
     };
@@ -141,9 +138,6 @@ const Checkout = ({ products }) => {
                     <DropIn
                         options={{
                             authorization: data.clientToken,
-                            paypal: {
-                                flow: "vault"
-                            }
                         }}
                         onInstance={instance => (data.instance = instance)}
                     />

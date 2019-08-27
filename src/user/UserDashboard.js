@@ -12,7 +12,7 @@ const Dashboard = () => {
         user: { _id, name, email, role }
     } = isAuthenticated();
     const token = isAuthenticated().token;
-
+    
     const init = (userId, token) => {
         getPurchaseHistory(userId, token).then(data => {
             if (data.error) {
@@ -25,20 +25,20 @@ const Dashboard = () => {
 
     useEffect(() => {
         init(_id, token);
-    }, []);
+    }, [_id, token]);
 
     const userLinks = () => {
         return (
             <div className="dashboard">
                 <h4 className="product-header">User Links</h4>
-                <ul>
-                    <li>
-                        <Link className="user-link" to="/cart">
+                <ul className="column">
+                    <li className="column-list">
+                        <Link className="nav-link" to="/cart">
                             My Cart
                         </Link>
                     </li>
-                    <li>
-                        <Link className="user-link" to={`/profile/${_id}`}>
+                    <li className="column-list">
+                        <Link className="nav-link" to={`/profile/${_id}`}>
                             Update Profile
                         </Link>
                     </li>
@@ -51,10 +51,10 @@ const Dashboard = () => {
         return (
             <div className="dashboard">
                 <h4 className="product-header">User Information</h4>
-                <ul>
-                    <li>{name}</li>
-                    <li>{email}</li>
-                    <li>
+                <ul className="column">
+                    <li className="column-list">{name}</li>
+                    <li className="column-list">{email}</li>
+                    <li className="column-list">
                         {role === 1 ? "Admin" : "Registered User"}
                     </li>
                 </ul>
@@ -66,14 +66,14 @@ const Dashboard = () => {
         return (
             <div className="dashboard">
                 <h4 className="product-header">Purchase history</h4>
-                <ul>
-                    <li>
+                <ul className="column">
+                    <li className="column-list">
                         {history.map((h, i) => {
                             return (
-                                <div>
+                                <div key={i}>
                                     {h.products.map((p, i) => {
                                         return (
-                                            <div key={i}>
+                                            <div className="margin-bottom" key={i}>
                                                 <p>Product name: {p.name}</p>
                                                 <p>
                                                     Product price: ${p.price}

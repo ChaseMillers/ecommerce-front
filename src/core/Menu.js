@@ -14,7 +14,11 @@ const isActive = (history, path) => {
 };
 
 const Menu = ({ history }) => (
-    <div>
+    <div className="header">
+        <a href="/" className="logo">Logo</a>
+  <input className="menu-btn" type="checkbox" id="menu-btn" />
+  <label className="menu-icon" htmlFor="menu-btn"><span className="navicon"></span></label>
+
           <ul className="nav">
             <li className="nav-item">
                 <Link
@@ -96,7 +100,7 @@ const Menu = ({ history }) => (
 
 
             {isAuthenticated() && (
-                <li className="nav-item">
+                <li className="nav-item signout">
                     <span
                         className="nav-link"
                         style={{ cursor: "pointer", color: "#ffffff" }}

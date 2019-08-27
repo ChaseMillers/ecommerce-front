@@ -11,8 +11,8 @@ const Shop = () => {
         filters: { category: [], price: [] }
     });
     const [categories, setCategories] = useState([]);
-    const [error, setError] = useState(false);
-    const [limit, setLimit] = useState(6);
+    const [setError] = useState(false);
+    const [limit] = useState(6);
     const [skip, setSkip] = useState(0);
     const [size, setSize] = useState(0);
     const [filteredResults, setFilteredResults] = useState([]);
@@ -68,10 +68,11 @@ const Shop = () => {
     useEffect(() => {
         init();
         loadFilteredResults(skip, limit, myFilters.filters);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const handleFilters = (filters, filterBy) => {
-        // console.log("SHOP", filters, filterBy);
+        
         const newFilters = { ...myFilters };
         newFilters.filters[filterBy] = filters;
 
@@ -98,7 +99,7 @@ const Shop = () => {
     return (
         <Layout
             title="Shop Page"
-            description="Search and find books of your choice"
+            description="Search and find items of your choice"
             className="main-container"
         >
             <div className="row">

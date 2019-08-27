@@ -48,6 +48,7 @@ export const getCart = () => {
     return [];
 };
 
+// adjusts price accordingly with quantity
 export const updateItem = (productId, count) => {
     let cart = [];
     if (typeof window !== "undefined") {
@@ -55,7 +56,7 @@ export const updateItem = (productId, count) => {
             cart = JSON.parse(localStorage.getItem("cart"));
         }
 
-        cart.map((product, i) => {
+        cart.forEach((product, i) => {
             if (product._id === productId) {
                 cart[i].count = count;
             }
@@ -65,6 +66,7 @@ export const updateItem = (productId, count) => {
     }
 };
 
+// allows user to remove item from cart
 export const removeItem = productId => {
     let cart = [];
     if (typeof window !== "undefined") {
@@ -72,7 +74,7 @@ export const removeItem = productId => {
             cart = JSON.parse(localStorage.getItem("cart"));
         }
 
-        cart.map((product, i) => {
+        cart.forEach((product, i) => {
             if (product._id === productId) {
                 cart.splice(i, 1);
             }
