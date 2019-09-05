@@ -4,6 +4,7 @@ import ShowImage from "./ShowImage";
 // moment removes the need to use the native JavaScript Date object directly
 import moment from "moment";
 import { addItem, updateItem, removeItem } from "./cartHelpers";
+import "./Card.css"
 
 const Card = ({
     product,
@@ -84,7 +85,7 @@ const Card = ({
         return (
             cartUpdate && (
                 <div>
-                    <div className="update-options-container margin-bottom">
+                    <div className="update-options-container">
                         <div className="update-options">
                             <span className="update-options-text">
                                 Adjust Quantity
@@ -92,7 +93,7 @@ const Card = ({
                         </div>
                         <input
                             type="number"
-                            className="form-inputs"
+                            className="card-form-inputs"
                             value={count}
                             onChange={handleChange(product._id)}
                         />
@@ -104,18 +105,18 @@ const Card = ({
 
     return (
         <div className="product">
-            <div className="product-header name">{product.name}</div>
+            <div className="product-header">{product.name}</div>
             <div className="product-container">
                 {shouldRedirect(redirect)}
                 <ShowImage item={product} url="product" />
                 <p className="product-title">
                     {product.description.substring(0, 100)}
                 </p>
-                <p className="highlight">${product.price}</p>
-                <p className="highlight">
+                <p className="highlight-product-info">${product.price}</p>
+                <p className="highlight-product-info">
                     Category: {product.category && product.category.name}
                 </p>
-                <p className="highlight">
+                <p className="highlight-product-info">
                     Added on {moment(product.createdAt).fromNow()}
                 </p>
 

@@ -3,6 +3,7 @@ import Layout from "../core/Layout";
 import { isAuthenticated } from "../auth";
 import { Redirect } from "react-router-dom";
 import { read, update, updateUser } from "./apiUser";
+import './Profile.css'
 
 const Profile = ({ match }) => {
     const [values, setValues] = useState({
@@ -65,29 +66,29 @@ const Profile = ({ match }) => {
     const profileUpdate = (name, email, password) => (
         <form>
             <div className="form-container">
-                <label className="sign-up">Name</label>
+                <label className="profile-update">Name</label>
                 <input
                     type="text"
                     onChange={handleChange("name")}
-                    className="form-inputs"
+                    className="profile-inputs"
                     value={name}
                 />
             </div>
             <div className="form-container">
-                <label className="sign-up">Email</label>
+                <label className="profile-update">Email</label>
                 <input
                     type="email"
                     onChange={handleChange("email")}
-                    className="form-inputs"
+                    className="profile-inputs"
                     value={email}
                 />
             </div>
             <div className="form-container">
-                <label className="sign-up">Password</label>
+                <label className="profile-update">Password</label>
                 <input
                     type="password"
                     onChange={handleChange("password")}
-                    className="form-inputs"
+                    className="profile-inputs"
                     value={password}
                 />
             </div>

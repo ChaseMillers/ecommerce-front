@@ -1,0 +1,13 @@
+.form-container{
+    display: flex;
+    margin-bottom: 1.5rem;  
+}
+ 
+.address-input{
+    width: 100%;
+    font-size: 1rem;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    border: 2px solid rgba(0, 0, 0, 0.125);
+    -webkit-appearance: none;
+}

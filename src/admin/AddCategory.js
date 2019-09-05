@@ -3,6 +3,7 @@ import Layout from "../core/Layout";
 import { isAuthenticated } from "../auth";
 import { Link } from "react-router-dom";
 import { createCategory } from "./apiAdmin";
+import "./AddCategory.css"
 
 const AddCategory = () => {
     const [name, setName] = useState("");
@@ -36,10 +37,10 @@ const AddCategory = () => {
     const newCategoryFom = () => (
         <form onSubmit={clickSubmit}>
             <div className="form-container">
-                <label className="sign-up">Name</label>
+                <label className="product-text">Name</label>
                 <input
                     type="text"
-                    className="form-inputs"
+                    className="add-product-inputs"
                     onChange={handleChange}
                     value={name}
                     autoFocus
@@ -75,8 +76,8 @@ const AddCategory = () => {
             title="Add a new category"
             description={`G'day ${user.name}, ready to add a new category?`}
         >
-            <div className="row">
-                <div className="filters-layout margin-left">
+            <div className="new-category-row">
+                <div className="new-category-layout ">
                     {showSuccess()}
                     {showError()}
                     {newCategoryFom()}

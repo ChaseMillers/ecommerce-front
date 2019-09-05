@@ -9,6 +9,7 @@ import { isAuthenticated } from "../auth";
 import { Link } from "react-router-dom";
 import "braintree-web";
 import DropIn from "braintree-web-drop-in-react";
+import "./Checkout.css"
 
 const Checkout = ({ products }) => {
     const [data, setData] = useState({
@@ -125,11 +126,11 @@ const Checkout = ({ products }) => {
         <div onBlur={() => setData({ ...data, error: "" })}>
             {data.clientToken !== null && products.length > 0 ? (
                 <div>
-                    <div className="form-container margin-bottom">
-                        <label className="sign-up">Delivery address:</label>
+                    <div className="form-container">
+                        <label className="address">Delivery address:</label>
                         <textarea
                             onChange={handleAddress}
-                            className="search-bar "
+                            className="address-input "
                             value={data.address}
                             placeholder="Type your delivery address here..."
                         />

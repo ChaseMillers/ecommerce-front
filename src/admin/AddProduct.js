@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Layout from "../core/Layout";
 import { isAuthenticated } from "../auth";
 import { createProduct, getCategories } from "./apiAdmin";
+import "./AddProduct.css"
 
 const AddProduct = () => {
     const [values, setValues] = useState({
@@ -85,7 +86,7 @@ const AddProduct = () => {
     const newPostForm = () => (
         <form className="margin-bottom" onSubmit={clickSubmit}>
             <h4>Post Photo</h4>
-            <div className="form-container">
+            <div className="add-product-container">
                 <label className="button button-blue">
                     <input
                         onChange={handleChange("photo")}
@@ -96,40 +97,40 @@ const AddProduct = () => {
                 </label>
             </div>
 
-            <div className="form-container">
+            <div className="add-product-container">
                 <label className="product-text">Name</label>
                 <input
                     onChange={handleChange("name")}
                     type="text"
-                    className="form-inputs"
+                    className="add-product-inputs"
                     value={name}
                 />
             </div>
 
-            <div className="form-container">
+            <div className="add-product-container">
                 <label className="product-text">Description</label>
                 <textarea
                     onChange={handleChange("description")}
-                    className="form-inputs"
+                    className="add-product-inputs"
                     value={description}
                 />
             </div>
 
-            <div className="form-container">
+            <div className="add-product-container">
                 <label className="product-text">Price</label>
                 <input
                     onChange={handleChange("price")}
                     type="number"
-                    className="form-inputs"
+                    className="add-product-inputs"
                     value={price}
                 />
             </div>
 
-            <div className="form-container">
+            <div className="add-product-container">
                 <label className="product-text">Category</label>
                 <select
                     onChange={handleChange("category")}
-                    className="form-inputs"
+                    className="add-product-inputs"
                 >
                     <option>Please select</option>
                     {categories &&
@@ -141,11 +142,11 @@ const AddProduct = () => {
                 </select>
             </div>
 
-            <div className="form-container">
+            <div className="add-product-container">
                 <label className="product-text">Shipping</label>
                 <select
                     onChange={handleChange("shipping")}
-                    className="form-inputs"
+                    className="add-product-inputs"
                 >
                     <option>Please select</option>
                     <option value="0">No</option>
@@ -153,12 +154,12 @@ const AddProduct = () => {
                 </select>
             </div>
 
-            <div className="form-container">
+            <div className="add-product-container">
                 <label className="product-text">Quantity</label>
                 <input
                     onChange={handleChange("quantity")}
                     type="number"
-                    className="form-inputs"
+                    className="add-product-inputs"
                     value={quantity}
                 />
             </div>
@@ -197,8 +198,8 @@ const AddProduct = () => {
             title="Add a new product"
             description={`G'day ${user.name}, ready to add a new product?`}
         >
-            <div className="row">
-                <div className="filters-layout margin-left">
+            <div className="new-category-row">
+                <div className="new-category-layout ">
                     {showLoading()}
                     {showSuccess()}
                     {showError()}

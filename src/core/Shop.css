@@ -1,0 +1,90 @@
+.row-shop {
+    display: flex;
+}
+
+.shop-container {
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 25px;
+}
+
+.filter{
+    margin-left:10px;
+}
+
+.filters-layout {
+    flex: 0 0 84%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.shop-layout {
+    position: relative;
+    width: 100%;
+    padding-left: 10px;
+}
+
+.filter h4{
+    font-weight: 400;
+    font-size: 1.9rem;
+    line-height: 1.1;
+    margin-top: 0;
+    margin-bottom: .5rem;
+}
+
+.filter ul{
+    line-height: 23px;
+}
+
+@media screen and (max-width: 1252px){
+    .filter h4{
+        max-width: 170px;
+    }
+}
+
+@media screen and (max-width: 600px){
+    .shop-container {
+        padding: 0 0;
+        transition: padding .5s;
+    }
+    .filter h4{
+        min-width: 0px;
+    }
+}
+
+@media screen and (max-width: 1000px){
+    .row-shop {
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    }
+    .shop-layout {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+    .filters-layout {
+        flex: 0 0 100%;
+    }
+    .filter-container{
+        display: flex;
+        justify-content: space-evenly;
+        flex: 0 0 99%;
+        max-width: 99%;
+    }
+    .filter h4{
+        max-width: none;
+    }
+}
+
+@media screen and (max-width: 676px){
+    .shop-layout {
+        flex: 0 0 99%;
+        max-width: 99%;
+    }
+    .filters-layout {
+        flex: 0 0 100%;
+        max-width: 100%;
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+   
+}

@@ -3,6 +3,7 @@ import Layout from "../core/Layout";
 import { isAuthenticated } from "../auth";
 import { listOrders, getStatusValues, updateOrderStatus } from "./apiAdmin";
 import moment from "moment";
+import "./Orders.css";
 
 const Orders = () => {
     const [orders, setOrders] = useState([]);
@@ -39,24 +40,24 @@ const Orders = () => {
     const showOrdersLength = () => {
         if (orders.length > 0) {
             return (
-                <h4 className="red-text total-orders">
+                <h4 className="total-orders">
                     Total orders: {orders.length}
                 </h4>
             );
         } else {
-            return <h4 className="red-text">No orders</h4>;
+            return <h4 className="total-orders">No orders</h4>;
         }
     };
 
     const showInput = (key, value) => (
-        <div className="show-input-container margin-bottom">
+        <div className="show-input-container">
             <div className="show-input">
                 <div className="show-input-text">{key}</div>
             </div>
             <input
                 type="text"
                 value={value}
-                className="form-inputs"
+                className="form-orders-inputs"
                 readOnly
             />
         </div>
@@ -75,10 +76,10 @@ const Orders = () => {
     };
 
     const showStatus = o => (
-        <div className="form-container">
+        <div className="orders-container">
             <h4 className="cream-color margin-bottom">Status: {o.status}</h4>
             <select
-                className="form-inputs"
+                className="form-orders-inputs"
                 onChange={e => handleStatusChange(e, o._id)}
             >
                 <option>Update Status</option>
@@ -97,10 +98,10 @@ const Orders = () => {
             description={`G'day ${
                 user.name
             }, you can manage all the orders here`}
-            className="main-container"
+            className="orders-container"
         >
-            <div className="row">
-                <div className=".filters-layout margin-left">
+            <div className="orders-row">
+                <div className="orders-layout">
                     {showOrdersLength()}
 
                     {orders.map((o, oIndex) => {
@@ -138,7 +139,7 @@ const Orders = () => {
                                     </li>
                                 </ul>
 
-                                <h4 className="margin">
+                                <h4 className="orders-margin">
                                     Total products in the order:{" "}
                                     {o.products.length}
                                 </h4>

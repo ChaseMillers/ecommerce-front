@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { getCategories, list } from "./apiCore";
 import Card from "./Card";
+import './Search.css'
 
 const Search = () => {
     const [data, setData] = useState({
@@ -69,7 +70,7 @@ const Search = () => {
 
                 <div className="row">
                     {results.map((product, i) => (
-                        <div className="shop-layout margin-bottom">
+                        <div className="search-layout">
                             <Card key={i} product={product} />
                         </div>
                     ))}
@@ -81,8 +82,20 @@ const Search = () => {
     const searchForm = () => (
         <form onSubmit={searchSubmit}>
             <span className="input-data-text">
+            <div
+                    className="input-data-append"
+                    style={{ border: "none" }}
+                >
+                    <button className="search-button">Search</button>
+                </div>
                 <div className="input-data">
-                    <div className="input-button">
+                    <input
+                        type="search"
+                        className="search-bar"
+                        onChange={handleChange("search")}
+                        placeholder="Search by name"
+                    />
+                     <div className="input-button">
                         <select
                             className="select"
                             onChange={handleChange("category")}
@@ -95,19 +108,6 @@ const Search = () => {
                             ))}
                         </select>
                     </div>
-
-                    <input
-                        type="search"
-                        className="search-bar"
-                        onChange={handleChange("search")}
-                        placeholder="Search by name"
-                    />
-                </div>
-                <div
-                    className="input-data-append"
-                    style={{ border: "none" }}
-                >
-                    <button className="input-data-text">Search</button>
                 </div>
             </span>
         </form>
@@ -115,8 +115,8 @@ const Search = () => {
 
     return (
         <div className="row">
-            <div className="container margin-bottom">{searchForm()}</div>
-            <div className="main-container margin-bottom">
+            <div className="container">{searchForm()}</div>
+            <div className="search-container">
                 {searchedProducts(results)}
             </div>
         </div>

@@ -1,0 +1,183 @@
+/**
+*Nav Bar
+*/
+
+.row {
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+ul{
+    list-style-type: none;
+    line-height: 20px;
+}
+
+.number {
+  line-height: 10px;
+}
+
+ /* cart badge */
+.cart-number {
+    font-style: italic;
+    background: rgb(42, 143, 224);
+    border-radius: 50%;
+    font-size: 12px;
+}
+
+a.nav-link {
+  text-decoration: none;
+}
+
+li.nav-item {
+  margin: 5px 0;  
+}
+
+.nav-link {
+    padding: 6.4px 17.6px;
+    display: block;
+}
+
+.nav {
+    background-color: #007bff;
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    position: relative;
+    margin: 0 auto;
+    max-width: 580px;
+}
+
+/* 
+Uncomment to have nav center itself,  
+.center{
+    position: relative;
+    margin: 0 auto;
+    max-width: 580px;
+} 
+
+
+
+/* Hamburger Nav */
+
+/* header */
+.header {
+    background-color: #007bff;
+    box-shadow: 1px 1px 4px 0 rgba(0,0,0,.1);
+    position: fixed;
+    top:0;
+    width: 100%;
+    z-index: 3;
+  }
+  
+  .header ul {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  
+  .header li a {
+    display: block;
+  }
+  
+  .header .logo {
+    display: block;
+    float: left;
+    font-size: 2em;
+    padding: 6px 20px;
+    text-decoration: none;
+    background-color: #ffffff;
+  }
+  
+  /* menu */
+  
+  .header .nav {
+    clear: both;
+    max-height: 0;
+    transition: max-height .2s ease-out;
+  }
+  
+  /* menu icon */
+  
+  .header .menu-icon {
+    cursor: pointer;
+    float: right;
+    padding: 20.5px 20px;
+    position: relative;
+    user-select: none;
+  }
+  
+  .header .menu-icon .navicon {
+    background: #fff;
+    display: block;
+    height: 2px;
+    position: relative;
+    transition: background .2s ease-out;
+    width: 18px;
+  }
+  
+  .header .menu-icon .navicon:before,
+  .header .menu-icon .navicon:after {
+    background: #fff;
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all .2s ease-out;
+    width: 100%;
+  }
+  
+  .header .menu-icon .navicon:before {
+    top: 5px;
+  }
+  
+  .header .menu-icon .navicon:after {
+    top: -5px;
+  }
+  
+  /* menu btn */
+  
+  .header .menu-btn {
+    display: none;
+  }
+  
+  .header .menu-btn:checked ~ .nav {
+    max-height: 240px;
+  }
+  
+  .header .menu-btn:checked ~ .menu-icon .navicon {
+    background: transparent;
+  }
+  
+  .header .menu-btn:checked ~ .menu-icon .navicon:before {
+    transform: rotate(-45deg);
+  }
+  
+  .header .menu-btn:checked ~ .menu-icon .navicon:after {
+    transform: rotate(45deg);
+  }
+  
+  .header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
+  .header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
+    top: 0;
+  }
+  
+  
+  
+  @media (min-width: 568px) {
+    .header li {
+      float: left;
+    }
+    li.nav-item.signout{
+      border-right: none;
+    }
+    .header .nav {
+      clear: none;
+      float: right; 
+      max-height: none;
+    }
+    .header .menu-icon {
+      display: none;
+    }
+  
+  }

@@ -1,0 +1,52 @@
+.sign-in{
+    margin: 10px 0px;
+    line-height: 25px;
+}
+
+.form-inputs {
+    margin-bottom: 5px;
+    font-size: 16px;
+    border: 1px solid #ced4da;
+    background-color:#cfe0f1a2;
+    border-radius: 5px;
+    width: 100%;
+    padding: 8px 8px;
+}
+
+.signup-container {
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+    padding-right: 14px;
+    padding-left: 14px;
+    margin-bottom: 1.5rem; 
+}
+
+.email-pass{
+    margin: 0px 8px;
+}
+
+@media screen and (min-width: 1200px){
+    .signup-container {
+        max-width: 1140px;
+    }
+}
+
+/* How it works */
+.how-it-works {
+    height:500px;
+    max-width:1200px;
+    background-color:rgb(255, 255, 255);
+    color:rgb(110, 110, 110);
+    display:inline-block;
+    flex-grow:1
+}
+.how-it-works-container{
+    border-style: solid;
+}
+.how-it-works img{
+    width:100%;
+}
+.how-it-works p{  
+    font-size:1.2em;
+}

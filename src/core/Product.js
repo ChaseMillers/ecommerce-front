@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Layout from "./Layout";
 import { read, listRelated } from "./apiCore";
 import Card from "./Card";
+import "./Product.css"
 
 const Product = props => {
     const [product, setProduct] = useState({});
@@ -40,16 +41,16 @@ const Product = props => {
                 product.description &&
                 product.description.substring(0, 100)
             }
-            className="main-container"
+            className="product-container"
         >
-            <div className="row">
-                <div className="filters-layout">
+            <div className="row-view-product ">
+                <div className="view-product-layout">
                     {product && product.description && (
                         <Card product={product} showViewProductButton={false} />
                     )}
                 </div>
 
-                <div className="dash-layout">
+                <div className="related-products-layout">
                     <h4>Related products</h4>
                     {relatedProduct.map((p, i) => (
                         <div key={i} className="related">

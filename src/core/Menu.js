@@ -1,9 +1,10 @@
 // Fragment is used to wrap multiple objects
-import React, {Fragment} from 'react'
+import React, {Fragment} from 'react';
 // withRouter is for props history
-import {Link, withRouter} from 'react-router-dom'
-import {signout, isAuthenticated} from '../auth'
-import {itemTotal} from './cartHelpers'
+import {Link, withRouter} from 'react-router-dom';
+import {signout, isAuthenticated} from '../auth';
+import {itemTotal} from './cartHelpers';
+import "./Menu.css";
 
 const isActive = (history, path) => {
     if (history.location.pathname === path) {
@@ -16,9 +17,10 @@ const isActive = (history, path) => {
 const Menu = ({ history }) => (
     <div className="header">
         <a href="/" className="logo">Logo</a>
+  <div className="center">
   <input className="menu-btn" type="checkbox" id="menu-btn" />
   <label className="menu-icon" htmlFor="menu-btn"><span className="navicon"></span></label>
-
+        
           <ul className="nav">
             <li className="nav-item">
                 <Link
@@ -116,6 +118,7 @@ const Menu = ({ history }) => (
             )}
 
         </ul>
+        </div>
     </div>
 )
 

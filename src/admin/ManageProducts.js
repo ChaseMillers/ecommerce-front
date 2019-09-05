@@ -3,6 +3,7 @@ import Layout from "../core/Layout";
 import { isAuthenticated } from "../auth";
 import { Link } from "react-router-dom";
 import { getProducts, deleteProduct } from "./apiAdmin";
+import "./ManageProducts.css";
 
 const ManageProducts = () => {
     const [products, setProducts] = useState([]);
@@ -37,11 +38,11 @@ const ManageProducts = () => {
         <Layout
             title="Manage Products"
             description="Perform CRUD on products"
-            className="main-container"
+            className="manage-products-container"
         >
-            <div className="row">
+            <div className="manage-products-row">
                 <div className="manage-products-layout">
-                    <h4 className="center-text">
+                    <h4 className="total-products">
                         Total {products.length} products
                     </h4>
                     <hr />

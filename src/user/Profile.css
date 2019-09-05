@@ -1,0 +1,13 @@
+.profile-update{
+margin: 10px 10px;
+min-width: 70px;
+}
+
+.profile-inputs {
+    margin-bottom: 5px;
+    font-size: 16px;
+    border: 1px solid #ced4da;
+    background-color:#cfe0f1a2;
+    border-radius: 5px;
+    padding: 8px 8px;
+}

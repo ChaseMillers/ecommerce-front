@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./RadioBox.css"
 
 //graphical control element that allows the user to choose only one of a predefined options
 
@@ -11,16 +12,16 @@ const RadioBox = ({ prices, handleFilters }) => {
     };
 
     return prices.map((p, i) => (
-        <div key={i}>
+        <li className="list" key={i}>
             <input
                 onChange={handleChange}
                 value={`${p._id}`}
                 name={p}
                 type="radio"
-                className="price-filters"
+                className="shop-filters"
             />
             <label className="radio-box-name">{p.name}</label>
-        </div>
+        </li>
     ));
 };
 

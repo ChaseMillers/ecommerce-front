@@ -112,7 +112,7 @@ const UpdateProduct = ({ match }) => {
     const newPostForm = () => (
         <form className="margin-bottom" onSubmit={clickSubmit}>
             <h4>Post Photo</h4>
-            <div className="form-container">
+            <div className="update-product-container">
                 <label className="button button-yellow">
                     <input
                         onChange={handleChange("photo")}
@@ -123,40 +123,40 @@ const UpdateProduct = ({ match }) => {
                 </label>
             </div>
 
-            <div className="form-container">
+            <div className="update-product-container">
                 <label className="product-text">Name</label>
                 <input
                     onChange={handleChange("name")}
                     type="text"
-                    className="form-inputs"
+                    className="product-inputs"
                     value={name}
                 />
             </div>
 
-            <div className="form-container">
+            <div className="update-product-container">
                 <label className="product-text">Description</label>
                 <textarea
                     onChange={handleChange("description")}
-                    className="form-inputs"
+                    className="product-inputs"
                     value={description}
                 />
             </div>
 
-            <div className="form-container">
+            <div className="update-product-container">
                 <label className="product-text">Price</label>
                 <input
                     onChange={handleChange("price")}
                     type="number"
-                    className="form-inputs"
+                    className="product-inputs"
                     value={price}
                 />
             </div>
 
-            <div className="form-container">
+            <div className="update-product-container">
                 <label className="product-text">Category</label>
                 <select
                     onChange={handleChange("category")}
-                    className="form-inputs"
+                    className="product-inputs"
                 >
                     <option>Please select</option>
                     {categories &&
@@ -168,11 +168,11 @@ const UpdateProduct = ({ match }) => {
                 </select>
             </div>
 
-            <div className="form-container">
+            <div className="update-product-container">
                 <label className="product-text">Shipping</label>
                 <select
                     onChange={handleChange("shipping")}
-                    className="form-inputs"
+                    className="product-inputs"
                 >
                     <option>Please select</option>
                     <option value="0">No</option>
@@ -180,12 +180,12 @@ const UpdateProduct = ({ match }) => {
                 </select>
             </div>
 
-            <div className="form-container">
+            <div className="update-product-container">
                 <label className="product-text">Quantity</label>
                 <input
                     onChange={handleChange("quantity")}
                     type="number"
-                    className="form-inputs"
+                    className="product-inputs"
                     value={quantity}
                 />
             </div>

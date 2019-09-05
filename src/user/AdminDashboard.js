@@ -2,6 +2,7 @@ import React from "react";
 import Layout from "../core/Layout";
 import { isAuthenticated } from "../auth";
 import { Link } from "react-router-dom";
+import './AdminDashboard.css'
 
 const AdminDashboard = () => {
     const {
@@ -11,7 +12,7 @@ const AdminDashboard = () => {
     const adminLinks = () => {
         return (
             <div className="dashboard">
-                <h4 className="product-header">Admin Links</h4>
+                <h4 className="dash-header">Admin Links</h4>
                 <ul className="column">
                     <li className="column-list">
                         <Link className="nav-link" to="/create/category">
@@ -41,7 +42,7 @@ const AdminDashboard = () => {
     const adminInfo = () => {
         return (
             <div className="dashboard">
-                <h4 className="product-header">User Information</h4>
+                <h4 className="dash-header">User Information</h4>
                 <ul className="column">
                     <li className="column-list">{name}</li>
                     <li className="column-list">{email}</li>

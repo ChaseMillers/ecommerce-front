@@ -1,0 +1,45 @@
+.in-stock {
+    margin-bottom: 5px;
+    display: inline-block;
+    padding: .25em .4em;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25rem;
+    color: #fff;
+    background-color: #007bff;
+}
+
+.update-options-container{
+    margin-bottom: 1.5rem; 
+}
+
+.card-form-inputs {
+    margin-bottom: 5px;
+    font-size: 16px;
+    border: 1px solid #ced4da;
+    background-color:#cfe0f1a2;
+    border-radius: 5px;
+    width: 100%;
+    padding: 8px 8px;
+}
+
+.product-header {
+    padding: .75rem 1.25rem;
+    margin-bottom: 0;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.125);
+    color: #fff;
+    font-weight: bold;
+    background: rgb(30, 211, 54);
+}
+
+.product {
+    border: 1px solid rgba(0,0,0,.125);
+}
+
+.highlight-product-info {
+    background: #b7ccbe94;
+}

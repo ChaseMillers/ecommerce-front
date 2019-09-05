@@ -4,6 +4,7 @@ import Layout from "./Layout";
 import { getCart } from "./cartHelpers";
 import Card from "./Card";
 import Checkout from "./Checkout";
+import "./Cart.css"
 
 const Cart = () => {
     const [items, setItems] = useState([]);
@@ -40,17 +41,16 @@ const Cart = () => {
         <Layout
             title="Shopping Cart"
             description="Manage your cart items. Add remove checkout or continue shopping."
-            className="main-container"
+            className="cart-container"
         >
-            <div className="row">
-                <div className="cart-layout">
-                    {items.length > 0 ? showItems(items) : noItemsMessage()}
-                </div>
-
+            <div className="cart-row">
                 <div className="cart-layout">
                     <h4 className="margin-bottom">Your cart summary</h4>
                     <hr />
                     <Checkout products={items} />
+                </div>
+                <div className="total cart-layout">
+                    {items.length > 0 ? showItems(items) : noItemsMessage()}
                 </div>
             </div>
         </Layout>

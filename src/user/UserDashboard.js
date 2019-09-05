@@ -4,6 +4,7 @@ import { isAuthenticated } from "../auth";
 import { Link } from "react-router-dom";
 import { getPurchaseHistory } from "./apiUser";
 import moment from "moment";
+import './UserDashboard.css'
 
 const Dashboard = () => {
     const [history, setHistory] = useState([]);
@@ -30,7 +31,7 @@ const Dashboard = () => {
     const userLinks = () => {
         return (
             <div className="dashboard">
-                <h4 className="product-header">User Links</h4>
+                <h4 className="dash-header">User Links</h4>
                 <ul className="column">
                     <li className="column-list">
                         <Link className="nav-link" to="/cart">
@@ -50,7 +51,7 @@ const Dashboard = () => {
     const userInfo = () => {
         return (
             <div className="dashboard">
-                <h4 className="product-header">User Information</h4>
+                <h4 className="dash-header">User Information</h4>
                 <ul className="column">
                     <li className="column-list">{name}</li>
                     <li className="column-list">{email}</li>
@@ -65,7 +66,7 @@ const Dashboard = () => {
     const purchaseHistory = history => {
         return (
             <div className="dashboard">
-                <h4 className="product-header">Purchase history</h4>
+                <h4 className="dash-header">Purchase history</h4>
                 <ul className="column">
                     <li className="column-list">
                         {history.map((h, i) => {
@@ -100,7 +101,7 @@ const Dashboard = () => {
         <Layout
             title="Dashboard"
             description={`G'day ${name}!`}
-            className="main-container"
+            className="dash-container"
         >
             <div className="row">
                 <div className="user-links-layout">{userLinks()}</div>

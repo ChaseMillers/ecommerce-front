@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./Checkbox.css"
 
 const Checkbox = ({ categories, handleFilters }) => {
     const [checked, setCheked] = useState([]);
@@ -20,7 +21,7 @@ const Checkbox = ({ categories, handleFilters }) => {
     };
 
     return categories.map((c, i) => (
-        <li key={i} className="list">
+        <li key={i}>
             <input
                 onChange={handleToggle(c._id)}
                 value={checked.indexOf(c._id === -1)}

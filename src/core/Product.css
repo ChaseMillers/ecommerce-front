@@ -1,0 +1,29 @@
+.row-view-product {
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.view-product-layout{
+    flex: 0 0 60%;
+    max-width: 700px;
+    min-width: 280px;
+}
+
+.related-products-layout{
+    position: relative;
+    width: 20%;
+    min-width: 280px;
+    max-width: 280px;
+}
+
+.product-container {
+    padding: 1.25rem;
+}
+
+@media (min-width: 740px){
+    .view-product-layout {
+        margin-right: 15px;
+    }  
+}
