@@ -19,11 +19,11 @@ describe('auth Endpoints', function() {
 
   afterEach('cleanup',() => db('auth').truncate())
 
-  describe(`GET /api/signout`, () => {
+  describe(`GET /api/api/signout`, () => {
     context(`signs user out`, () => {
            it(`responds with 200, ok: true and redirected: false`, () => {
              return supertest(app)
-               .get('/signout')
+               .get('/api/signout')
                .expect(200)
            })
          })
@@ -32,12 +32,11 @@ describe('auth Endpoints', function() {
   describe(`POST /api/signin`, () => {
       it(`signs in user, responding with 200`,  function() {
         const feilds = {
-          signup, 
-          signin, 
-          signout, 
-        } = require('../controllers/auth') 
+          "email":"demo@gmail.com",
+          "password":"123456"
+        } 
         return supertest(app)
-          .post('/signin', signin)
+          .post('/api/signin')
           .send(feilds)
           .expect(200)
     })
@@ -46,12 +45,12 @@ describe('auth Endpoints', function() {
   describe(`POST /api/signup`, () => {
     it(`signs user up, responding with 200`,  function() {
       const feilds = {
-        signup, 
-        signin, 
-        signout, 
-      } = require('../controllers/auth') 
+        "name":"Test Account",
+        "email":"Testing@outlook.com",
+        "password":"123456"
+      } 
       return supertest(app)
-        .post('/signup', signin)
+        .post('/api/signup')
         .send(feilds)
         .expect(200)
   })
