@@ -1,11 +1,11 @@
 .form-container{
     display: flex;
-    margin-bottom: 1.5rem;  
+    margin-bottom: 24px;  
 }
 
 .add-product-container{
     display: flex;
-    margin-bottom: 1.5rem; 
+    margin-bottom: 24px; 
 }
 
 .add-product-inputs {

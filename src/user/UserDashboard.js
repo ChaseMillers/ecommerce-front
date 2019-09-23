@@ -31,7 +31,7 @@ const Dashboard = () => {
     const userLinks = () => {
         return (
             <div className="dashboard">
-                <h4 className="dash-header">User Links</h4>
+                <h1 className="dash-header">User Links</h1>
                 <ul className="column">
                     <li className="column-list">
                         <Link className="nav-link" to="/cart">
@@ -51,7 +51,7 @@ const Dashboard = () => {
     const userInfo = () => {
         return (
             <div className="dashboard">
-                <h4 className="dash-header">User Information</h4>
+                <h1 className="dash-header">User Information</h1>
                 <ul className="column">
                     <li className="column-list">{name}</li>
                     <li className="column-list">{email}</li>
@@ -66,7 +66,7 @@ const Dashboard = () => {
     const purchaseHistory = history => {
         return (
             <div className="dashboard">
-                <h4 className="dash-header">Purchase history</h4>
+                <h1 className="dash-header">Purchase history</h1>
                 <ul className="column">
                     <li className="column-list">
                         {history.map((h, i) => {

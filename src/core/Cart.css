@@ -1,7 +1,7 @@
 .cart-container{
     width: 100%;
     padding: 0 25px;
-    margin-bottom: 1.5rem;  
+    margin-bottom: 24px;  
     display: flex;
     display: -webkit-flex; /* Safari */
     -webkit-flex-direction: row-reverse; /* Safari 6.1+ */

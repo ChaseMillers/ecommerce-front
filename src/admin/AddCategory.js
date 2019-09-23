@@ -53,13 +53,13 @@ const AddCategory = () => {
 
     const showSuccess = () => {
         if (success) {
-            return <h4 className="text-success">{name} is created</h4>;
+            return <h1 className="text-success">{name} is created</h1>;
         }
     };
 
     const showError = () => {
         if (error) {
-            return <h4 className="text-danger">Category should be unique</h4>;
+            return <h1 className="text-danger">Category should be unique</h1>;
         }
     };
 

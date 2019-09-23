@@ -1,20 +1,20 @@
 .in-stock {
-    margin-bottom: 5px;
+    margin-bottom: 8px;
     display: inline-block;
-    padding: .25em .4em;
+    padding: 5px 8px;
     font-size: 75%;
     font-weight: 700;
     line-height: 1;
     text-align: center;
     white-space: nowrap;
     vertical-align: baseline;
-    border-radius: .25rem;
+    border-radius: 4px;
     color: #fff;
     background-color: #007bff;
 }
 
 .update-options-container{
-    margin-bottom: 1.5rem; 
+    margin-bottom: 24px; 
 }
 
 .card-form-inputs {
@@ -28,19 +28,38 @@
 }
 
 .product-header {
-    padding: .75rem 1.25rem;
+    padding: 12px 20px;
     margin-bottom: 0;
     border-bottom: 2px solid rgba(0, 0, 0, 0.125);
     color: #fff;
     font-weight: bold;
-    background: rgb(30, 211, 54);
+    background: rgb(75, 75, 75);
 }
 
 .product {
     border: 1px solid rgba(0,0,0,.125);
-    min-height: 500px;
 }
 
-.highlight-product-info {
-    background: #b7ccbe94;
+.product-info {
+    margin-top:10px;
+    font-size: 21px;
+}
+
+.view-product{
+    border: 2px solid #007bff;
+    color: #007bff;
+    text-decoration:none;
+    font-size: 16px;
+    padding: 6px 14px;
+    transition:.16s ease-in-out;
+    margin-right: 5px;
+    -webkit-appearance: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.view-product:hover{
+    background-color: #007bff;
+    color: white;
 }

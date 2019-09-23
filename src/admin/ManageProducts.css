@@ -11,7 +11,7 @@
     margin: 0 auto;
     width: 100%;
     padding: 0 25px;
-    margin-bottom: 1.5rem; 
+    margin-bottom: 24px; 
 }
 
 .manage-products{
@@ -35,9 +35,9 @@
     border: 1px solid #000;
     color: rgb(231, 231, 231);
     background-color: #368ddf;
-    padding-right: 0.6em;
-    padding-left: 0.6em;
-    border-radius: 10rem;
+    padding-right: 10px;
+    padding-left: 10px;
+    border-radius: 50px;
 }
 
 .update:hover {
@@ -49,9 +49,9 @@
     border: 1px solid #000;
     color: rgb(231, 231, 231);
     background-color: #ffc107;
-    padding-right: 0.6em;
-    padding-left: 0.6em;
-    border-radius: 10rem;
+    padding-right: 10px;
+    padding-left: 10px;
+    border-radius: 50px;
 }
 
 .destroy:hover {

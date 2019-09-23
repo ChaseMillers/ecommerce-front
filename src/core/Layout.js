@@ -11,7 +11,7 @@ const Layout = ({
     <div>
         <Menu />
         <div className="banner-container">
-            <h4>{title}</h4>
+            <h1>{title}</h1>
             <p className="product-title">{description}</p>
         </div>
         <div className={className}>{children}</div>

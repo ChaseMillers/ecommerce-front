@@ -42,9 +42,9 @@ const ManageProducts = () => {
         >
             <div className="manage-products-row">
                 <div className="manage-products-layout">
-                    <h4 className="total-products">
+                    <h1 className="total-products">
                         Total {products.length} products
-                    </h4>
+                    </h1>
                     <hr />
                     <ul className="column">
                         {products.map((p, i) => (

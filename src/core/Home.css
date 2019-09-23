@@ -2,37 +2,41 @@
     margin: 0 auto;
     width: 100%;
     padding: 0 25px;
-    margin-bottom: 1.5rem; 
+    margin-bottom: 24px; 
 }
 
 .home-layout {
-    flex: 0 0 33%;
-    max-width: 34%;
-    min-width: 315px;
+    width: 100%;
     padding-left: 10px;
+    padding-top:10px;
 }
 
 .home-row {
-    margin-right: -14px;
-    margin-left: -14px;
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
 }
 
 .home-margin{
-    margin: 1.5rem 0; 
+    margin: 24px 0; 
 }
 
-@media screen and (max-width: 1000px){
-    .home-layout {
-        flex: 0 0 50%;
-        max-width: 50%;
+@media screen and (max-width: 1200px){
+    .home-row {
+        grid-template-columns: auto auto auto;
     }
 }
 
-@media screen and (max-width: 676px){
+@media screen and (max-width: 876px){
+    .home-row {
+        grid-template-columns: auto auto;
+    }
+}
+
+@media screen and (max-width: 576px){
+    .home-row {
+        grid-template-columns: auto;
+    }
     .home-layout {
-        flex: 0 0 99%;
-        max-width: 99%;
+        padding-left: 0px;
     }
 }

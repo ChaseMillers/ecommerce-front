@@ -1,8 +1,6 @@
-.product-img {
-    min-height: 100px;
-    
-}
+
 
 .img{
-    margin-bottom: 1.5rem; 
+    max-height: 100%;
+    max-width: 100%;
 }

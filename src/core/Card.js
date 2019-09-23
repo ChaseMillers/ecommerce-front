@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, Redirect } from "react-router-dom";
 import ShowImage from "./ShowImage";
 // moment removes the need to use the native JavaScript Date object directly
-import moment from "moment";
+//import moment from "moment";
 import { addItem, updateItem, removeItem } from "./cartHelpers";
 import "./Card.css"
 
@@ -16,16 +16,10 @@ const Card = ({
     const [redirect, setRedirect] = useState(false);
     const [count, setCount] = useState(product.count);
 
-    const showViewButton = showViewProductButton => {
-        return (
-            showViewProductButton && (
-                <Link to={`/product/${product._id}`} className="show-product">
-                    <button className="button button-blue margin-bottom">
-                        View Product
-                    </button>
-                </Link>
-            )
-        );
+    const shouldRedirect = redirect => {
+        if (redirect) {
+            return <Redirect to="/cart" />;
+        }
     };
 
     const addToCart = () => {
@@ -34,10 +28,14 @@ const Card = ({
         });
     };
 
-    const shouldRedirect = redirect => {
-        if (redirect) {
-            return <Redirect to="/cart" />;
-        }
+    const showViewButton = showViewProductButton => {
+        return (
+            showViewProductButton && (
+                <Link to={`/product/${product._id}`} className="view-product">
+                        View Product
+                </Link>
+            )
+        );
     };
 
     const showAddToCart = showAddToCartButton => {
@@ -92,6 +90,7 @@ const Card = ({
                             </span>
                         </div>
                         <input
+                            aria-label="Product quantity"
                             type="number"
                             className="card-form-inputs"
                             value={count}
@@ -104,7 +103,7 @@ const Card = ({
     };
 
     return (
-        <div className="product">
+        <div className="product" tabIndex="0">
             <div className="product-header">{product.name}</div>
             <div className="product-container">
                 {shouldRedirect(redirect)}
@@ -112,13 +111,17 @@ const Card = ({
                 <p className="product-title">
                     {product.description.substring(0, 100)}
                 </p>
-                <p className="highlight-product-info">${product.price}</p>
-                <p className="highlight-product-info">
+                <p className="product-info">${product.price}</p>
+                
+                {/* 
+                To also display category and date added, uncomment
+                
+                <p className="product-info">
                     Category: {product.category && product.category.name}
                 </p>
-                <p className="highlight-product-info">
+                <p className="product-info">
                     Added on {moment(product.createdAt).fromNow()}
-                </p>
+                </p> */}
 
                 {showStock(product.quantity)}
                 <br />

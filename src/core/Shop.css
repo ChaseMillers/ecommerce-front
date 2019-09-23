@@ -1,5 +1,6 @@
 .row-shop {
-    display: flex;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
 }
 
 .shop-container {
@@ -18,73 +19,60 @@
     padding-left: 15px;
 }
 
-.shop-layout {
-    position: relative;
-    width: 100%;
-    padding-left: 10px;
+.filters-layout h1{
+    text-align: center; 
 }
 
-.filter h4{
+.shop-layout {
+    width: 100%;
+    padding-left: 10px;
+    padding-top:10px;
+}
+
+.filter h1{
     font-weight: 400;
-    font-size: 1.9rem;
+    font-size: 30px;
     line-height: 1.1;
     margin-top: 0;
-    margin-bottom: .5rem;
+    margin-bottom: 8px;
 }
 
 .filter ul{
     line-height: 23px;
 }
 
-@media screen and (max-width: 1252px){
-    .filter h4{
-        max-width: 170px;
-    }
+.filter-container{
+    float: left;
 }
 
-@media screen and (max-width: 600px){
-    .shop-container {
-        padding: 0 0;
-        transition: padding .5s;
-    }
-    .filter h4{
-        min-width: 0px;
-    }
-}
-
-@media screen and (max-width: 1000px){
+@media screen and (max-width: 1350px){
     .row-shop {
-        -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-    }
-    .shop-layout {
-        flex: 0 0 50%;
-        max-width: 50%;
-    }
-    .filters-layout {
-        flex: 0 0 100%;
-    }
-    .filter-container{
-        display: flex;
-        justify-content: space-evenly;
-        flex: 0 0 99%;
-        max-width: 99%;
-    }
-    .filter h4{
-        max-width: none;
+        grid-template-columns: auto auto auto;
     }
 }
 
-@media screen and (max-width: 676px){
-    .shop-layout {
-        flex: 0 0 99%;
-        max-width: 99%;
+@media screen and (max-width: 1100px){
+    .row-shop {
+        grid-template-columns: auto auto;
     }
-    .filters-layout {
-        flex: 0 0 100%;
-        max-width: 100%;
-        padding-right: 15px;
-        padding-left: 15px;
+}
+
+@media screen and (max-width: 786px){
+    .row-shop {
+        grid-template-columns: auto;
+    }
+    .shop-layout{
+        padding-left: 0px;
     }
    
+}
+
+@media screen and (max-width: 567px){
+    .filter-container{
+        display: flex;
+        justify-content: space-around;
+    }
+    .filter-container{
+        float: none;
+    }
 }

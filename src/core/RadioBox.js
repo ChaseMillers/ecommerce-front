@@ -1,19 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import "./RadioBox.css"
 
-//graphical control element that allows the user to choose only one of a predefined options
+//Allows user to choose only one of a predefined options
 
 const RadioBox = ({ prices, handleFilters }) => {
-    const [setValue] = useState(0);
 
     const handleChange = event => {
         handleFilters(event.target.value);
-        setValue(event.target.value);
     };
 
     return prices.map((p, i) => (
-        <li className="list" key={i}>
+        <li key={i}>
             <input
+                aria-label="price tag"
                 onChange={handleChange}
                 value={`${p._id}`}
                 name={p}

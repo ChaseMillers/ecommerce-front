@@ -45,13 +45,14 @@ const Product = props => {
         >
             <div className="row-view-product ">
                 <div className="view-product-layout">
+                    <div className="product-name"><h1>{product.name}</h1></div>
                     {product && product.description && (
                         <Card product={product} showViewProductButton={false} />
                     )}
                 </div>
 
                 <div className="related-products-layout">
-                    <h4>Related products</h4>
+                    <h1>Related products</h1>
                     {relatedProduct.map((p, i) => (
                         <div key={i} className="related">
                             <Card key={i} product={p} />

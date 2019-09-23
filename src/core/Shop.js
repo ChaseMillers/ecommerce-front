@@ -103,34 +103,40 @@ const Shop = () => {
             description="Search and find items of your choice"
             className="shop-container"
         >
-            <div className="row-shop">
-                <div className="filter-container">
+            <div className="filter-container">
                     <div className="filter">
-                    <h4>Filter by type</h4>
-                    <ul>
-                        <Checkbox
-                            categories={categories}
-                            handleFilters={filters =>
-                                handleFilters(filters, "category")
-                            }
-                        />
-                    </ul>
-                    </div>
-                    <div className="filter">
-                    <h4>Filter by price</h4>
-                    <ul>
-                        <RadioBox
-                            prices={prices}
-                            handleFilters={filters =>
-                                handleFilters(filters, "price")
-                            }
-                        />
-                    </ul>
+                    <fieldset>
+                        <legend>
+                            <h1>Filter by type</h1>
+                        </legend>
+                                <ul>
+                                        <Checkbox
+                                            categories={categories}
+                                            handleFilters={filters =>
+                                                handleFilters(filters, "category")
+                                            }
+                                        />
+                                </ul>
+                    </fieldset>
+                    <fieldset>
+                        <legend>
+                            <h1>Filter by price</h1>
+                        </legend>    
+                                <ul>
+                                        <RadioBox
+                                            prices={prices}
+                                            handleFilters={filters =>
+                                                handleFilters(filters, "price")
+                                            }
+                                        />
+                                </ul>
+                    </fieldset>
                     </div>
                 </div>
+            <div className="row-shop">
 
                 <div className="filters-layout">
-                    <h4 className="margin-bottom">Products</h4>
+                    <h1 className="margin-bottom">Products</h1>
                     <div className="row-shop">
                         {filteredResults.map((product, i) => (
                             <div key={i} className="shop-layout">

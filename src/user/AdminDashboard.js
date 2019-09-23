@@ -12,7 +12,7 @@ const AdminDashboard = () => {
     const adminLinks = () => {
         return (
             <div className="dashboard">
-                <h4 className="dash-header">Admin Links</h4>
+                <h1 className="dash-header">Admin Links</h1>
                 <ul className="column">
                     <li className="column-list">
                         <Link className="nav-link" to="/create/category">
@@ -42,7 +42,7 @@ const AdminDashboard = () => {
     const adminInfo = () => {
         return (
             <div className="dashboard">
-                <h4 className="dash-header">User Information</h4>
+                <h1 className="dash-header">User Information</h1>
                 <ul className="column">
                     <li className="column-list">{name}</li>
                     <li className="column-list">{email}</li>

@@ -36,7 +36,7 @@
     margin: 0 auto;
     width: 100%;
     padding: 0 25px;
-    margin-bottom: 1.5rem; 
+    margin-bottom: 24px; 
 }
 
 .user-links-layout{
@@ -54,7 +54,7 @@
 }
 
 .dash-header{
-    padding: .75rem 1.25rem;
+    padding: 12px 20px;
     margin-bottom: 0;
     border-bottom: 2px solid rgba(0,0,0,.125);
 }

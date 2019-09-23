@@ -23,6 +23,7 @@ const Checkbox = ({ categories, handleFilters }) => {
     return categories.map((c, i) => (
         <li key={i}>
             <input
+                aria-label="category type"
                 onChange={handleToggle(c._id)}
                 value={checked.indexOf(c._id === -1)}
                 type="checkbox"

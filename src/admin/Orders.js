@@ -40,12 +40,12 @@ const Orders = () => {
     const showOrdersLength = () => {
         if (orders.length > 0) {
             return (
-                <h4 className="total-orders">
+                <h1 className="total-orders">
                     Total orders: {orders.length}
-                </h4>
+                </h1>
             );
         } else {
-            return <h4 className="total-orders">No orders</h4>;
+            return <h1 className="total-orders">No orders</h1>;
         }
     };
 
@@ -77,7 +77,7 @@ const Orders = () => {
 
     const showStatus = o => (
         <div className="orders-container">
-            <h4 className="cream-color margin-bottom">Status: {o.status}</h4>
+            <h1 className="cream-color margin-bottom">Status: {o.status}</h1>
             <select
                 className="form-orders-inputs"
                 onChange={e => handleStatusChange(e, o._id)}
@@ -111,11 +111,11 @@ const Orders = () => {
                                 key={oIndex}
                                 style={{ borderBottom: "5px solid indigo" }}
                             >
-                                <h4 className="margin-bottom">
+                                <h1 className="margin-bottom">
                                     <span className="color-blue">
                                         Order ID: {o._id}
                                     </span>
-                                </h4>
+                                </h1>
 
                                 <ul className="column margin-bottom">
                                     <li className="column-list">
@@ -139,10 +139,10 @@ const Orders = () => {
                                     </li>
                                 </ul>
 
-                                <h4 className="orders-margin">
+                                <h1 className="orders-margin">
                                     Total products in the order:{" "}
                                     {o.products.length}
-                                </h4>
+                                </h1>
 
                                 {o.products.map((p, pIndex) => (
                                     <div

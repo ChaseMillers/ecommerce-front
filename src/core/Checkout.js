@@ -129,6 +129,7 @@ const Checkout = ({ products }) => {
                     <div className="form-container">
                         <label className="address">Delivery address:</label>
                         <textarea
+                            aria-label="delivery address input"
                             onChange={handleAddress}
                             className="address-input "
                             value={data.address}
@@ -145,8 +146,17 @@ const Checkout = ({ products }) => {
                     <button onClick={buy} className="button">
                         Pay
                     </button>
+                    <div className="purchase-info"> 
+                    <h1>To Test Payment Enter:</h1>
+                    <ul>
+                    <li>Card Number = 4111 1111 1111 1111</li>
+                    <li>Expiration Date = 11/22</li>
+                    <li>CVV = 123</li>
+                    </ul>
+                    </div>
                 </div>
             ) : null}
+
         </div>
     );
 
@@ -169,11 +179,11 @@ const Checkout = ({ products }) => {
     );
 
     const showLoading = loading =>
-        loading && <h4 className="red-text">Loading...</h4>;
+        loading && <h1 className="red-text">Loading...</h1>;
 
     return (
-        <div>
-            <h4>Total: ${getTotal()}</h4>
+        <div className="loading">
+            <h1>Total: ${getTotal()}</h1>
             {showLoading(data.loading)}
             {showSuccess(data.success)}
             {showError(data.error)}

@@ -111,7 +111,7 @@ const UpdateProduct = ({ match }) => {
 
     const newPostForm = () => (
         <form className="margin-bottom" onSubmit={clickSubmit}>
-            <h4>Post Photo</h4>
+            <h1>Post Photo</h1>
             <div className="update-product-container">
                 <label className="button button-yellow">
                     <input
@@ -208,14 +208,14 @@ const UpdateProduct = ({ match }) => {
             className="caution caution-text"
             style={{ display: createdProduct ? "" : "none" }}
         >
-            <h4>{`${createdProduct}`} is updated!</h4>
+            <h1>{`${createdProduct}`} is updated!</h1>
         </div>
     );
 
     const showLoading = () =>
         loading && (
             <div className="caution">
-                <h4>Loading...</h4>
+                <h1>Loading...</h1>
             </div>
         );
 

@@ -105,7 +105,7 @@ const Profile = ({ match }) => {
             description="Update your profile"
             className="main-container"
         >
-            <h4 className="margin-bottom">Profile update</h4>
+            <h1 className="margin-bottom">Profile update</h1>
             {profileUpdate(name, email, password)}
             {redirectUser(success)}
         </Layout>

@@ -6,6 +6,7 @@ import {signout, isAuthenticated} from '../auth';
 import {itemTotal} from './cartHelpers';
 import "./Menu.css";
 
+
 const isActive = (history, path) => {
     if (history.location.pathname === path) {
         return { color: "#ff9900" };
@@ -15,12 +16,13 @@ const isActive = (history, path) => {
 };
 
 const Menu = ({ history }) => (
+    
     <div className="header">
-        <a href="/" className="logo">Logo</a>
-  <div className="center">
-  <input className="menu-btn" type="checkbox" id="menu-btn" />
-  <label className="menu-icon" htmlFor="menu-btn"><span className="navicon"></span></label>
-        
+        <a href="/" className="logo"><img src="/images/logo.png" alt="Logo"/></a>
+        <div className="center">
+        <input className="menu-btn" type="checkbox" id="menu-btn" />
+        <label className="menu-icon" htmlFor="menu-btn"><span className="navicon"></span></label>
+       
           <ul className="nav">
             <li className="nav-item">
                 <Link
@@ -88,8 +90,6 @@ const Menu = ({ history }) => (
                             Signin
                         </Link>
                     </li>
-
-
                     <li className= "nav-item">
                             <Link className="nav-link" 
                             style={isActive(history, '/signup')} 
@@ -102,9 +102,9 @@ const Menu = ({ history }) => (
 
 
             {isAuthenticated() && (
-                <li className="nav-item signout">
-                    <span
-                        className="nav-link"
+                <li className="nav-item">
+                    <button
+                        className="nav-link signout"
                         style={{ cursor: "pointer", color: "#ffffff" }}
                         onClick={() =>
                             signout(() => {
@@ -113,12 +113,13 @@ const Menu = ({ history }) => (
                         }
                     >
                         Signout
-                    </span>
+                    </button>
                 </li>
             )}
 
         </ul>
         </div>
+        
     </div>
 )
 

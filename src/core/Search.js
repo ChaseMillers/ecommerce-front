@@ -54,7 +54,9 @@ const Search = () => {
 
     const searchMessage = (searched, results) => {
         if (searched && results.length > 0) {
-            return `Found ${results.length} products`;
+            return( 
+            <h1>Found {results.length} products</h1>
+            )
         }
         if (searched && results.length < 1) {
             return `No products found`;
@@ -64,9 +66,9 @@ const Search = () => {
     const searchedProducts = (results = []) => {
         return (
             <div>
-                <h2 className="margin-bottom">
+                <div className="margin-bottom">
                     {searchMessage(searched, results)}
-                </h2>
+                </div>
 
                 <div className="row">
                     {results.map((product, i) => (
@@ -94,11 +96,13 @@ const Search = () => {
                         className="search-bar"
                         onChange={handleChange("search")}
                         placeholder="Search by name"
+                        aria-label="Search Bar"
                     />
                      <div className="input-button">
                         <select
                             className="select"
                             onChange={handleChange("category")}
+                            aria-label="Select product type"
                         >
                             <option value="All">All</option>
                             {categories.map((c, i) => (

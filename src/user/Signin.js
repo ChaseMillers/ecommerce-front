@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
 import Layout from "../core/Layout";
 import { signin, authenticate, isAuthenticated } from "../auth";
+import {itemTotal} from '../core/cartHelpers';
 import './Signin.css'
 
 const Signin = () => {
@@ -64,18 +65,14 @@ const Signin = () => {
             <h2>How it works</h2>
        <div className="how-it-works-container">        
         <div className="how-it-works">
-        <p>Create account, then sign in.</p>
-        <img src="https://github.com/ChaseMillers/ecommerce-front/raw/master/pics/pic6.JPG" alt="Login Page"></img>
-        <p>From Homepage you can view new arrivals and best sellers.</p>
-        <img src="https://github.com/ChaseMillers/ecommerce-front/raw/master/pics/pic1.JPG" alt="Viewing community tab"></img>
-        <p>From shop you can pic filters for going through products. </p>
-        <img src="https://github.com/ChaseMillers/ecommerce-front/raw/master/pics/pic2.JPG" alt="adding someone to private chat"></img>
-        <p>From the shopping cart you can checkout your order. Options for payment include credit card or Paypal. </p>
-        <img src="https://github.com/ChaseMillers/ecommerce-front/raw/master/pics/pic3.JPG" alt="clicking name to start chat"></img>
-        <p>From dashboard, User can view cart or update profile.</p>
-        <img src="https://github.com/ChaseMillers/ecommerce-front/raw/master/pics/pic5.JPG" alt="chatting privately"></img>
-        <p>From dashboard, admin has ability to add/delete/change products and view orders.</p>
-        <img src="https://github.com/ChaseMillers/ecommerce-front/raw/master/pics/pic4.JPG" alt="chatting privately"></img>
+            <ul>
+                <li>Create account, then sign in, or used the autofilled demo account</li>
+                <li>From the Homepage the user can view new arrivals and best sellers.</li>
+                <li>From the shop page, a user can choose their filters when browsing products.</li>
+                <li>From the shopping cart, the user can checkout their order.</li>
+                <li>From the dashboard, the user can view cart or update profile.</li>
+                <li>From the dashboard, the admin has ability to add/delete/change products and view orders.</li>
+            </ul>
         </div>
       </div>
         </form>
@@ -93,7 +90,7 @@ const Signin = () => {
     const showLoading = () =>
         loading && (
             <div className="caution caution-text">
-                <h4>Loading...</h4>
+                <h1>Loading...</h1>
             </div>
         );
         
@@ -102,8 +99,12 @@ const Signin = () => {
         if (redirectToReferrer) {
             if (user && user.role === 1) {
                 return <Redirect to="/admin/dashboard" />;
-            } else {
+            }
+            else if (user && itemTotal() === 0){
                 return <Redirect to="/user/dashboard" />;
+            }
+             else {
+                return <Redirect to="/cart" />;
             }
         }
         if (isAuthenticated()) {

@@ -8,17 +8,17 @@ body {
     margin: 0;
     color: #212529;
     text-align: left;
-    font-size: .99rem;
+    font-size: 16px;
     font-weight: 300;
     background-color: #fff;
 }
 
-h4 {
+h1 {
     font-weight: 400;
-    font-size: 1.9rem;
+    font-size: 30px;
     line-height: 1.1;
     margin-top: 0;
-    margin-bottom: .5rem;
+    margin-bottom: 8px;
 }
 
 p {
@@ -27,7 +27,7 @@ p {
 }
   
 .margin-bottom{
-    margin-bottom: 1.5rem; 
+    margin-bottom: 24px; 
 }
 
 /**
@@ -39,14 +39,14 @@ p {
     color: #007bff;
     border-color: #007bff;
     border-style: solid;
-    margin-bottom: .5rem;
+    margin-bottom: .8px;
 }
 .button-yellow {
     color: #ffc107;
     border-color: #ffc107;
     border-style: solid;
     background-color:transparent;
-    margin-bottom: .5rem;
+    margin-bottom: 8px;
 }
 .button-yellow:hover {
     color: #ffffff;
@@ -58,10 +58,11 @@ p {
 }
 
 .button {
-    font-size: .99rem;
-    padding: .385rem .85rem;
+    font-size: 16px;
+    padding: 6px 13px;
     transition:.16s ease-in-out;
     margin-right: 5px;
+    margin-top: 12px;
     -webkit-appearance: button;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -77,16 +78,16 @@ button:not(:disabled) {
 */
 
 .cream-color{
-    padding: 0.2em;
+    padding: 5px;
     background-color: #fcf8e3;
 }
 
 .caution {
     border: 1px solid transparent; 
-    border-radius: .25rem;
+    border-radius: 3px;
     position: relative; 
-    padding: .74rem 1.24rem; 
-    margin-bottom: 1rem; 
+    padding: 12px 20px; 
+    margin-bottom: 16px; 
 }
 .caution-text {
     background-color: #d1ecf1;
@@ -97,15 +98,15 @@ button:not(:disabled) {
 hr {
     border: 0;
     border-top: 1px solid rgba(0,0,0,.1);
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin-top: 16px;
+    margin-bottom: 16px;
 }
 
 .main-container{
     margin: 0 auto;
     width: 100%;
     padding: 0 25px;
-    margin-bottom: 1.5rem; 
+    margin-bottom: 24px; 
 }
 
 .product-title {
@@ -123,10 +124,10 @@ hr {
   * holds color animation
   */
   .banner-container{
-    padding: 2rem 1rem;
+    padding: 32px 16px;
     padding-top: 50px;
     margin-top: 43px;
-    margin-bottom: 2rem;
+    margin-bottom: 32px;
     color: #fff;
     background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
     background-size: 400% 400%;

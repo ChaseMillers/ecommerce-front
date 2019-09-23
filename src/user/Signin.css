@@ -1,17 +1,9 @@
 .sign-in{
-    margin: 10px 0px;
+    margin: 10px 0;
+    width: 80px;
     line-height: 25px;
 }
 
-.form-inputs {
-    margin-bottom: 5px;
-    font-size: 16px;
-    border: 1px solid #ced4da;
-    background-color:#cfe0f1a2;
-    border-radius: 5px;
-    width: 100%;
-    padding: 8px 8px;
-}
 
 .signup-container {
     margin-right: auto;
@@ -19,7 +11,7 @@
     width: 100%;
     padding-right: 14px;
     padding-left: 14px;
-    margin-bottom: 1.5rem; 
+    margin-bottom: 24px; 
 }
 
 .email-pass{
@@ -34,12 +26,9 @@
 
 /* How it works */
 .how-it-works {
-    height:500px;
-    max-width:1200px;
     background-color:rgb(255, 255, 255);
     color:rgb(110, 110, 110);
     display:inline-block;
-    flex-grow:1
 }
 .how-it-works-container{
     border-style: solid;
@@ -47,6 +36,8 @@
 .how-it-works img{
     width:100%;
 }
-.how-it-works p{  
-    font-size:1.2em;
+
+.how-it-works ul{  
+    list-style-type: disc;
+    font-size:18px;
 }
