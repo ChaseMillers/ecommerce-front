@@ -1,6 +1,6 @@
 ## Ecommerce Website Template
 
-## Live - https://ecommerce-app.chasemillers.now.sh
+## Live - https://blissful-sinoussi-600253.netlify.com/
 
 ## Summery 
 This e-commerce website was designed as a template for anyone that wants to sell products. 
