@@ -20,7 +20,7 @@ describe('auth Endpoints', function() {
   afterEach('cleanup',() => db('auth').truncate())
 
   describe(`GET /api/user/5d445617be01af14849e0a07`, () => {
-    context(`shows user info, user must be signed in ANDto work`, () => {
+    context(`shows user info, user must be signed in to work`, () => {
            it(`responds with 200, ok: true and redirected: false`, () => {
              return supertest(app)
                .get('/api/user/5d445617be01af14849e0a07')
