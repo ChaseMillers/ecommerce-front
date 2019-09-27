@@ -19,7 +19,7 @@ describe('auth Endpoints', function() {
 
   afterEach('cleanup',() => db('auth').truncate())
 
-  describe(`GET /api/user/5d445617be01af14849e0a07`, () => {
+  describe(`GET /api/user/:userId`, () => {
     context(`shows user info, user must be signed in to work`, () => {
            it(`responds with 200, ok: true and redirected: false`, () => {
              return supertest(app)
@@ -28,7 +28,7 @@ describe('auth Endpoints', function() {
            })
          })
   })
-  describe(`GET /api/secret/5d445617be01af14849e0a07`, () => {
+  describe(`GET /api/secret/:userId`, () => {
     context(`shows user info, user must be signed AND be a admin to work`, () => {
            it(`responds with 200, ok: true and redirected: false`, () => {
              return supertest(app)
