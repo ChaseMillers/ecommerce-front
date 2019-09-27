@@ -19,7 +19,7 @@ describe('auth Endpoints', function() {
 
   afterEach('cleanup',() => db('auth').truncate())
 
-  describe(`GET /api/api/signout`, () => {
+  describe(`GET /api/signout`, () => {
     context(`signs user out`, () => {
            it(`responds with 200, ok: true and redirected: false`, () => {
              return supertest(app)
