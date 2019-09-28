@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import { Redirect } from "react-router-dom";
 import {Link} from 'react-router-dom'
 import Layout from '../../../core/layout/Layout'
 import {signup} from '../../../auth'
@@ -10,10 +11,11 @@ const Signup = () => {
         email: '',
         password: '',
         error: '',
-        success: false
+        success: false,
+        redirectToReferrer: false
     })
 
-    const { name, email, password, success, error } = values
+    const { name, email, password, success, error, redirectToReferrer } = values
 
     // higher order function "a function returning another function"
     const handleChange = name => event => {
@@ -33,7 +35,8 @@ const Signup = () => {
                     email: "",
                     password: "",
                     error: "",
-                    success: true
+                    success: true,
+                    redirectToReferrer: true
                 });
             }
         });
@@ -94,6 +97,12 @@ const Signup = () => {
         </div>
     );
 
+    const redirectUser = () => {
+        if (redirectToReferrer) {
+                return <Redirect to="/signin" />;
+    }
+};
+
     return (
         <Layout
             title="Signup"
@@ -103,6 +112,7 @@ const Signup = () => {
             {showSuccess()}
             {showError()}
             {signUpForm()}
+            {redirectUser()}
         </Layout>
     );
 };

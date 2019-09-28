@@ -67,7 +67,7 @@ const Orders = () => {
         updateOrderStatus(user._id, token, orderId, e.target.value).then(
             data => {
                 if (data.error) {
-                    console.log("Status update failed");
+                    console.log("Status update failed",data.error);
                 } else {
                     loadOrders();
                 }

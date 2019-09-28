@@ -84,7 +84,6 @@ const Checkout = ({ products }) => {
 
                 processPayment(userId, token, paymentData)
                     .then(response => {
-                        console.log(response);
                         // empty cart
                         // create order
 
@@ -98,9 +97,6 @@ const Checkout = ({ products }) => {
                         createOrder(userId, token, createOrderData)
                             .then(response => {
                                 emptyCart(() => {
-                                    console.log(
-                                        "payment success and empty cart"
-                                    );
                                     setData({
                                         loading: false,
                                         success: true

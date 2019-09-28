@@ -29,7 +29,6 @@ const Search = () => {
     }, []);
 
     const searchData = () => {
-        // console.log(search, category);
         if (search) {
             list({ search: search || undefined, category: category }).then(
                 response => {
