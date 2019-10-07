@@ -12,6 +12,12 @@ It was made to have all the basic features you would expect from an e-commerce w
 -Braintree – for implementing paypal and credit information
 -Heroku
 
+###Example
+ - Item 1
+ - Item 2
+  - Sub Item 1
+  - Sub Item 2
+
 ## End points
 
 .post('/api/signup')
