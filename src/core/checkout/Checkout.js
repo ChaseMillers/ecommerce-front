@@ -60,12 +60,13 @@ const Checkout = ({ products }) => {
 
     let deliveryAddress = data.address;
 
-    const buy = () => {
+    const buy = (event) => {
+        event.preventDefault()
+        validateFormAdress()
         setData({ loading: true });
         // send the nonce to your server
         // nonce = data.instance.requestPaymentMethod()
         let nonce;
-        
         data.instance
             .requestPaymentMethod()
             .then(data => {
@@ -118,30 +119,45 @@ const Checkout = ({ products }) => {
             });
     };
 
+    const validateFormAdress = () => {
+        var x = document.forms["purchase-form"]["form-address"].value;
+        if (x === "") {
+        document.getElementById("address").style.display = "block";
+          return false;
+        }
+        else
+        document.getElementById("address").style.display = "none";
+      }
+
     const showDropIn = () => (
         <div onBlur={() => setData({ ...data, error: "" })}>
             {data.clientToken !== null && products.length > 0 ? (
                 <div>
-                    <div className="form-container">
+                    <form className="purchase-form" name="purchase-form">
                         <label className="address">Delivery address:</label>
                         <textarea
+                            type="text"
                             aria-label="delivery address input"
                             onChange={handleAddress}
+                            name="form-address"
                             className="address-input "
                             value={data.address}
                             placeholder="Type your delivery address here..."
+                            required
                         />
-                    </div>
-
+                        <span 
+                        className='address-alert'
+                        id="address"
+                        >Please fill out address</span>
                     <DropIn
                         options={{
                             authorization: data.clientToken,
                         }}
                         onInstance={instance => (data.instance = instance)}
                     />
-                    <button onClick={buy} className="button">
-                        Pay
-                    </button>
+                    <input type="submit" onClick={buy}  className="button"/>
+                    </form>
+                     
                     <div className="purchase-info"> 
                     <h1>To Test Payment Enter:</h1>
                     <ul>

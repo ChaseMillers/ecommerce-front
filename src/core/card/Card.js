@@ -86,7 +86,7 @@ const Card = ({
                     <div className="update-options-container">
                         <div className="update-options">
                             <span className="update-options-text">
-                                Adjust Quantity
+                                Quantity
                             </span>
                         </div>
                         <input
@@ -124,15 +124,16 @@ const Card = ({
                 </p> */}
 
                 {showStock(product.quantity)}
-                <br />
 
+                <div className="button-holder">
                 {showViewButton(showViewProductButton)}
 
                 {showAddToCart(showAddToCartButton)}
-
+                
                 {showRemoveButton(showRemoveProductButton)}
-
+                </div>
                 {showCartUpdateOptions(cartUpdate)}
+                
             </div>
         </div>
     );

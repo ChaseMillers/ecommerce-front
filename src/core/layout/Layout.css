@@ -34,35 +34,11 @@ p {
 * Buttons 
 */
 
-.button-blue {
-    background-color:transparent;
-    color: #007bff;
-    border-color: #007bff;
-    border-style: solid;
-    margin-bottom: .8px;
-}
-.button-yellow {
-    color: #ffc107;
-    border-color: #ffc107;
-    border-style: solid;
-    background-color:transparent;
-    margin-bottom: 8px;
-}
-.button-yellow:hover {
-    color: #ffffff;
-    background-color:#ffc107;
-}
-.button-blue:hover {
-    color: #ffffff;
-    background-color:#007bff;
-}
-
 .button {
     font-size: 16px;
     padding: 6px 13px;
     transition:.16s ease-in-out;
     margin-right: 5px;
-    margin-top: 12px;
     -webkit-appearance: button;
     -webkit-user-select: none;
     -moz-user-select: none;

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./PriceFilter.css"
 
 //Allows user to choose only one of a predefined options

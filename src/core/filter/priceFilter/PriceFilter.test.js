@@ -1,14 +1,15 @@
-import React from './node_modules/react';
-import ReactDOM from './node_modules/react-dom';
-import { BrowserRouter } from './node_modules/react-router-dom'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom'
 import PriceFilter from "./PriceFilter";
 
 describe(`PriceFilter component`, () => {
 it('renders the price filters section', () => {
   const div = document.createElement('div');
+  const prices = [0]
   ReactDOM.render(
     <BrowserRouter>
-      <PriceFilter />
+      <PriceFilter prices={prices}/>
     </BrowserRouter>,
     div
   )

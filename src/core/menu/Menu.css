@@ -55,16 +55,6 @@ li.nav-item {
     max-width: 580px;
 }
 
-/* 
-Uncomment to have nav center itself,  
-.center{
-    position: relative;
-    margin: 0 auto;
-    max-width: 580px;
-} 
-
-
-
 /* Hamburger Nav */
 
 /* header */
@@ -136,7 +126,7 @@ Uncomment to have nav center itself,
   }
   
   .header .menu-icon .navicon:before {
-    top: 5px;
+    top: 6px;
   }
   
   .header .menu-icon .navicon:after {
@@ -151,6 +141,7 @@ Uncomment to have nav center itself,
   
   .header .menu-btn:checked ~ .nav {
     max-height: 240px;
+    border-radius: 4px;
   }
   
   .header .menu-btn:checked ~ .menu-icon .navicon {
