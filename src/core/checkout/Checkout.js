@@ -62,7 +62,13 @@ const Checkout = ({ products }) => {
 
     const buy = (event) => {
         event.preventDefault()
-        validateFormAdress()
+        var x = document.forms["purchase-form"]["form-address"].value;
+        if (x === "") {
+        document.getElementById("address").style.display = "block";
+          return false;
+        }
+        else{
+        document.getElementById("address").style.display = "none";
         setData({ loading: true });
         // send the nonce to your server
         // nonce = data.instance.requestPaymentMethod()
@@ -117,17 +123,7 @@ const Checkout = ({ products }) => {
             .catch(error => {
                 setData({ ...data, error: error.message });
             });
-    };
-
-    const validateFormAdress = () => {
-        var x = document.forms["purchase-form"]["form-address"].value;
-        if (x === "") {
-        document.getElementById("address").style.display = "block";
-          return false;
-        }
-        else
-        document.getElementById("address").style.display = "none";
-      }
+    };}
 
     const showDropIn = () => (
         <div onBlur={() => setData({ ...data, error: "" })}>
