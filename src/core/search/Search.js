@@ -44,6 +44,7 @@ const Search = () => {
 
     const searchSubmit = e => {
         e.preventDefault();
+        emptySearch()
         searchData();
     };
 
@@ -64,15 +65,15 @@ const Search = () => {
 
     const searchedProducts = (results = []) => {
         return (
-            <div>
-                <div className="margin-bottom">
-                    {searchMessage(searched, results)}
+            <div id="results">
+                <div className="searchMessage">
+                    {searchMessage(searched, results, search)}
                 </div>
 
                 <div className="row">
                     {results.map((product, i) => (
-                        <div className="search-layout">
-                            <Card key={i} product={product} />
+                        <div key={i} className="search-layout">
+                            <Card key={i} product={product}/>
                         </div>
                     ))}
                 </div>
@@ -80,8 +81,18 @@ const Search = () => {
         );
     };
 
+    const emptySearch = () => {
+        const data = document.forms["form-submit"]["search-id"].value;
+        if (data === "") {
+            document.getElementById("results").style.display = "none";
+        }
+        else {
+            document.getElementById("results").style.display = "block";
+        }
+    }
+
     const searchForm = () => (
-        <form onSubmit={searchSubmit}>
+        <form onSubmit={searchSubmit} name="form-submit" className="form-submit">
             <span className="input-data-text">
             <div
                     className="input-data-append"

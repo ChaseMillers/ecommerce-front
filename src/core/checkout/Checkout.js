@@ -62,11 +62,12 @@ const Checkout = ({ products }) => {
 
     const buy = (event) => {
         event.preventDefault()
-        var x = document.forms["purchase-form"]["form-address"].value;
-        if (x === "") {
+        const data = document.forms["purchase-form"]["form-address"].value;
+        if (data === "") {
         document.getElementById("address").style.display = "block";
           return false;
         }
+
         else{
         document.getElementById("address").style.display = "none";
         setData({ loading: true });

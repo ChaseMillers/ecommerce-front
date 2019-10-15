@@ -60,7 +60,7 @@ const Signin = () => {
                 />
             </div>
             <button onClick={clickSubmit} className="button button-blue">
-                Submit
+                Sign In
             </button>
             <h2>How it works</h2>
        <div className="how-it-works-container">        

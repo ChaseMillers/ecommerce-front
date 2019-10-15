@@ -108,12 +108,12 @@ const Shop = () => {
                             <h1>Filter by type</h1>
                         </legend>
                                 <ul>
-                                        <CategoryFilter
-                                            categories={categories}
-                                            handleFilters={filters =>
-                                                handleFilters(filters, "category")
-                                            }
-                                        />
+                                    <CategoryFilter
+                                        categories={categories}
+                                        handleFilters={filters =>
+                                            handleFilters(filters, "category")
+                                        }
+                                    />
                                 </ul>
                     </fieldset>
                     <fieldset>
@@ -121,12 +121,12 @@ const Shop = () => {
                             <h1>Filter by price</h1>
                         </legend>    
                                 <ul>
-                                        <PriceFilter
-                                            prices={prices}
-                                            handleFilters={filters =>
-                                                handleFilters(filters, "price")
-                                            }
-                                        />
+                                    <PriceFilter
+                                        prices={prices}
+                                        handleFilters={filters =>
+                                            handleFilters(filters, "price")
+                                        }
+                                    />
                                 </ul>
                     </fieldset>
                     </div>
