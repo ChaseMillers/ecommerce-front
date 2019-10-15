@@ -21,18 +21,22 @@ It was made to have all the basic features you would expect from an e-commerce w
  
 ![](public/images/2.JPG)
  
- - From the Shop page you can pick filters for going through products.
+ 
+ - **From the Shop page you can pick filters for going through products.**
  
 ![](public/images/3.JPG)
 
- - From the shopping cart you can checkout your order. 
+
+ - **From the shopping cart you can checkout your order.**
  
 ![](public/images/4.JPG)
 
- - From dashboard, User can view cart or update profile
+
+ - **From dashboard, User can view cart or update profile.**
  
 ![](public/images/5.JPG)
 
- - From dashboard, admin has ability to add/delete/change products and view orders
+
+ - **From dashboard, admin has ability to add/delete/change products and view orders**
  
 ![](public/images/6.JPG)
