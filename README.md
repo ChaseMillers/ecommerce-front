@@ -13,7 +13,7 @@ It was made to have all the basic features you would expect from an e-commerce w
  
 ## How it works
 
-- Create account or use auto filled test account, then sign in.
+- **Create account or use auto filled test account, then sign in.**
 
 ![](public/images/1.jpg)
  
