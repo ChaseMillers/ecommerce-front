@@ -42,10 +42,18 @@ const Checkout = ({ products }) => {
         setData({ ...data, address: event.target.value });
     };
 
+    function financial(x) {
+        return Number.parseFloat(x).toFixed(2);
+    }
+
     const getTotal = () => {
         return products.reduce((currentValue, nextValue) => {
-            return currentValue + nextValue.count * nextValue.price;
-        }, 0);
+            return (
+            currentValue + 
+            nextValue.count * 
+            nextValue.price
+            )
+        },0)
     };
 
     const showCheckout = () => {
@@ -60,17 +68,16 @@ const Checkout = ({ products }) => {
 
     let deliveryAddress = data.address;
 
-    const buy = (event) => {
-        event.preventDefault()
-        const data = document.forms["purchase-form"]["form-address"].value;
-        if (data === "") {
+    const buy = event => {
+      
+        if (event.target.value === null) {
         document.getElementById("address").style.display = "block";
           return false;
         }
-
         else{
         document.getElementById("address").style.display = "none";
         setData({ loading: true });
+        
         // send the nonce to your server
         // nonce = data.instance.requestPaymentMethod()
         let nonce;
@@ -127,33 +134,34 @@ const Checkout = ({ products }) => {
     };}
 
     const showDropIn = () => (
+    //onBlur means when you click somewhere on the page, the data error will empty. 
         <div onBlur={() => setData({ ...data, error: "" })}>
             {data.clientToken !== null && products.length > 0 ? (
                 <div>
-                    <form className="purchase-form" name="purchase-form">
-                        <label className="address">Delivery address:</label>
-                        <textarea
-                            type="text"
-                            aria-label="delivery address input"
-                            onChange={handleAddress}
-                            name="form-address"
-                            className="address-input "
-                            value={data.address}
-                            placeholder="Type your delivery address here..."
-                            required
-                        />
-                        <span 
-                        className='address-alert'
-                        id="address"
-                        >Please fill out address</span>
+                <div className="purchase-form" name="purchase-form">
+                    <label className="address">Delivery address:</label>
+                    <textarea
+                        type="text"
+                        aria-label="delivery address input"
+                        onChange={handleAddress}
+                        name="form-address"
+                        className="address-input "
+                        value={data.address}
+                        placeholder="Type your delivery address here..."
+                        required
+                    />
+                    <span 
+                    className='address-alert'
+                    id="address"
+                    >Please fill out address</span>
                     <DropIn
                         options={{
                             authorization: data.clientToken,
                         }}
                         onInstance={instance => (data.instance = instance)}
                     />
-                    <input type="submit" onClick={buy}  className="button"/>
-                    </form>
+                <input type="submit" onClick={buy}  className="button"/>
+                </div>
                      
                     <div className="purchase-info"> 
                     <h1>To Test Payment Enter:</h1>
@@ -188,11 +196,12 @@ const Checkout = ({ products }) => {
     );
 
     const showLoading = loading =>
-        loading && <h1 className="red-text">Loading...</h1>;
-
+        loading && <h1 className="loading">Loading...</h1>;
+        
     return (
+       
         <div className="loading">
-            <h1>Total: ${getTotal()}</h1>
+            <h1>Total: ${financial(getTotal())}</h1>
             {showLoading(data.loading)}
             {showSuccess(data.success)}
             {showError(data.error)}
