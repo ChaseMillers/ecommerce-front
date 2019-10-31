@@ -107,6 +107,7 @@ const Search = () => {
                         onChange={handleChange("search")}
                         placeholder="Search by name"
                         aria-label="Search Bar"
+                        name="search-id"
                     />
                      <div className="input-button">
                         <select
