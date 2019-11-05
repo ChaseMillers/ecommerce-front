@@ -35,8 +35,3 @@ It was made to have all the basic features you would expect from an e-commerce w
 
  - **From dashboard, admin has ability to add/delete/change products and view orders**
  
-<<<<<<< HEAD
-![](public/images/6.JPG)
-=======
-![](public/images/6.JPG)
->>>>>>> 0a8100ebe34d65a26496c813953b845ca73e83c4
