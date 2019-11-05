@@ -7,7 +7,6 @@ import {
 import { emptyCart } from "../cartHelpers";
 import { isAuthenticated } from "../../auth";
 import { Link } from "react-router-dom";
-import "braintree-web";
 import DropIn from "braintree-web-drop-in-react";
 import "./Checkout.css"
 

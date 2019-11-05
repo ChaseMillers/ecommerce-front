@@ -98,12 +98,12 @@ const Shop = () => {
     const showProducts = () =>{
         if (filteredResults.length >0)
         return(
-            <div>
-            {filteredResults.map((product, i) => (
-                <div key={i} className="shop-layout">
-                    <Card product={product} />
-                </div>
-            ))}
+            <div className="row-shop">
+                     {filteredResults.map((product, i) => (
+                        <div key={i} className="shop-layout">
+                            <Card product={product} />
+                        </div>
+                    ))}
             </div>
         )
         else{return(<h1 className="loading">Loading...</h1>)}
@@ -149,9 +149,7 @@ const Shop = () => {
 
                 <div className="filters-layout">
                     <h1 className="margin-bottom">Products</h1>
-                    <div className="row-shop">
                     {showProducts()}
-                    </div>
                     <hr />
                     {loadMoreButton()}
                 </div>

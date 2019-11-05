@@ -1,7 +1,9 @@
 .loading{
     background: rgb(46, 129, 236);
     color:white;
-    border-radius: 25px;;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
 }
 .row-shop {
     display: grid;
