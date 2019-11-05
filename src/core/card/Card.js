@@ -133,6 +133,8 @@ const Card = ({
                 {showRemoveButton(showRemoveProductButton)}
                 </div>
                 {showCartUpdateOptions(cartUpdate)}
+
+               
                 
             </div>
         </div>

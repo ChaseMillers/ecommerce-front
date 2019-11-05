@@ -3,7 +3,7 @@ import React, {Fragment} from 'react';
 // withRouter is for props history
 import {Link, withRouter} from 'react-router-dom';
 import {signout, isAuthenticated} from '../../auth';
-import {itemTotal} from '../cartHelpers';
+import {itemTotalCount} from '../cartHelpers';
 import "./Menu.css";
 
 
@@ -52,7 +52,7 @@ const Menu = ({ history }) => (
                 >
                     Cart{" "}
                     <sup>
-                        <small className="cart-number">{itemTotal()}</small>
+                        <small className="cart-number">{itemTotalCount()}</small>
                     </sup>
                 </Link>
             </li>

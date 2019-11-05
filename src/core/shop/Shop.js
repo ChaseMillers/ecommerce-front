@@ -12,7 +12,7 @@ const Shop = () => {
         filters: { category: [], price: [] }
     });
     const [categories, setCategories] = useState([]);
-    const [setError] = useState(false);
+    const [error, setError] = useState(false);
     const [limit] = useState(6);
     const [skip, setSkip] = useState(0);
     const [size, setSize] = useState(0);
@@ -95,6 +95,20 @@ const Shop = () => {
         return array;
     };
 
+    const showProducts = () =>{
+        if (filteredResults.length >0)
+        return(
+            <div>
+            {filteredResults.map((product, i) => (
+                <div key={i} className="shop-layout">
+                    <Card product={product} />
+                </div>
+            ))}
+            </div>
+        )
+        else{return(<h1 className="loading">Loading...</h1>)}
+    }
+
     return (
         <Layout
             title="Shop Page"
@@ -136,15 +150,12 @@ const Shop = () => {
                 <div className="filters-layout">
                     <h1 className="margin-bottom">Products</h1>
                     <div className="row-shop">
-                        {filteredResults.map((product, i) => (
-                            <div key={i} className="shop-layout">
-                                <Card product={product} />
-                            </div>
-                        ))}
+                    {showProducts()}
                     </div>
                     <hr />
                     {loadMoreButton()}
                 </div>
+                {error}
             </div>
         </Layout>
     );

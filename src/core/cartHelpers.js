@@ -30,13 +30,19 @@ export const addItem = (item, next) => {
     }
 };
 
-export const itemTotal = () => {
+export const itemTotalCount = () => {
+    let cart = [];
     if (typeof window !== "undefined") {
         if (localStorage.getItem("cart")) {
-            return JSON.parse(localStorage.getItem("cart")).length;
+            cart = JSON.parse(localStorage.getItem("cart"));
+            return cart.reduce((currentValue, nextValue) => {
+                return (
+                currentValue + 
+                nextValue.count * 1
+                )
+            },0)
         }
     }
-    return 0;
 };
 
 export const getCart = () => {

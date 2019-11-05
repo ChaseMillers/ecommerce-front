@@ -28,7 +28,7 @@ ul{
 .cart-number {
     font-style: italic;
     background: rgb(42, 143, 224);
-    border-radius: 50%;
+    border-radius: 25px;;
     font-size: 12px;
 }
 
@@ -84,8 +84,8 @@ li.nav-item {
 
   .logo img{
     width: 88px;
-    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-  }
+    background: rgb(54, 54, 54);
+    }
   
   /* menu */
   .header .nav {

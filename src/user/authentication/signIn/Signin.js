@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
 import Layout from "../../../core/layout/Layout";
 import { signin, authenticate, isAuthenticated } from "../../../auth";
-import {itemTotal} from '../../../core/cartHelpers';
+import {itemTotalCount} from '../../../core/cartHelpers';
 import './Signin.css'
 
 const Signin = () => {
@@ -100,7 +100,7 @@ const Signin = () => {
             if (user && user.role === 1) {
                 return <Redirect to="/admin/dashboard" />;
             }
-            else if (user && itemTotal() === 0){
+            else if (user && itemTotalCount() === 0){
                 return <Redirect to="/user/dashboard" />;
             }
              else {

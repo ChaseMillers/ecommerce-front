@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Layout from "../layout/Layout";
-import { getCart } from "../cartHelpers";
 import Card from "../card/Card";
 import Checkout from "../checkout/Checkout";
+import {itemTotalCount, getCart} from '../cartHelpers';
 import "./Cart.css"
 
 const Cart = () => {
@@ -11,12 +11,12 @@ const Cart = () => {
 
     useEffect(() => {
         setItems(getCart());
-    }, [items]);
+    }, [items]);    
 
     const showItems = items => {
         return (
             <div>
-                <h1>Your cart has {`${items.length}`} items</h1>
+                <h1>Your cart has {itemTotalCount()} items</h1>
                 <hr />
                 {items.map((product, i) => (
                     <Card

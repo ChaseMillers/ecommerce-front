@@ -42,10 +42,12 @@ const Checkout = ({ products }) => {
         setData({ ...data, address: event.target.value });
     };
 
+    // brings total to money value
     function financial(x) {
         return Number.parseFloat(x).toFixed(2);
     }
 
+    // adds the total
     const getTotal = () => {
         return products.reduce((currentValue, nextValue) => {
             return (
@@ -66,16 +68,16 @@ const Checkout = ({ products }) => {
         );
     };
 
+    const handleSubmit = (event) => {
+        if (event) event.preventDefault();
+        event.persist();
+        buy()
+      };
+
     let deliveryAddress = data.address;
 
-    const buy = event => {
-      
-        if (event.target.value === null) {
-        document.getElementById("address").style.display = "block";
-          return false;
-        }
-        else{
-        document.getElementById("address").style.display = "none";
+    const buy = () => {
+        if (deliveryAddress !== undefined){
         setData({ loading: true });
         
         // send the nonce to your server
@@ -131,14 +133,15 @@ const Checkout = ({ products }) => {
             .catch(error => {
                 setData({ ...data, error: error.message });
             });
-    };}
+        }
+    }
 
     const showDropIn = () => (
     //onBlur means when you click somewhere on the page, the data error will empty. 
         <div onBlur={() => setData({ ...data, error: "" })}>
             {data.clientToken !== null && products.length > 0 ? (
                 <div>
-                <div className="purchase-form" name="purchase-form">
+                <form onSubmit={handleSubmit}>
                     <label className="address">Delivery address:</label>
                     <textarea
                         type="text"
@@ -161,7 +164,7 @@ const Checkout = ({ products }) => {
                         onInstance={instance => (data.instance = instance)}
                     />
                 <input type="submit" onClick={buy}  className="button"/>
-                </div>
+                </form>
                      
                     <div className="purchase-info"> 
                     <h1>To Test Payment Enter:</h1>
@@ -200,7 +203,7 @@ const Checkout = ({ products }) => {
         
     return (
        
-        <div className="loading">
+        <div className="checkout-info">
             <h1>Total: ${financial(getTotal())}</h1>
             {showLoading(data.loading)}
             {showSuccess(data.success)}
