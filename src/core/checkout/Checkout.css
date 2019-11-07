@@ -29,12 +29,20 @@
 }
 
 .pay-button {
-    font-size: 16px;
+    background-color: rgb(71, 255, 47);
+    border: none;
+    border-radius: 10%;
+    font-size: 18px;
     padding: 6px 13px;
     display: block;
+    cursor: pointer;
     transition:.16s ease-in-out;
     -webkit-appearance: button;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
+}
+
+.pay-button:hover{
+    background-color: rgb(150, 247, 137);
 }

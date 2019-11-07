@@ -146,31 +146,40 @@ const Checkout = ({ products }) => {
                         type="text"
                         aria-label="delivery address input"
                         onChange={handleAddress}
-                        name="form-address"
                         className="address-input "
                         value={data.address}
                         placeholder="Type your delivery address here..."
                         required
                     />
-                    <span 
-                    className='address-alert'
-                    id="address"
-                    >Please fill out address</span>
+                    
                     <DropIn
                         options={{
                             authorization: data.clientToken,
+                            paypal: {
+                                flow: 'vault',
+                                displayName: 'e-commerce',
+                                buttonStyle: {
+                                    size: 'medium'
+                                  }
+                            }
                         }}
                         onInstance={instance => (data.instance = instance)}
                     />
-                <input type="submit" onClick={buy}  className="button"/>
+                <input type="submit" onClick={buy}  className="pay-button" value="Pay"/>
                 </form>
                      
                     <div className="purchase-info"> 
-                    <h1>To Test Payment Enter:</h1>
+                    <h1>For Testing Payments:</h1>
+                    <h2>Credit Card:</h2>
                     <ul>
                     <li>Card Number = 4111 1111 1111 1111</li>
                     <li>Expiration Date = 11/22</li>
                     <li>CVV = 123</li>
+                    </ul>
+                    <h2>Paypal:</h2>
+                    <ul>
+                    <li>Account Email = ecom-buyer@outlook.com</li>
+                    <li>Password = 12345678</li>
                     </ul>
                     </div>
                 </div>
