@@ -1,6 +1,6 @@
 ## Server side to Ecommerce Website Template
 
-## Live - https://blissful-sinoussi-600253.netlify.com/
+## Live - https://ecommerce-template64.netlify.com/
 
 ## Summary 
 The e-commerce website, designed as a template for anyone that wants to sell products. 
