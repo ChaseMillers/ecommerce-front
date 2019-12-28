@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import Layout from "../layout/Layout";
 import Card from "../card/Card";
 import Checkout from "../checkout/Checkout";
-import Countries from "../checkout/Countries";
 import { itemTotal, getCart } from '../cartHelpers';
 import "./Cart.css"
 

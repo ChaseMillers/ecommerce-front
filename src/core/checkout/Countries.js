@@ -2,14 +2,15 @@ import React, { useState, useEffect } from "react";
 import Checkout from "./Checkout";
 import './Checkout'
 import cart from "../cart/Cart"
-const country = ({ handleCountry }) => {
+const Country = ({ handleCountry }) => {
    
     return(
         <select 
             id="country" 
             name="country" 
             class="form-control"
-            onChange={handleCountry}   
+            onChange={handleCountry} 
+            tabindex="-1"  
             >
                 <option value="US">United States</option>
                 <option value="AF">Afghanistan</option>
@@ -263,4 +264,4 @@ const country = ({ handleCountry }) => {
             </select>
             )
 }
-export default country
+export default Country
