@@ -36,6 +36,34 @@ const Home = () => {
          // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
+    const showNewProducts = () =>{
+        if (productsByArrival.length >0)
+        return(
+            <div className="home-row">
+            {productsBySell.map((product, i) => (
+                <div key={i} className="home-layout ">
+                    <Card product={product} />
+                </div>
+            ))}
+        </div>
+        )
+        else{return(<h1 className="loading">Loading...</h1>)}
+    }
+
+    const showBestSellers = () =>{
+        if (productsBySell.length >0)
+        return(
+            <div className="home-row">
+            {productsByArrival.map((product, i) => (
+                <div key={i} className="home-layout ">
+                    <Card product={product} />
+                </div>
+            ))}
+        </div>
+        )
+        else{return(<h1 className="loading">Loading...</h1>)}
+    }
+
     return (
         <Layout
             title="E-commerce App"
@@ -44,22 +72,9 @@ const Home = () => {
         >
         <Search />
         <h1 className="margin-bottom" tabIndex="0">New Arrivals</h1>
-        <div className="home-row">
-            {productsByArrival.map((product, i) => (
-                <div key={i} className="home-layout ">
-                    <Card product={product} />
-                </div>
-            ))}
-        </div>
-
+        {showNewProducts()}
         <h1 className="home-margin" tabIndex="0">Best Sellers</h1>
-        <div className="home-row">
-            {productsBySell.map((product, i) => (
-                <div key={i} className="home-layout ">
-                    <Card product={product} />
-                </div>
-            ))}
-        </div>
+        {showBestSellers()}
         </Layout>
     );
 };

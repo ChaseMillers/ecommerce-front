@@ -3,7 +3,7 @@
 }
 
 body {
-    font-family: Helvetica, sans-serif;
+    font-family: 'Open Sans',sans-serif;
     line-height: 1;
     margin: 0;
     color: #212529;
@@ -24,10 +24,6 @@ h1 {
 p {
     margin-bottom: 5px;
     margin-top: 0;
-}
-  
-.margin-bottom{
-    margin-bottom: 24px; 
 }
 
 /**
@@ -95,7 +91,6 @@ hr {
     margin-top: -20px;
 }
 
-
  /**
   * holds color animation
   */
@@ -103,7 +98,6 @@ hr {
     padding: 32px 16px;
     padding-top: 50px;
     margin-top: 43px;
-    margin-bottom: 32px;
     color: #fff;
     background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
     background-size: 400% 400%;

@@ -59,7 +59,7 @@ li.nav-item {
 
 /* header */
 .header {
-    position: fixed;
+    position: absolute;
     top:0;
     width: 100%;
     max-height: 44px;

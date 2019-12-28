@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
+import Country from "./Countries"
 import {
     getBraintreeClientToken,
     processPayment,
     createOrder
 } from "../apiCore";
-import { emptyCart } from "../cartHelpers";
+import { emptyCart, itemTotal } from "../cartHelpers";
 import { isAuthenticated } from "../../auth";
 import { Link } from "react-router-dom";
 import DropIn from "braintree-web-drop-in-react";
@@ -17,7 +18,14 @@ const Checkout = ({ products }) => {
         clientToken: null,
         error: "",
         instance: {},
-        address: ""
+        email: "",
+        name: "",
+        address: "",
+        apt: "",
+        city: "",
+        zip: "",
+        state: "",
+        country: "",
     });
 
     const userId = isAuthenticated() && isAuthenticated().user._id;
@@ -37,24 +45,53 @@ const Checkout = ({ products }) => {
         getToken(userId, token);
     }, [userId, token]);
 
-    const handleAddress = event => {
-        setData({ ...data, address: event.target.value });
+    const handleEmail = event => {
+        setData({ 
+            ...data, 
+            email: event.target.value
+        });
     };
-
-    // brings total to money value
-    function financial(x) {
-        return Number.parseFloat(x).toFixed(2);
-    }
-
-    // adds the total
-    const getTotal = () => {
-        return products.reduce((currentValue, nextValue) => {
-            return (
-            currentValue + 
-            nextValue.count * 
-            nextValue.price
-            )
-        },0)
+    const handleName = event => {
+        setData({ 
+            ...data, 
+            name: event.target.value,
+        });
+    };
+    const handleAddress = event => {
+        setData({ 
+            ...data, 
+            address: event.target.value,
+        });
+    };
+    const handleApt = event => {
+        setData({ 
+            ...data, 
+            apt: event.target.value,
+        });
+    };
+    const handleCity = event => {
+        setData({ 
+            ...data, 
+            city: event.target.value,
+        });
+    };
+    const handleZip = event => {
+        setData({ 
+            ...data, 
+            zip: event.target.value,
+        });
+    };
+    const handleState = event => {
+        setData({ 
+            ...data, 
+            state: event.target.value,
+        });
+    }; 
+    const handleCountry = (event) => {
+        setData({ 
+            ...data, 
+            country: event.target.value,
+        });
     };
 
     const showCheckout = () => {
@@ -62,7 +99,7 @@ const Checkout = ({ products }) => {
             <div>{showDropIn()}</div>
         ) : (
             <Link to="/signin">
-                <button className="button button-blue">Sign in to checkout</button>
+                <button className="button">Sign in to checkout</button>
             </Link>
         );
     };
@@ -73,8 +110,14 @@ const Checkout = ({ products }) => {
         buy()
       };
 
+    let name = data.name;
     let deliveryAddress = data.address;
-
+    let apt = data.apt;
+    let city = data.city
+    let zip = data.zip
+    let state = data.state
+    let email = data.email
+    let country = data.country
     const buy = () => {
         if (deliveryAddress !== undefined){
         setData({ loading: true });
@@ -95,7 +138,7 @@ const Checkout = ({ products }) => {
                 // );
                 const paymentData = {
                     paymentMethodNonce: nonce,
-                    amount: getTotal(products)
+                    amount: itemTotal(products)
                 };
 
                 processPayment(userId, token, paymentData)
@@ -107,7 +150,14 @@ const Checkout = ({ products }) => {
                             products: products,
                             transaction_id: response.transaction.id,
                             amount: response.transaction.amount,
-                            address: deliveryAddress
+                            email: email,
+                            name: name,
+                            address: deliveryAddress,
+                            apt: apt,
+                            city: city,
+                            zip: zip,
+                            state: state,
+                            country: country
                         };
 
                         createOrder(userId, token, createOrderData)
@@ -141,17 +191,134 @@ const Checkout = ({ products }) => {
             {data.clientToken !== null && products.length > 0 ? (
                 <div>
                 <form onSubmit={handleSubmit}>
-                    <label className="address">Delivery address:</label>
-                    <textarea
-                        type="text"
-                        aria-label="delivery address input"
-                        onChange={handleAddress}
-                        className="address-input "
-                        value={data.address}
-                        placeholder="Type your delivery address here..."
-                        required
-                    />
-                    
+
+                    <div className="full-address-bar">
+                        <label className="address">
+                            Email
+                            <span class="required"> *</span>
+                        </label>
+                        <div class="email-address">
+                            <textarea autocomplete="email" 
+                            class="form-control" 
+                            placeholder="Enter your email" 
+                            required 
+                            type="email"
+                            onChange={handleEmail}   
+                            value={data.email}
+                            />
+                        </div>
+                    </div>
+
+                    <div class="shipping-address">
+                        <div className="full-address-bar">
+                            <div class="address">
+                            Ship to
+                            </div>
+                            <label className="address-title">
+                                Full name
+                                <span class="required"> *</span>
+                            </label>
+                            <textarea 
+                                class="form-control" 
+                                maxlength="30" 
+                                placeholder="Enter your full name" 
+                                required
+                                type="text"
+                                onChange={handleName}   
+                                value={data.name}
+                            />
+                        </div>
+                        <div className="long-address-bar">
+                            <label className="address-title">
+                                Street address (shipping)
+                                <span class="required"> *</span>
+                            </label>
+                            <textarea
+                                class="form-control" 
+                                maxlength="28" 
+                                placeholder="Address" 
+                                required
+                                type="text"
+                                onChange={handleAddress}   
+                                value={data.address}
+                            />
+                        </div>
+                        
+                        <div className='mini-address-bar'>
+                            <label className="address-title">
+                                Apt./Suite
+                            </label>
+                            <textarea
+                                class="form-control" 
+                                maxlength="28" 
+                                placeholder="Apt./Suite" 
+                                type="text"
+                                onChange={handleApt}   
+                                value={data.apt}
+                            />
+                        </div>
+
+                        <div className="long-address-bar">
+                            <label className="address-title">
+                                City
+                                <span class="required"> *</span>
+                            </label>
+                            <textarea 
+                                class="form-control" 
+                                maxlength="25" 
+                                placeholder="City" 
+                                required
+                                type="text"
+                                onChange={handleCity}   
+                                value={data.city}
+                            />
+                        </div>
+
+                        <div className='mini-address-bar'>
+                            <label className="address-title">
+                                Postal code
+                                <span class="required"> *</span>
+                            </label>
+                            <textarea 
+                                class="form-control" 
+                                maxlength="15" 
+                                placeholder="ZIP" 
+                                required
+                                type="text"
+                                onChange={handleZip}   
+                                value={data.zip}
+                            />
+                        </div>
+
+                        <div className="half-address-bar">
+                            <label className="address-title">
+                                State or Province
+                                <span class="required"> *</span>
+                            </label>
+                            <textarea
+                                class="form-control" 
+                                autocomplete="off" 
+                                maxlength="25" 
+                                placeholder="State" 
+                                required
+                                type="text"
+                                onChange={handleState}   
+                                value={data.state}
+                            />
+                        </div>
+
+                        <div className='half-address-bar'>
+                            <label className="address-title">
+                                Country 
+                                <span class="required"> *</span>
+                            </label>
+                                <Country 
+                                handleCountry={handleCountry} 
+                                data={data}/>
+                        </div>
+
+                    </div>
+                    <div className="error">{data.error}</div>
                     <DropIn
                         options={{
                             authorization: data.clientToken,
@@ -165,7 +332,9 @@ const Checkout = ({ products }) => {
                         }}
                         onInstance={instance => (data.instance = instance)}
                     />
-                <input type="submit" onClick={buy}  className="pay-button" value="Pay"/>
+                    <div className="pay-button-container">
+                        <input type="submit" onClick={buy}  className="pay-button" value="Pay"/>
+                    </div>
                 </form>
                      
                     <div className="purchase-info"> 
@@ -212,7 +381,6 @@ const Checkout = ({ products }) => {
     return (
        
         <div className="checkout-info">
-            <h1>Total: ${financial(getTotal())}</h1>
             {showLoading(data.loading)}
             {showSuccess(data.success)}
             {showError(data.error)}

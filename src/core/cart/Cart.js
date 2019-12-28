@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import Layout from "../layout/Layout";
 import Card from "../card/Card";
 import Checkout from "../checkout/Checkout";
-import {itemTotalCount, getCart} from '../cartHelpers';
+import Countries from "../checkout/Countries";
+import { itemTotal, getCart } from '../cartHelpers';
 import "./Cart.css"
 
 const Cart = () => {
@@ -16,7 +17,7 @@ const Cart = () => {
     const showItems = items => {
         return (
             <div>
-                <h1>Your cart has {itemTotalCount()} items</h1>
+                <h1>Total ${itemTotal()}</h1>
                 <hr />
                 {items.map((product, i) => (
                     <Card
@@ -41,16 +42,21 @@ const Cart = () => {
         <Layout
             title="Shopping Cart"
             description="Manage your cart items. Add remove checkout or continue shopping."
-            className="cart-container"
         >
             <div className="cart-row">
-                <div className="cart-layout">
-                    <h1 className="margin-bottom">Your cart summary</h1>
-                    <hr />
-                    <Checkout products={items} />
+                <div className="address-container">
+                    <div className="cart-layout grey">
+                        <div className="long-address-bar block">
+                        <h1 className="cart-headers">Shipping Address</h1>
+                        <hr />
+                        </div>
+                        <Checkout products={items} />
+                    </div>
                 </div>
-                <div className="total cart-layout">
-                    {items.length > 0 ? showItems(items) : noItemsMessage()}
+                <div className="items-container">
+                    <div className="total cart-layout">
+                        {items.length > 0 ? showItems(items) : noItemsMessage()}
+                    </div>
                 </div>
             </div>
         </Layout>
