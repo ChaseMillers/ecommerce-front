@@ -38,24 +38,14 @@ const Cart = () => {
     );
 
     return (
-        <Layout
+        <Layout className="cart-row"
             title="Shopping Cart"
             description="Manage your cart items. Add remove checkout or continue shopping."
         >
-            <div className="cart-row">
-                <div className="address-container">
-                    <div className="cart-layout grey">
-                        <div className="long-address-bar block">
-                        <h1 className="cart-headers">Shipping Address</h1>
-                        <hr />
-                        </div>
-                        <Checkout products={items} />
-                    </div>
-                </div>
-                <div className="items-container">
-                    <div className="total cart-layout">
-                        {items.length > 0 ? showItems(items) : noItemsMessage()}
-                    </div>
+            <Checkout products={items} />
+            <div className="items-container">
+                <div className="total cart-layout">
+                    {items.length > 0 ? showItems(items) : noItemsMessage()}
                 </div>
             </div>
         </Layout>

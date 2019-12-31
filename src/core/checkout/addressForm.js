@@ -1,7 +1,7 @@
-import React from "react";
 import Country from "./Countries"
- 
-const addressForm = ({setData, data}) => {
+import React, { useState, useEffect } from "react";
+
+const AddressForm = ({setData, data}) => {
 
     const handleEmail = event => {
     setData({ 
@@ -45,15 +45,31 @@ const addressForm = ({setData, data}) => {
         state: event.target.value,
     });
     }; 
-    const handleCountry = (event) => {
+
+    const handleCountry = event => {
     setData({ 
         ...data, 
         country: event.target.value,
     });
-    };
-    
+    }
+
+    const countryWasNotSellect = () => {
+        if (data.country === undefined) {
+            setData({ 
+                ...data, 
+                country: "US"
+            })
+        }
+    }
+
+    useEffect(() => {
+        countryWasNotSellect();
+    }, []);
+
     return(
         <div>
+        <h1>Shipping Address</h1>
+        <hr />
         <div className="full-address-bar">
         <label className="address">
             Email
@@ -183,9 +199,9 @@ const addressForm = ({setData, data}) => {
             </label>
                 <Country 
                 handleCountry={handleCountry} 
-                data={data}/>
+                data={data}/> 
         </div>
         </div>
         </div>
     )}
-export default addressForm
+export default AddressForm

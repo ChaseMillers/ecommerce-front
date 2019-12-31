@@ -55,16 +55,11 @@ button:not(:disabled) {
 }
 
 .caution {
+    background-color: #d1ecf1;
     border: 1px solid transparent; 
     border-radius: 3px;
-    position: relative; 
     padding: 12px 20px; 
     margin-bottom: 16px; 
-}
-.caution-text {
-    background-color: #d1ecf1;
-    border-color: #bee5eb;
-    color: #0c5460;
 }
 
 hr {

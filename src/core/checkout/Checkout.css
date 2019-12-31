@@ -112,10 +112,6 @@
     padding:0 15px;
 }
 
-.grey{
-    background: #f6f6f8;
-}
-
 .error{
     color:rgb(255, 60, 0);
     font-weight: bold;

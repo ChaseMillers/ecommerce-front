@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from "react";
-import Checkout from "./Checkout";
+import React from "react";
 import './Checkout'
-import cart from "../cart/Cart"
-const Country = ({ handleCountry }) => {
+
+const Country = ({ handleCountry, data }) => {
    
     return(
         <select 
             id="country" 
             name="country" 
             class="form-control"
-            onChange={handleCountry} 
+            onChange={handleCountry}  
+            value={data.country}
             tabindex="-1"  
             >
                 <option value="US">United States</option>

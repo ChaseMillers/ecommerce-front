@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Country from "./Countries"
 import {
     getBraintreeClientToken,
     processPayment,
@@ -10,8 +9,7 @@ import { isAuthenticated } from "../../auth";
 import { Link } from "react-router-dom";
 import DropIn from "braintree-web-drop-in-react";
 import "./Checkout.css"
-import addressForm from "./addressForm"
-
+import AddressForm from "./AddressForm"
 
 const Checkout = ({ products }) => {
 
@@ -145,8 +143,7 @@ const Checkout = ({ products }) => {
             {data.clientToken !== null && products.length > 0 ? (
                 <div>
                 <form onSubmit={handleSubmit}>
-
-                    <addressForm setData={setData} data={data}/>
+                    <AddressForm setData={setData} data={data} />
                     <div className="error">{data.error}</div>
                     <DropIn
                         options={{
@@ -196,7 +193,7 @@ const Checkout = ({ products }) => {
 
     const showSuccess = success => (
         <div
-            className="caution caution-text"
+            className="caution"
             style={{ display: success ? "" : "none" }}
         >
             Thanks! Your payment was successful!
@@ -207,13 +204,14 @@ const Checkout = ({ products }) => {
         loading && <h1 className="loading">Loading...</h1>;
         
     return (
-       
-        <div className="checkout-info">
-            {showLoading(data.loading)}
-            {showSuccess(data.success)}
-            {showError(data.error)}
-            {showCheckout()}
-        </div>
+            <div className={products.length > 0 ? "checkout-info" : "none"} >
+                <div className="cart-layout">
+                    {showLoading(data.loading)}
+                    {showSuccess(data.success)}
+                    {showError(data.error)}
+                    {showCheckout()}
+                </div>
+            </div>
     );
 };
 
