@@ -42,7 +42,8 @@ const Cart = () => {
             title="Shopping Cart"
             description="Manage your cart items. Add remove checkout or continue shopping."
         >
-            <Checkout products={items} />
+            
+                <Checkout products={items} />
             <div className="items-container">
                 <div className="total cart-layout">
                     {items.length > 0 ? showItems(items) : noItemsMessage()}

@@ -48,7 +48,7 @@ const Checkout = ({ products }) => {
 
     const showCheckout = () => {
         return isAuthenticated() ? (
-            <div>{showDropIn()}</div>
+            showDropIn()
         ) : (
             <Link to="/signin">
                 <button className="button">Sign in to checkout</button>
@@ -141,7 +141,7 @@ const Checkout = ({ products }) => {
     //onBlur means when you click somewhere on the page, the data error will empty. 
         <div onBlur={() => setData({ ...data, error: "" })}>
             {data.clientToken !== null && products.length > 0 ? (
-                <div>
+               
                 <form onSubmit={handleSubmit}>
                     <AddressForm setData={setData} data={data} />
                     <div className="error">{data.error}</div>
@@ -161,7 +161,6 @@ const Checkout = ({ products }) => {
                     <div className="pay-button-container">
                         <input type="submit" onClick={buy}  className="pay-button" value="Pay"/>
                     </div>
-                </form>
                     <div className="purchase-info"> 
                     <h1>For Testing Payments:</h1>
                     <h2>Credit Card:</h2>
@@ -176,9 +175,9 @@ const Checkout = ({ products }) => {
                     <li>Password = 12345678</li>
                     </ul>
                     </div>
-                </div>
+                </form>
+              
             ) : null}
-
         </div>
     );
 
@@ -198,7 +197,7 @@ const Checkout = ({ products }) => {
         >
             Thanks! Your payment was successful!
         </div>
-    );
+    );    
 
     const showLoading = loading =>
         loading && <h1 className="loading">Loading...</h1>;

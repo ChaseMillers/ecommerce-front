@@ -112,6 +112,11 @@
     padding:0 15px;
 }
 
+.none{
+    width:0;
+    height:0;
+}
+
 .error{
     color:rgb(255, 60, 0);
     font-weight: bold;

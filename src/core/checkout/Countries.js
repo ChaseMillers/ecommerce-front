@@ -10,7 +10,7 @@ const Country = ({ handleCountry, data }) => {
             class="form-control"
             onChange={handleCountry}  
             value={data.country}
-            tabindex="-1"  
+            
             >
                 <option value="US">United States</option>
                 <option value="AF">Afghanistan</option>
