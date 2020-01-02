@@ -11,7 +11,7 @@ import DropIn from "braintree-web-drop-in-react";
 import "./Checkout.css"
 import AddressForm from "./AddressForm"
 
-const Checkout = ({ products setRun = f => f, run = undefined }) => {
+const Checkout = ({ products, setRun = f => f, run = undefined }) => {
 
     const [data, setData] = useState({
         loading: false,
