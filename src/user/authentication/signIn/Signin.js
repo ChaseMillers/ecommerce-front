@@ -7,7 +7,7 @@ import './Signin.css'
 
 const Signin = () => {
     const [values, setValues] = useState({
-        email: "demo@gmail.com",
+        email: "guest@gmail.com",
         password: "123456",
         error: "",
         loading: false,

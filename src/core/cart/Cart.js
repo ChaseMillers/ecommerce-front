@@ -8,10 +8,11 @@ import "./Cart.css"
 
 const Cart = () => {
     const [items, setItems] = useState([]);
+    const [run, setRun] = useState(false);
 
     useEffect(() => {
         setItems(getCart());
-    }, [items]);    
+    }, [run]);    
 
     const showItems = items => {
         return (
@@ -25,6 +26,8 @@ const Cart = () => {
                         showAddToCartButton={false}
                         cartUpdate={true}
                         showRemoveProductButton={true}
+                        setRun={setRun}
+                        run={run}
                     />
                 ))}
             </div>
@@ -32,7 +35,7 @@ const Cart = () => {
     };
 
     const noItemsMessage = () => (
-        <h1>
+        <h1 className="emptyCartMessage">
             Your cart is empty. <br /> <Link to="/shop">Continue shopping</Link>
         </h1>
     );
@@ -42,9 +45,8 @@ const Cart = () => {
             title="Shopping Cart"
             description="Manage your cart items. Add remove checkout or continue shopping."
         >
-            
-                <Checkout products={items} />
-            <div className="items-container">
+                <Checkout products={items} setRun={setRun} run={run} />
+                <div className="items-container">
                 <div className="total cart-layout">
                     {items.length > 0 ? showItems(items) : noItemsMessage()}
                 </div>

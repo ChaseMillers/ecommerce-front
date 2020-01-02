@@ -11,7 +11,7 @@ import DropIn from "braintree-web-drop-in-react";
 import "./Checkout.css"
 import AddressForm from "./AddressForm"
 
-const Checkout = ({ products }) => {
+const Checkout = ({ products setRun = f => f, run = undefined }) => {
 
     const [data, setData] = useState({
         loading: false,
@@ -28,6 +28,14 @@ const Checkout = ({ products }) => {
         state: "",
         country: "",
     });
+    let name = data.name;
+    let deliveryAddress = data.address;
+    let apt = data.apt;
+    let city = data.city;
+    let zip = data.zip;
+    let state = data.state;
+    let email = data.email;
+    let country = data.country;
 
     const userId = isAuthenticated() && isAuthenticated().user._id;
     const token = isAuthenticated() && isAuthenticated().token;
@@ -57,74 +65,64 @@ const Checkout = ({ products }) => {
     };
 
     const handleSubmit = (event) => {
-        if (event) event.preventDefault();
+        if (event) {
+        event.preventDefault();
         event.persist();
-        buy()
-      };
-
-    let name = data.name;
-    let deliveryAddress = data.address;
-    let apt = data.apt;
-    let city = data.city;
-    let zip = data.zip;
-    let state = data.state;
-    let email = data.email;
-    let country = data.country;
+        name && deliveryAddress && city && zip && state && email 
+        ? buy() : showError();
+        }
+    };
+    
     const buy = () => {
-        if (deliveryAddress !== undefined){
         setData({ loading: true });
-        
         // send the nonce to your server
         // nonce = data.instance.requestPaymentMethod()
         let nonce;
         data.instance
-            .requestPaymentMethod()
-            .then(data => {
-                nonce = data.nonce;
-                // once you have nonce (card type, card number) send nonce as 'paymentMethodNonce'
-                // and also total to be charged
-                // console.log(
-                //     "send nonce and total to process: ",
-                //     nonce,
-                //     getTotal(products)
-                // );
-                const paymentData = {
-                    paymentMethodNonce: nonce,
-                    amount: itemTotal(products)
-                };
+        .requestPaymentMethod()
+        .then(data => {
+            // console.log(data);
+            nonce = data.nonce;
+            // once you have nonce (card type, card number) send nonce as 'paymentMethodNonce'
+            // and also total to be charged
+            // console.log(
+            //     "send nonce and total to process: ",
+            //     nonce,
+            //     getTotal(products)
+            // );
+            const paymentData = {
+                paymentMethodNonce: nonce,
+                amount: itemTotal(products)
+            };
 
-                processPayment(userId, token, paymentData)
+            processPayment(userId, token, paymentData)
+                .then(response => {
+                    // empty cart
+                    // create order
+
+                    const createOrderData = {
+                        products: products,
+                        transaction_id: response.transaction.id,
+                        amount: response.transaction.amount,
+                        email: email,
+                        name: name,
+                        address: deliveryAddress,
+                        apt: apt,
+                        city: city,
+                        zip: zip,
+                        state: state,
+                        country: country
+                    };
+
+                    createOrder(userId, token, createOrderData)
                     .then(response => {
-                        // empty cart
-                        // create order
-
-                        const createOrderData = {
-                            products: products,
-                            transaction_id: response.transaction.id,
-                            amount: response.transaction.amount,
-                            email: email,
-                            name: name,
-                            address: deliveryAddress,
-                            apt: apt,
-                            city: city,
-                            zip: zip,
-                            state: state,
-                            country: country
-                        };
-
-                        createOrder(userId, token, createOrderData)
-                            .then(response => {
-                                emptyCart(() => {
-                                    setData({
-                                        loading: false,
-                                        success: true
-                                    });
-                                });
-                            })
-                            .catch(error => {
-                                console.log(error);
-                                setData({ loading: false });
+                        emptyCart(() => {
+                            setRun(!run); // run useEffect in parent Cart
+                            setData({
+                                loading: false,
+                                success: true
                             });
+                        });
                     })
                     .catch(error => {
                         console.log(error);
@@ -132,19 +130,24 @@ const Checkout = ({ products }) => {
                     });
             })
             .catch(error => {
-                setData({ ...data, error: error.message });
+                console.log(error);
+                setData({ loading: false });
             });
-        }
-    }
+    })
+    .catch(error => {
+        // console.log("dropin error: ", error);
+        setData({ ...data, error: error.message });
+    });
+    };
 
-    const showDropIn = () => (
-    //onBlur means when you click somewhere on the page, the data error will empty. 
-        <div onBlur={() => setData({ ...data, error: "" })}>
+    const showDropIn = () => ( 
+        <div onClick={() => setData({ ...data, error: "" })}>
             {data.clientToken !== null && products.length > 0 ? (
                
                 <form onSubmit={handleSubmit}>
                     <AddressForm setData={setData} data={data} />
-                    <div className="error">{data.error}</div>
+                    {pleaseSellect(data.error)}
+                    
                     <DropIn
                         options={{
                             authorization: data.clientToken,
@@ -159,9 +162,10 @@ const Checkout = ({ products }) => {
                         onInstance={instance => (data.instance = instance)}
                     />
                     <div className="pay-button-container">
-                        <input type="submit" onClick={buy}  className="pay-button" value="Pay"/>
+                        <input type="submit" className="pay-button" value="Pay"/>
                     </div>
                     <div className="purchase-info"> 
+
                     <h1>For Testing Payments:</h1>
                     <h2>Credit Card:</h2>
                     <ul>
@@ -190,6 +194,15 @@ const Checkout = ({ products }) => {
         </div>
     );
 
+    const pleaseSellect = error => (
+        <div
+            className="caution error"
+            style={{ display: error ? "" : "none" }}
+        >
+           ↓ Please Sellect A Payment Method 
+        </div>
+    );
+
     const showSuccess = success => (
         <div
             className="caution"
@@ -204,11 +217,11 @@ const Checkout = ({ products }) => {
         
     return (
             <div className={products.length > 0 ? "checkout-info" : "none"} >
+                {showSuccess(data.success)}
                 <div className="cart-layout">
-                    {showLoading(data.loading)}
-                    {showSuccess(data.success)}
-                    {showError(data.error)}
-                    {showCheckout()}
+                {showLoading(data.loading)}
+                {showError(data.error)}
+                {showCheckout()}
                 </div>
             </div>
     );

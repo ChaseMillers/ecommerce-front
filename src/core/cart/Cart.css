@@ -24,7 +24,9 @@
     padding: 40px 64px 84px;
 }
 
-
+.emptyCartMessage{
+    padding-top: 30px;
+}
 .total{
     margin: 0 auto 0 0;
     max-width: 520px;
@@ -34,6 +36,9 @@
     .cart-layout {
         max-width: 100%;
         min-width: 100%;
+    }
+    .emptyCartMessage{
+        text-align: center;
     }
     .total{
         margin: auto auto;
