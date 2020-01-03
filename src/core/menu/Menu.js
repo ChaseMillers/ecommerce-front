@@ -15,6 +15,9 @@ const isActive = (history, path) => {
     }
 };
 
+const userId = isAuthenticated() && isAuthenticated().user._id;
+const guestId = "5e0bbc73c3a74f0024630fd8"
+
 const Menu = ({ history }) => (
     
     <div className="header">
@@ -81,10 +84,15 @@ const Menu = ({ history }) => (
                 </li>
             )}
 
-            {!isAuthenticated() &&(
+            {!isAuthenticated() || isAuthenticated().user.role === 3? (
                 <Fragment>        
                     <li className= "nav-item">
                         <Link className="nav-link" 
+                        onClick={() =>
+                            signout(() => {
+                                history.push("/");
+                            })
+                        }
                         style={isActive(history, '/signin')} 
                         to="/signin">
                             Signin
@@ -98,10 +106,10 @@ const Menu = ({ history }) => (
                             </Link>
                     </li>
                 </Fragment>
-            )}
+            ): ""}
 
 
-            {isAuthenticated() && (
+            {isAuthenticated() && !isAuthenticated().user.role === 3 &&(
                 <li className="nav-item">
                     <button
                         className="nav-link signout"

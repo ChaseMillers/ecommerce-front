@@ -59,7 +59,7 @@ const Signin = () => {
                     value={password}
                 />
             </div>
-            <button onClick={clickSubmit} className="button button-blue">
+            <button onClick={clickSubmit} className="button">
                 Sign In
             </button>
             <h2>How it works</h2>

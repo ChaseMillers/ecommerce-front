@@ -131,6 +131,10 @@ select{
     vertical-align:top;
 }
 
+.guest-container{
+    width:300px;
+}
+
 @media screen and (max-width: 1016px){
     .half-address-bar{
         width: 100%;

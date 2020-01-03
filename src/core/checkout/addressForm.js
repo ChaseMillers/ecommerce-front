@@ -1,4 +1,4 @@
-import Country from "./Countries"
+import Country from "./countries"
 import React, { useState, useEffect } from "react";
 
 const AddressForm = ({setData, data}) => {
@@ -45,7 +45,6 @@ const AddressForm = ({setData, data}) => {
         state: event.target.value,
     });
     }; 
-
     const handleCountry = event => {
     setData({ 
         ...data, 
