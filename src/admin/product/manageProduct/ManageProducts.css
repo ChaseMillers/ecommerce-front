@@ -15,9 +15,10 @@
 }
 
 .manage-products{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    margin: 10px 0;
+    padding: 0 10px;
+    border: 2px solid #ced4da;
+    width: fit-content;
 }
 
 .manage-products-row{
@@ -27,34 +28,13 @@
     justify-content: center;
 }
 
+
 .total-products {
-    text-align: center;
+   margin-top: 15px;
 }
 
-.update {
-    border: 1px solid #000;
-    color: rgb(231, 231, 231);
-    background-color: #368ddf;
-    padding-right: 10px;
-    padding-left: 10px;
-    border-radius: 50px;
+.manage-product-name{
+    display: block;
+    line-height: 30px;
 }
 
-.update:hover {
-    background-color: #d9dc35;
-    color: #212529;
-}
-
-.destroy {
-    border: 1px solid #000;
-    color: rgb(231, 231, 231);
-    background-color: #ffc107;
-    padding-right: 10px;
-    padding-left: 10px;
-    border-radius: 50px;
-}
-
-.destroy:hover {
-    background-color: #dc3545;
-    color: #212529;
-}

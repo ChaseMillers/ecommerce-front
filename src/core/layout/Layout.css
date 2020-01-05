@@ -30,19 +30,51 @@ p {
 * Buttons 
 */
 
-.button {
+.button-yellow {
+    font: inherit;
+    font-weight: normal;
+    color: #ffc107;
+    border-color: #ffc107;
+    border-style: solid;
+    background-color:transparent;
     font-size: 16px;
     padding: 6px 13px;
     transition:.16s ease-in-out;
     margin-right: 5px;
-    -webkit-appearance: button;
+    -webkit-appearance: none;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
 }
+.button-yellow:hover {
+    color: #ffffff;
+    background-color:#ffc107;
+}
 
 button:not(:disabled) {
     cursor: pointer;
+}
+
+.button-blue{
+    font-weight: normal;
+    font-family: inherit;
+    display: inline-block;
+    margin: 5px 0;
+    border: 2px solid #007bff;
+    color: #007bff;
+    text-decoration:none;
+    font-size: 16px;
+    padding: 6px 13px;
+    transition:.16s ease-in-out;
+    margin-right: 5px;
+    -webkit-appearance: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+.button-blue:hover{
+    background-color: #007bff;
+    color: white;
 }
 
 /**
@@ -86,10 +118,16 @@ hr {
     margin-top: -20px;
 }
 
+.content-container{
+    position: relative;
+    min-height: 100vh;
+    padding-bottom: 10px;
+}
+
  /**
   * holds color animation
   */
-  .banner-container{
+.banner-container{
     padding: 32px 16px;
     padding-top: 50px;
     margin-top: 43px;

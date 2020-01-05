@@ -1,5 +1,5 @@
 import Country from "./countries"
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 
 const AddressForm = ({setData, data}) => {
 
@@ -63,6 +63,7 @@ const AddressForm = ({setData, data}) => {
 
     useEffect(() => {
         countryWasNotSellect();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return(

@@ -118,16 +118,12 @@
     height: 40px;
 }
 
-textarea {
+textarea.form-control {
     resize: none;
     vertical-align:top;
 }
 
 select{
-    height:0;
-    width: 0;
-    padding: 0;
-    margin: 0;
     vertical-align:top;
 }
 

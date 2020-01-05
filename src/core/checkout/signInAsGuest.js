@@ -33,10 +33,10 @@ const SignInAsGuest = () => {
 
     const checkoutAsGuest = () => (
         <form className="guest-container">
-            <button onClick={clickSubmit} className="view-product">
+            <button onClick={clickSubmit} className="button-blue">
             Checkout as Guest?
             </button>
-            <button onClick={sendToSignIn} className="button button-yellow">
+            <button onClick={sendToSignIn} className="button-yellow">
             Already have an account?
             </button>
         </form>

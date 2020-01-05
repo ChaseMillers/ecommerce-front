@@ -30,6 +30,12 @@ const ManageProducts = () => {
         });
     };
 
+    const goBack = () => (
+        <Link to="/admin/dashboard" className="back-to-dash">
+            Back to Dashboard
+        </Link>
+    );
+
     useEffect(() => {
         loadProducts();
     }, []);
@@ -45,29 +51,28 @@ const ManageProducts = () => {
                     <h1 className="total-products">
                         Total {products.length} products
                     </h1>
-                    <hr />
-                    <ul className="column">
+                    {goBack()}
+                    <ul className="manage-product-list">
                         {products.map((p, i) => (
                             <li
                                 key={i}
-                                className="column-list manage-products"
+                                className="manage-products"
                             >
-                                <strong>{p.name}</strong>
+                                <strong className="manage-product-name">{p.name}</strong>
                                 <Link to={`/admin/product/update/${p._id}`}>
-                                    <span className="update">
+                                    <span className="button-blue">
                                         Update
                                     </span>
                                 </Link>
                                 <span
                                     onClick={() => destroy(p._id)}
-                                    className="destroy"
+                                    className="button-yellow"
                                 >
                                     Delete
                                 </span>
                             </li>
                         ))}
                     </ul>
-                    <br />
                 </div>
             </div>
         </Layout>

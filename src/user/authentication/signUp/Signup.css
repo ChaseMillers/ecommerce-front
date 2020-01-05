@@ -9,17 +9,13 @@
     border: 1px solid #ced4da;
     background-color:#cfe0f1a2;
     border-radius: 5px;
-   
     padding: 8px 8px;
 }
 
 .signup-container {
-    margin-right: auto;
-    margin-left: auto;
+    margin: 15px 0 24px 15px;
     width: 100%;
     padding-right: 14px;
-    padding-left: 14px;
-    margin-bottom: 24px; 
 }
 
 .email-pass{

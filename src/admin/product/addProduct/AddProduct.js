@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Layout from "../../../core/layout/Layout";
 import { isAuthenticated } from "../../../auth";
+import { Link } from "react-router-dom";
+import HelpPopup from "./helpPopup"
 import { createProduct, getCategories } from "../../apiAdmin";
 import "./AddProduct.css"
 
@@ -18,7 +20,8 @@ const AddProduct = () => {
         error: "",
         createdProduct: "",
         redirectToProfile: false,
-        formData: ""
+        formData: "",
+        showHelp: false,
     });
 
     const { user, token } = isAuthenticated();
@@ -83,11 +86,20 @@ const AddProduct = () => {
         });
     };
 
+    const goBack = () => (
+        <Link to="/admin/dashboard" className="back-to-dash">
+            Back to Dashboard
+        </Link>
+    );
+
     const newPostForm = () => (
-        <form className="margin-bottom" onSubmit={clickSubmit}>
+        <form className="newProductForm" onSubmit={clickSubmit}>
             <h1>Post Photo</h1>
-            <div className="add-product-container">
-                <label className="button button-blue">
+    
+            <HelpPopup values={values} setValues={setValues}/>
+            
+            <div >
+                <label className="button-blue">
                     <input
                         onChange={handleChange("photo")}
                         type="file"
@@ -96,6 +108,7 @@ const AddProduct = () => {
                     />
                 </label>
             </div>
+            <p>Recommended: Web optimised 750 x 750.</p>
 
             <div className="add-product-container">
                 <label className="product-text">Name</label>
@@ -165,6 +178,7 @@ const AddProduct = () => {
             </div>
 
             <button className="button button-blue">Create Product</button>
+            {goBack()}
         </form>
     );
 
@@ -182,7 +196,7 @@ const AddProduct = () => {
             className="caution caution-text"
             style={{ display: createdProduct ? "" : "none" }}
         >
-            <h1>{`${createdProduct}`} is created!</h1>
+            <h1>Product {createdProduct} was created!</h1>
         </div>
     );
 

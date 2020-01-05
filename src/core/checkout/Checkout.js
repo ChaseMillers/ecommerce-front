@@ -6,7 +6,6 @@ import {
 } from "../apiCore";
 import { emptyCart, itemTotal } from "../cartHelpers";
 import { isAuthenticated } from "../../auth";
-import { Link } from "react-router-dom";
 import DropIn from "braintree-web-drop-in-react";
 import "./Checkout.css"
 import AddressForm from "./addressForm"

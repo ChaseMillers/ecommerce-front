@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Layout from "../../core/layout/Layout";
 import { isAuthenticated } from "../../auth";
+import { Link } from "react-router-dom";
 import { listOrders, getStatusValues, updateOrderStatus } from "../apiAdmin";
 import moment from "moment";
 import "./Orders.css";
@@ -48,6 +49,12 @@ const Orders = () => {
             return <h1 className="total-orders">No orders</h1>;
         }
     };
+
+    const goBack = () => (
+        <Link to="/admin/dashboard" className="back-to-dash">
+            Back to Dashboard
+        </Link>
+    );
 
     const showInput = (key, value) => (
         <div className="show-input-container">
@@ -103,38 +110,38 @@ const Orders = () => {
             <div className="orders-row">
                 <div className="orders-layout">
                     {showOrdersLength()}
-
+                    {goBack()}
                     {orders.map((o, oIndex) => {
                         return (
                             <div
-                                className="margin-top"
+                                className="order-id"
                                 key={oIndex}
                                 style={{ borderBottom: "5px solid indigo" }}
                             >
                                 <h1 className="margin-bottom">
-                                    <span className="color-blue">
+                                    <span className="blue-highlight">
                                         Order ID: {o._id}
                                     </span>
                                 </h1>
 
-                                <ul className="column margin-bottom">
-                                    <li className="column-list">
+                                <ul className="order-column">
+                                    <li className="order-column-list">
                                         {showStatus(o)}
                                     </li>
-                                    <li className="column-list">
+                                    <li className="order-column-list">
                                         Transaction ID: {o.transaction_id}
                                     </li>
-                                    <li className="column-list">
+                                    <li className="order-column-list">
                                         Amount: ${o.amount}
                                     </li>
-                                    <li className="column-list">
+                                    <li className="order-column-list">
                                         Ordered by: {o.user.name}
                                     </li>
-                                    <li className="column-list">
+                                    <li className="order-column-list">
                                         Ordered on:{" "}
                                         {moment(o.createdAt).fromNow()}
                                     </li>
-                                    <li className="column-list">
+                                    <li className="order-column-list">
                                         Delivery address: {o.address}
                                     </li>
                                 </ul>
@@ -146,7 +153,7 @@ const Orders = () => {
 
                                 {o.products.map((p, pIndex) => (
                                     <div
-                                        className="margin-bottom"
+                                        className="order-id-container"
                                         key={pIndex}
                                         style={{
                                             padding: "20px",

@@ -33,7 +33,7 @@ const Card = ({
     const showViewButton = showViewProductButton => {
         return (
             showViewProductButton && (
-                <Link to={`/product/${product._id}`} className="view-product">
+                <Link to={`/product/${product._id}`} className="button-blue">
                         View Product
                 </Link>
             )
@@ -45,7 +45,7 @@ const Card = ({
             showAddToCartButton && (
                 <button
                     onClick={addToCart}
-                    className="button button-yellow"
+                    className="button-yellow"
                 >
                     Add to cart
                 </button>
@@ -61,7 +61,7 @@ const Card = ({
                         removeItem(product._id);
                         setRun(!run); // run useEffect in parent Cart
                     }}
-                        className="button button-yellow"
+                        className="button-yellow"
                 >
                     Remove Product
                 </button>
@@ -140,8 +140,6 @@ const Card = ({
                 </div>
                 {showCartUpdateOptions(cartUpdate)}
 
-               
-                
             </div>
         </div>
     );

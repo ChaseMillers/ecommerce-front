@@ -150,7 +150,6 @@ const Shop = () => {
                 <div className="filters-layout">
                     <h1 className="margin-bottom">Products</h1>
                     {showProducts()}
-                    <hr />
                     {loadMoreButton()}
                 </div>
                 {error}

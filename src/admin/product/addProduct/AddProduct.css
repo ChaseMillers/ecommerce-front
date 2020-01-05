@@ -1,11 +1,6 @@
-.form-container{
-    display: flex;
-    margin-bottom: 24px;  
-}
-
 .add-product-container{
     display: flex;
-    margin-bottom: 24px; 
+    margin: 20px 0; 
 }
 
 .add-product-inputs {
@@ -14,18 +9,48 @@
     border: 1px solid #ced4da;
     background-color:#cfe0f1a2;
     border-radius: 5px;
-    width: 100%;
-    padding: 8px 8px;
+    padding: 5px 0;
 }
 
-.new-category-row{
-    display: flex;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
+/*************** Pop Up Help Styling ***************/
+
+.prepGuide{
+    border: 2px solid #0066ff;
+    position: absolute;
+    background-color: #f4f4f4;
+    border-radius: 5px;
+    max-width: 600px;
 }
 
-.new-category-layout{
-    flex: 0 0 84%;
-    padding-right: 15px;
-    padding-left: 15px;
+.photo-help-text{
+    font-weight: initial;
+    font-size: 18px;
 }
+
+.prep-guide-title{
+    padding-left: 10px;
+    width: 400px;
+    display: inline-block;
+    background-color: rgb(224, 224, 224);
+    line-height: 40px;
+}
+
+.exit-button{
+    background-color: red;
+    width: 40px;
+    height: 40px;
+    border: none;
+    float: right;
+}
+
+.images-container-ul {
+    list-style-type: initial;
+    line-height: 23px;
+    width: 380px;
+    height: auto;
+}
+
+.newProductForm{
+    margin-bottom: 40px;
+}
+  

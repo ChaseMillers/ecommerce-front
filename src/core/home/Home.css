@@ -1,8 +1,7 @@
 .home-container {
-    margin: 0 auto;
+    margin: 0 auto 24px auto;
     width: 100%;
-    padding: 0 25px;
-    margin-bottom: 24px; 
+    padding: 10px 25px;
 }
 
 .home-layout {

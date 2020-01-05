@@ -7,7 +7,7 @@ import './Signin.css'
 
 const Signin = () => {
     const [values, setValues] = useState({
-        email: "guest@gmail.com",
+        email: "testing@gmail.com",
         password: "123456",
         error: "",
         loading: false,
@@ -39,7 +39,7 @@ const Signin = () => {
     };
 
     const signUpForm = () => (
-        <form>
+        <form className="container">
             <div className="sign-in">
                 <label className="email-pass">Email</label>
                 <input
@@ -100,8 +100,11 @@ const Signin = () => {
             if (user && user.role === 1) {
                 return <Redirect to="/admin/dashboard" />;
             }
-            else if (user && itemTotalCount() === 0){
+            else if (user && itemTotalCount() === 0 && user.role === 0){
                 return <Redirect to="/user/dashboard" />;
+            }
+            else if (user && user.role === 2){
+                return <Redirect to="/shop" />;
             }
              else {
                 return <Redirect to="/cart" />;
@@ -116,7 +119,6 @@ const Signin = () => {
         <Layout
             title="Signin"
             description="Signin to Node React E-commerce App"
-            className="container"
         >
             {showLoading()}
             {showError()}

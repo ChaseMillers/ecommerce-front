@@ -43,7 +43,7 @@ const Signup = () => {
     };
 
     const signUpForm = () => (
-        <form>
+        <form className="signup-container">
             <div className="form-container">
                 <label className="sign-in">Name</label>
                 <input
@@ -107,7 +107,6 @@ const Signup = () => {
         <Layout
             title="Signup"
             description="Signup to Node React E-commerce App"
-            className="signup-container"
         >
             {showSuccess()}
             {showError()}

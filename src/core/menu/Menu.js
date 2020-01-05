@@ -15,9 +15,6 @@ const isActive = (history, path) => {
     }
 };
 
-const userId = isAuthenticated() && isAuthenticated().user._id;
-const guestId = "5e0bbc73c3a74f0024630fd8"
-
 const Menu = ({ history }) => (
     
     <div className="header">
@@ -84,7 +81,7 @@ const Menu = ({ history }) => (
                 </li>
             )}
 
-            {!isAuthenticated() || isAuthenticated().user.role === 3? (
+            {!isAuthenticated() || isAuthenticated().user.role === 2? (
                 <Fragment>        
                     <li className= "nav-item">
                         <Link className="nav-link" 
@@ -109,7 +106,7 @@ const Menu = ({ history }) => (
             ): ""}
 
 
-            {isAuthenticated() && !isAuthenticated().user.role === 3 &&(
+            {isAuthenticated() && isAuthenticated().user.role !== 2?(
                 <li className="nav-item">
                     <button
                         className="nav-link signout"
@@ -123,7 +120,7 @@ const Menu = ({ history }) => (
                         Signout
                     </button>
                 </li>
-            )}
+            ): ""}
 
         </ul>
         </div>
