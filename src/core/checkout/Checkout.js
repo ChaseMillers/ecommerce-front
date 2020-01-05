@@ -8,8 +8,8 @@ import { emptyCart, itemTotal } from "../cartHelpers";
 import { isAuthenticated } from "../../auth";
 import DropIn from "braintree-web-drop-in-react";
 import "./Checkout.css"
-import AddressForm from "./addressForm"
-import SignInAsGuest from "./signInAsGuest"
+import AddressForm from "./checkoutHelpers/addressForm"
+import SignInAsGuest from "./checkoutHelpers/signInAsGuest"
 
 const Checkout = ({ products, setRun = f => f, run = undefined }) => {
 

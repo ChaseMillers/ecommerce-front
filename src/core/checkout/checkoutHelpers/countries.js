@@ -1,5 +1,5 @@
 import React from "react";
-import './Checkout'
+import '../Checkout'
 
 const Country = ({ handleCountry, data }) => {
    

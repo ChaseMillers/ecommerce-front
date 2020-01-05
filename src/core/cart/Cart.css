@@ -31,10 +31,14 @@
     margin: 0 auto 0 0;
     max-width: 520px;
 }
+.no-Warning{
+    -ms-flex: 1 1 50%;
+    flex: 60%;
+    background: #fff;
+}
 
 @media screen and (max-width: 1016px){
     .cart-layout {
-        max-width: 100%;
         min-width: 100%;
     }
     .emptyCartMessage{
