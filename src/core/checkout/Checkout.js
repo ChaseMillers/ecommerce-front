@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense, lazy } from "react";
 import {
     getBraintreeClientToken,
     processPayment,
@@ -6,10 +6,14 @@ import {
 } from "../apiCore";
 import { emptyCart, itemTotal } from "../cartHelpers";
 import { isAuthenticated } from "../../auth";
-import DropIn from "braintree-web-drop-in-react";
+// import DropIn from "braintree-web-drop-in-react";
 import "./Checkout.css"
 import AddressForm from "./checkoutHelpers/addressForm"
 import SignInAsGuest from "./checkoutHelpers/signInAsGuest"
+
+const DropIn = lazy(() =>
+    import("braintree-web-drop-in-react")
+);
 
 const Checkout = ({ products, setRun = f => f, run = undefined }) => {
 
@@ -28,14 +32,18 @@ const Checkout = ({ products, setRun = f => f, run = undefined }) => {
         state: "",
         country: "",
     });
-    let name = data.name;
-    let deliveryAddress = data.address;
-    let apt = data.apt;
-    let city = data.city;
-    let zip = data.zip;
-    let state = data.state;
-    let email = data.email;
-    let country = data.country;
+
+    let {
+        email = data.email,
+        name = data.name,
+        address = data.address,
+        apt = data.apt,
+        city = data.city,
+        zip = data.zip,
+        state = data.state,
+        country = data.country,
+    } = data
+    
 
     const userId = isAuthenticated() && isAuthenticated().user._id;
     const token = isAuthenticated() && isAuthenticated().token;
@@ -63,14 +71,12 @@ const Checkout = ({ products, setRun = f => f, run = undefined }) => {
     };
 
     const handleSubmit = (event) => {
-        if (event) {
         event.preventDefault();
         event.persist();
-        name && deliveryAddress && city && zip && state && email 
-        ? buy() : showError();
-        }
+        name && address && city && zip && state && email 
+        ? buy() :showError();
     };
-    
+
     const buy = () => {
         setData({ loading: true });
         // send the nonce to your server
@@ -104,14 +110,14 @@ const Checkout = ({ products, setRun = f => f, run = undefined }) => {
                         amount: response.transaction.amount,
                         email: email,
                         name: name,
-                        address: deliveryAddress,
+                        address: address,
                         apt: apt,
                         city: city,
                         zip: zip,
                         state: state,
                         country: country
                     };
-
+                  
                     createOrder(userId, token, createOrderData)
                     .then(response => {
                         emptyCart(() => {
@@ -145,8 +151,8 @@ const Checkout = ({ products, setRun = f => f, run = undefined }) => {
                 <form onSubmit={handleSubmit}>
                     <AddressForm setData={setData} data={data} />
                     {pleaseSellect(data.error)}
-                    
-                    <DropIn
+                    <Suspense fallback={<div>Loading...</div>}>
+                    <DropIn 
                         options={{
                             authorization: data.clientToken,
                             paypal: {
@@ -159,6 +165,7 @@ const Checkout = ({ products, setRun = f => f, run = undefined }) => {
                         }}
                         onInstance={instance => (data.instance = instance)}
                     />
+                    </Suspense>
                     <div className="pay-button-container">
                         <input type="submit" className="pay-button" value="Pay"/>
                     </div>
@@ -217,6 +224,7 @@ const Checkout = ({ products, setRun = f => f, run = undefined }) => {
             <div className={products.length > 0 ? "checkout-info" : "none"} >
                 {showSuccess(data.success)}
                 <div className="cart-layout">
+               
                 {showLoading(data.loading)}
                 {showError(data.error)}
                 {showCheckout()}

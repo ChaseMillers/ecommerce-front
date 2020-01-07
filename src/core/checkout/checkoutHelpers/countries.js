@@ -7,7 +7,7 @@ const Country = ({ handleCountry, data }) => {
         <select 
             id="country" 
             name="country" 
-            class="form-control"
+            className="form-control"
             onChange={handleCountry}  
             value={data.country}
             

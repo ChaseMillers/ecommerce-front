@@ -16,7 +16,6 @@ import Orders from "./admin/orders/Orders";
 import Profile from "./user/profile/Profile";
 import ManageProducts from "./admin/product/manageProduct/ManageProducts";
 import UpdateProduct from "./admin/product/updateProduct/UpdateProduct";
-import Footer from "./core/footer/Footer"
 
 const Routes = () => {
     return (
