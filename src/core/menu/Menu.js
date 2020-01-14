@@ -1,11 +1,11 @@
 // Fragment is used to wrap multiple objects
-import React, {Fragment} from 'react';
+import React, { Fragment } from 'react';
 // withRouter is for props history
 import {Link, withRouter} from 'react-router-dom';
 import {signout, isAuthenticated} from '../../auth';
-import {itemTotalCount} from '../cartHelpers';
+import { itemTotalCount } from "../cartHelpers";
+import Cart from "../cartPopup/CartPopup" 
 import "./Menu.css";
-
 
 const isActive = (history, path) => {
     if (history.location.pathname === path) {
@@ -15,8 +15,15 @@ const isActive = (history, path) => {
     }
 };
 
-const Menu = ({ history }) => (
-    
+const Menu = ({ history }) => {
+
+    const {
+        showItems,
+        toggleCart,
+        items,
+    } = Cart()
+
+    return(
     <div className="header">
         <a href="/" className="logo"><img src="/images/logo.png" alt="Logo"/></a>
         <div className="center">
@@ -44,17 +51,18 @@ const Menu = ({ history }) => (
                 </Link>
             </li>
 
-            <li className="nav-item number">
-                <Link
-                    className="nav-link"
-                    style={isActive(history, "/cart")}
-                    to="/cart"
+            <li className="nav-item number" >
+                <button
+                    className="nav-link cartMenuLink"
+                    style={{ cursor: "pointer", color: "#ffffff" }}
+                    onClick={toggleCart}
                 >
-                    Cart{" "}
+                    Cart{""}
                     <sup>
                         <small className="cart-number">{itemTotalCount()}</small>
-                    </sup>
-                </Link>
+                    </sup> 
+                </button>
+                {showItems(items)}
             </li>
 
             {isAuthenticated() && isAuthenticated().user.role === 0 && (
@@ -109,7 +117,7 @@ const Menu = ({ history }) => (
             {isAuthenticated() && isAuthenticated().user.role !== 2?(
                 <li className="nav-item">
                     <button
-                        className="nav-link signout"
+                        className="nav-link signoutMenuLink"
                         style={{ cursor: "pointer", color: "#ffffff" }}
                         onClick={() =>
                             signout(() => {
@@ -124,8 +132,10 @@ const Menu = ({ history }) => (
 
         </ul>
         </div>
-        
+       
     </div>
-)
+    
+    )
+}
 
 export default withRouter(Menu)

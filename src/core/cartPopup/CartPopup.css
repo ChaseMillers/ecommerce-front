@@ -1,0 +1,16 @@
+.cart-layout {
+    position: absolute;
+    background: white;
+    right: 15px;
+    top: 60px;
+    padding: 20px;
+    width: 350px;
+    border-radius: 10px;
+    border: 1px solid rgb(233, 233, 233);
+}
+
+.emptyCartMessage{
+    padding-top: 30px;
+}
+
+

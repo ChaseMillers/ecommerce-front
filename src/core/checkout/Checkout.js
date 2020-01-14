@@ -62,6 +62,7 @@ const Checkout = ({ products, setRun = f => f, run = undefined }) => {
         getToken(userId, token);
     }, [userId, token]);
 
+
     const showCheckout = () => {
         return isAuthenticated() ? (
             showDropIn()
@@ -70,11 +71,11 @@ const Checkout = ({ products, setRun = f => f, run = undefined }) => {
         );
     };
 
-    const handleSubmit = (event) => {
+    const HandleSubmit = (event) => {
         event.preventDefault();
         event.persist();
-        name && address && city && zip && state && email 
-        ? buy() :showError();
+        name && address && city && zip && state && email && data.instance && data.clientToken 
+        && products &&( buy() );
     };
 
     const buy = () => {
@@ -147,8 +148,8 @@ const Checkout = ({ products, setRun = f => f, run = undefined }) => {
     const showDropIn = () => ( 
         <div onClick={() => setData({ ...data, error: "" })}>
             {data.clientToken !== null && products.length > 0 ? (
-               
-                <form onSubmit={handleSubmit}>
+             
+                <form onSubmit={HandleSubmit}>
                     <AddressForm setData={setData} data={data} />
                     {pleaseSellect(data.error)}
                     <Suspense fallback={<div>Loading...</div>}>
@@ -223,8 +224,7 @@ const Checkout = ({ products, setRun = f => f, run = undefined }) => {
     return (
             <div className={products.length > 0 ? "checkout-info" : "none"} >
                 {showSuccess(data.success)}
-                <div className="cart-layout">
-               
+                <div className="cart-layout-summary">
                 {showLoading(data.loading)}
                 {showError(data.error)}
                 {showCheckout()}

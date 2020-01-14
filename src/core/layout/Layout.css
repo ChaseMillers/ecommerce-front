@@ -67,6 +67,7 @@ button:not(:disabled) {
     padding: 6px 13px;
     transition:.16s ease-in-out;
     margin-right: 5px;
+    width: fit-content;
     -webkit-appearance: none;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -75,6 +76,56 @@ button:not(:disabled) {
 .button-blue:hover{
     background-color: #007bff;
     color: white;
+}
+
+.button-green {
+    font-weight: normal;
+    font-family: inherit;
+    display: inline-block;
+    margin: 5px 0;
+    color: #3fc380;
+    border: 2px solid #3fc380;
+    border-style: solid;
+    background-color:transparent;
+    font-size: 16px;
+    padding: 6px 13px;
+    transition:.16s ease-in-out;
+    margin-right: 5px;
+    -webkit-appearance: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+}
+.button-green:hover {
+    color: #ffffff;
+    background-color:#3fc380;
+}
+
+.button-exit{
+    font: inherit;
+    font-weight: normal;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    color: #646464;
+    border: 2px solid #646464;
+    border-radius: 50%;
+    border-style: solid;
+    background-color:transparent;
+    font-size: 16px;
+    padding: 3px 13px;
+    transition:.16s ease-in-out;
+    -webkit-appearance: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+.button-exit:hover {
+    color: #ffffff;
+    background-color:#ff1111;
+}
+
+.none{
+    display: none;
 }
 
 /**

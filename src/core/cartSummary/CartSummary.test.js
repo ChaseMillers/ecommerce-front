@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom'
-import Cart from "./Cart";
+import CartSummary from "./CartSummary";
 
-describe(`Cart component`, () => {
-it('renders the Cart page', () => {
+describe(`CartSummary component`, () => {
+it('renders the CartSummary page', () => {
   const div = document.createElement('div');
   ReactDOM.render(
     <BrowserRouter>
-      <Cart />
+      <CartSummary />
     </BrowserRouter>,
     div
   )

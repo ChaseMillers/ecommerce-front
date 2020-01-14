@@ -30,6 +30,25 @@ export const addItem = (item, next) => {
     }
 };
 
+// allows user to remove item from cart
+export const removeItem = productId => {
+    let cart = [];
+    if (typeof window !== "undefined") {
+        if (localStorage.getItem("cart")) {
+            cart = JSON.parse(localStorage.getItem("cart"));
+        }
+
+        cart.forEach((product, i) => {
+            if (product._id === productId) {
+                cart.splice(i, 1);
+            }
+        });
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+    }
+    return cart;
+};
+
 export const itemTotalCount = () => {
     let cart = [];
     if (typeof window !== "undefined") {
@@ -88,25 +107,6 @@ export const updateItem = (productId, count) => {
 
         localStorage.setItem("cart", JSON.stringify(cart));
     }
-};
-
-// allows user to remove item from cart
-export const removeItem = productId => {
-    let cart = [];
-    if (typeof window !== "undefined") {
-        if (localStorage.getItem("cart")) {
-            cart = JSON.parse(localStorage.getItem("cart"));
-        }
-
-        cart.forEach((product, i) => {
-            if (product._id === productId) {
-                cart.splice(i, 1);
-            }
-        });
-
-        localStorage.setItem("cart", JSON.stringify(cart));
-    }
-    return cart;
 };
 
 export const emptyCart = next => {

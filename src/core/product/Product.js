@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Layout from "../layout/Layout";
 import { read, listRelated } from "../apiCore";
 import Card from "../card/Card";
-import "./Product.css"
+import "./Product.css";
 
 const Product = props => {
     const [product, setProduct] = useState({});

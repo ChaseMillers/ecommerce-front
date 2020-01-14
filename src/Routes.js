@@ -11,7 +11,8 @@ import AddCategory from "./admin/addCategory/AddCategory";
 import AddProduct from "./admin/product/addProduct/AddProduct";
 import Shop from "./core/shop/Shop";
 import Product from "./core/product/Product";
-import Cart from "./core/cart/Cart";
+import CartSummary from "./core/cartSummary/CartSummary";
+import CartPopup from "./core/cartPopup/CartPopup";
 import Orders from "./admin/orders/Orders";
 import Profile from "./user/profile/Profile";
 import ManageProducts from "./admin/product/manageProduct/ManageProducts";
@@ -46,7 +47,8 @@ const Routes = () => {
                     component={AddProduct}
                 />
                 <Route path="/product/:productId" exact component={Product} />
-                <Route path="/cart" exact component={Cart} />
+                <Route path="/checkout" exact component={CartSummary} />
+                <Route path="/cart" exact component={CartPopup} />
                 <AdminRoute path="/admin/orders" exact component={Orders} />
                 <PrivateRoute
                     path="/profile/:userId"

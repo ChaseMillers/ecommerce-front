@@ -69,13 +69,12 @@ const SignInAsGuest = () => {
     const redirectUser = () => {
         if (redirectToReferrer) {
             if (user){
-                return <Redirect to="/cart" />;
+                return <Redirect to="/checkout" />;
             }
              else {
                 return <Redirect to="/signin" />;
             }
         }
-       
     };
 
     return (
