@@ -11,7 +11,7 @@ const auth = (state = initialState, action) => {
     case types.OPEN_CART:
       return {
         ...state,
-        openCart: true,
+        openCart: !state.openCart,
       };
     case types.CLOSE_CART:
       return {
