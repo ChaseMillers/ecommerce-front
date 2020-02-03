@@ -1,6 +1,5 @@
 import * as types from './actionTypes';
 import {
-  itemTotal,
   getCart,
   addItem,
   removeItem,

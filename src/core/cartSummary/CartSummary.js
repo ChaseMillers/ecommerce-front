@@ -8,15 +8,13 @@ import ShowImage from "../showImage/ShowImage";
 const Cart = () => {
     const [items, setItems] = useState([]);
     const [run, setRun] = useState(false);
-    // const [count, setCount] = useState(product.count);
 
     useEffect(() => {
         setItems(getCart());
     }, [run]);    
 
     const Card = ({ product }) => {
-        const [count, setCount] = useState(product.count);
-        
+       
         return (
             <div className="product" tabIndex="0">
                 <div className="product-container">
@@ -27,7 +25,7 @@ const Cart = () => {
                     </p>
                     <p className="product-info">
                         ${product.price}</p>
-                        Quantity: {count}
+                        Quantity: {product.count}
                 </div>
             </div>
         );

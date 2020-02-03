@@ -21,6 +21,7 @@ const Cart = () => {
     return () => {};
   });
 
+
   const shouldRedirect = redirect => {
     if (redirect) {
       return <Redirect to="/checkout" />;

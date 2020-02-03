@@ -25,7 +25,7 @@ const Menu = ({ history }) => {
   useEffect(() => {
     setCount(itemTotalCount());
     return () => {};
-  });
+  },[]);
   return (
     <div className="header">
       <a href="/" className="logo">

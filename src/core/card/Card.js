@@ -6,9 +6,8 @@ import { removeCart } from '../../store/cart/actions';
 import ShowImage from '../showImage/ShowImage';
 // moment removes the need to use the native JavaScript Date object directly
 //import moment from "moment";
-import { addItem, updateItem, removeItem } from '../cartHelpers';
+import { addItem, updateItem } from '../cartHelpers';
 import './Card.css';
-import Cart from '../cartPopup/CartPopup';
 
 const Card = ({
   product,
@@ -21,8 +20,6 @@ const Card = ({
 }) => {
   const [count, setCount] = useState(product.count);
   const dispatch = useDispatch();
-
-  const { toggleCart } = Cart();
 
   const showRemoveButton = showRemoveProductButton => {
     return (
