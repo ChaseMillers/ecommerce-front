@@ -29,7 +29,9 @@ const Cart = () => {
 
   const noItemsMessage = () => (
     <h1 className="emptey-cart-message">
-      Your cart is empty. <br /> <Link to="/shop">Continue shopping</Link>
+      Your cart is empty. <br /> 
+      <Link onClick={() => dispatch({ type: types.CLOSE_CART })}
+      to="/shop">Continue shopping</Link>
     </h1>
   );
 
