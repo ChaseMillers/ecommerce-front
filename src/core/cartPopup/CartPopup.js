@@ -35,19 +35,23 @@ const Cart = () => {
 
   return (
     cart.openCart && (
-      <div className="cart-overlay" onClick={() => dispatch({ type: types.CLOSE_CART })}>
+      <div className="cart-container">
+        <div className="cart-overlay" 
+        onClick={() => dispatch({ type: types.CLOSE_CART })}>
+      </div>
+      <button
+          className="button-exit"
+          onClick={() => dispatch({ type: types.CLOSE_CART })}
+        >
+          X
+      </button>
+
         <div className="cart-layout">
           {shouldRedirect(redirect)}
           <h1>
             <span className="you-cart-title">Your Cart - </span>$
             {itemTotal() ? itemTotal() : 0}
           </h1>
-          <button
-            className="button-exit"
-            onClick={() => dispatch({ type: types.CLOSE_CART })}
-          >
-            X
-          </button>
           <button
             className={items.length > 0 ? 'button-green checkout-button' : 'none'}
             onClick={() => {
@@ -70,7 +74,7 @@ const Cart = () => {
             />
           ))}
         </div>
-      </div>
+        </div>
     )
   );
 };

@@ -1,4 +1,8 @@
 .cart-layout {
+    position: absolute;
+    z-index: 2;
+    right: 21px;
+    top: 65px;
     background: white;
     padding: 20px;
     width: 350px;
@@ -11,11 +15,11 @@
 }
 
 .cart-overlay{
-    padding: 65px 20px 100% 100%;
-    position: absolute;
+    padding: 100%;
+    position: fixed;
     right: 0px;
     background: rgb(0,0,0,.10);
-    z-index: 998;
+    z-index: 1;
     top: 0;
 }
 
@@ -23,7 +27,8 @@
     font: inherit;
     font-weight: normal;
     position: absolute;
-    top: 48px;
+    z-index: 3;
+    top: 47px;
     right: 5px;
     color: #646464;
     border: 2px solid #646464;

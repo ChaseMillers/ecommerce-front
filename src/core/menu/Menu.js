@@ -21,7 +21,7 @@ const isActive = (history, path) => {
 const Menu = ({ history }) => {
   const disptach = useDispatch();
   const cart = useSelector(state => state.cart);
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState();
   useEffect(() => {
     setCount(itemTotalCount());
     return () => {};
