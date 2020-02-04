@@ -35,39 +35,41 @@ const Cart = () => {
 
   return (
     cart.openCart && (
-      <div className="cart-layout">
-        {shouldRedirect(redirect)}
-        <h1>
-          <span className="you-cart-title">Your Cart - </span>$
-          {itemTotal() ? itemTotal() : 0}
-        </h1>
-        <button
-          className="button-exit"
-          onClick={() => dispatch({ type: types.CLOSE_CART })}
-        >
-          X
-        </button>
-        <button
-          className={items.length > 0 ? 'button-green checkout-button' : 'none'}
-          onClick={() => {
-            setRedirect(true);
-          }}
-        >
-          CHECKOUT
-        </button>
-        <hr />
-        {items.length > 0 ? null : noItemsMessage()}
-        {items.map((product, i) => (
-          <Card
-            key={i}
-            product={product}
-            showAddToCartButton={false}
-            cartUpdate={true}
-            showRemoveProductButton={true}
-            setRun={setRun}
-            run={run}
-          />
-        ))}
+      <div className="cart-overlay" onClick={() => dispatch({ type: types.CLOSE_CART })}>
+        <div className="cart-layout">
+          {shouldRedirect(redirect)}
+          <h1>
+            <span className="you-cart-title">Your Cart - </span>$
+            {itemTotal() ? itemTotal() : 0}
+          </h1>
+          <button
+            className="button-exit"
+            onClick={() => dispatch({ type: types.CLOSE_CART })}
+          >
+            X
+          </button>
+          <button
+            className={items.length > 0 ? 'button-green checkout-button' : 'none'}
+            onClick={() => {
+              setRedirect(true);
+            }}
+          >
+            CHECKOUT
+          </button>
+          <hr />
+          {items.length > 0 ? null : noItemsMessage()}
+          {items.map((product, i) => (
+            <Card
+              key={i}
+              product={product}
+              showAddToCartButton={false}
+              cartUpdate={true}
+              showRemoveProductButton={true}
+              setRun={setRun}
+              run={run}
+            />
+          ))}
+        </div>
       </div>
     )
   );

@@ -1,8 +1,5 @@
 .cart-layout {
-    position: absolute;
     background: white;
-    right: 15px;
-    top: 60px;
     padding: 20px;
     width: 350px;
     border-radius: 10px;
@@ -11,6 +8,39 @@
 
 .emptyCartMessage{
     padding-top: 30px;
+}
+
+.cart-overlay{
+    padding: 65px 20px 100% 100%;
+    position: absolute;
+    right: 0px;
+    background: rgb(0,0,0,.10);
+    z-index: 998;
+    top: 0;
+}
+
+.button-exit{
+    font: inherit;
+    font-weight: normal;
+    position: absolute;
+    top: 48px;
+    right: 5px;
+    color: #646464;
+    border: 2px solid #646464;
+    border-radius: 50%;
+    border-style: solid;
+    background-color: rgba(223, 223, 223, 0.5);
+    font-size: 16px;
+    padding: 3px 13px;
+    transition:.16s ease-in-out;
+    -webkit-appearance: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+.button-exit:hover {
+    color: #ffffff;
+    background-color: rgb(252, 16, 16, .5);
 }
 
 

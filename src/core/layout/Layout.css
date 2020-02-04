@@ -100,30 +100,6 @@ button:not(:disabled) {
     background-color:#3fc380;
 }
 
-.button-exit{
-    font: inherit;
-    font-weight: normal;
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    color: #646464;
-    border: 2px solid #646464;
-    border-radius: 50%;
-    border-style: solid;
-    background-color:transparent;
-    font-size: 16px;
-    padding: 3px 13px;
-    transition:.16s ease-in-out;
-    -webkit-appearance: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-}
-.button-exit:hover {
-    color: #ffffff;
-    background-color:#ff1111;
-}
-
 .none{
     display: none;
 }
