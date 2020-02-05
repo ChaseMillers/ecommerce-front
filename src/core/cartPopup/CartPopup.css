@@ -10,6 +10,20 @@
     border: 1px solid rgb(233, 233, 233);
 }
 
+.in-stock-cart-popup{
+    float: right;
+    padding: 5px 8px;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    margin-bottom: 5px;
+    vertical-align: baseline;
+    border-radius: 4px;
+    color: #fff;
+    background-color: #007bff;
+}
+
 .emptyCartMessage{
     padding-top: 30px;
 }
