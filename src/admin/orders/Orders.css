@@ -4,7 +4,7 @@
     font-size: 28px;
     font-weight: bold;
     line-height: 1.2;
-    color: #2690f3;
+    color: #0057a8;
 }
 
 .show-input-container{
@@ -59,9 +59,9 @@
     border: 2px solid rgba(0, 0, 0, 0.125);
 }
 
-.blue-highlight {
+.yellow-highlight {
     margin-top: 10px;
-    background-color: #007bff;
+    background-color: #f6ffc6;
 }
 
 .order-id{

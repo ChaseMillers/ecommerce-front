@@ -68,6 +68,7 @@ const Cart = () => {
             <Card
               key={i}
               product={product}
+              showStockIcon={false}
               showAddToCartButton={false}
               cartUpdate={true}
               showRemoveProductButton={true}

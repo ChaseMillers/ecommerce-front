@@ -119,7 +119,7 @@ const Orders = () => {
                                 style={{ borderBottom: "5px solid indigo" }}
                             >
                                 <h1 className="margin-bottom">
-                                    <span className="blue-highlight">
+                                    <span className="yellow-highlight">
                                         Order ID: {o._id}
                                     </span>
                                 </h1>

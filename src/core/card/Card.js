@@ -15,6 +15,7 @@ const Card = ({
   showAddToCartButton = true,
   cartUpdate = false,
   showRemoveProductButton = false,
+  showStockIcon = true,
   setRun = f => f,
   run = undefined,
 }) => {
@@ -64,9 +65,13 @@ const Card = ({
 
   const showStock = quantity => {
     return quantity > 0 ? (
+      showStockIcon && (
       <span className="in-stock">In Stock</span>
+      )
     ) : (
+      showStockIcon && (
       <span className="in-stock ">Out of Stock</span>
+      )
     );
   };
 
@@ -81,19 +86,17 @@ const Card = ({
   const showCartUpdateOptions = cartUpdate => {
     return (
       cartUpdate && (
-        <div>
-          <div className="update-options-container">
-            <div className="update-options">
-              <span className="update-options-text">Quantity</span>
-            </div>
-            <input
-              aria-label="Product quantity"
-              type="number"
-              className="card-form-inputs"
-              value={count}
-              onChange={handleChange(product._id)}
-            />
+        <div className="update-options-container">
+          <div className="update-options">
+            <span className="update-options-text">Quantity</span>
           </div>
+          <input
+            aria-label="Product quantity"
+            type="number"
+            className="card-form-inputs"
+            value={count}
+            onChange={handleChange(product._id)}
+          />
         </div>
       )
     );
