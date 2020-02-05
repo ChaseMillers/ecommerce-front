@@ -82,7 +82,7 @@ button:not(:disabled) {
     font-weight: normal;
     font-family: inherit;
     display: inline-block;
-    margin: 5px 0;
+    margin-top: 5px;
     color: #3fc380;
     border: 2px solid #3fc380;
     border-style: solid;
