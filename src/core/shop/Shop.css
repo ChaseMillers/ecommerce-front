@@ -69,6 +69,9 @@
 @media screen and (max-width: 786px){
     .row-shop {
         grid-template-columns: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
     .shop-layout{
         padding-left: 0px;
@@ -78,10 +81,9 @@
 
 @media screen and (max-width: 567px){
     .filter-container{
+        float: none;
         display: flex;
         justify-content: space-around;
-    }
-    .filter-container{
-        float: none;
+        display: none;
     }
 }
