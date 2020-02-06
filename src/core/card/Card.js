@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import * as types from '../../store/cart/actionTypes';
 import { removeCart } from '../../store/cart/actions';
 import ShowImage from '../showImage/ShowImage';
@@ -23,6 +23,7 @@ const Card = ({
 }) => {
   const [count, setCount] = useState(product.count);
   const dispatch = useDispatch();
+  const cart = useSelector(state => state.cart);
 
   const showRemoveButton = showRemoveProductButton => {
     return (
@@ -105,6 +106,10 @@ const Card = ({
     return(
       miniCard && (
       <div className="product-cart" tabIndex="0">
+        <Link to={`/product/${product._id}`} 
+        className="product-link"
+        onClick={() => dispatch({ type: types.CLOSE_CART })}>
+
         <div className="image-info-container-cart">
         <div className="image-container-cart">
         <ShowImage item={product} url="product" />
@@ -117,6 +122,7 @@ const Card = ({
           <p className="product-price-cart">${product.price}</p>
         </div>
         </div>
+        </Link>
         <div className="button-holder">
           {showRemoveButton(showRemoveProductButton)}
           {showCartUpdateOptions(cartUpdate)}

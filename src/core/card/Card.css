@@ -55,7 +55,6 @@ input[type=number]::-webkit-inner-spin-button {
 }
 
 /********* Cart *******/
-
 .image-info-container-cart{
     display: flex;
     align-items: center;
@@ -88,6 +87,11 @@ input[type=number]::-webkit-inner-spin-button {
 .product-header-cart{
     font-weight: bold;
     margin:0;
+    color: black;
+}
+
+.product-link{
+    text-decoration: none;
 }
 
 
