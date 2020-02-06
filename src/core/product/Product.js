@@ -47,7 +47,11 @@ const Product = props => {
                 <div className="view-product-layout">
                     <div className="product-name"><h1>{product.name}</h1></div>
                     {product && product.description && (
-                        <Card product={product} showViewProductButton={false} />
+                        <Card 
+                        product={product}
+                        storeCard={true} 
+                        showStockIcon={false}
+                        showViewProductButton={false} />
                     )}
                 </div>
 
@@ -55,7 +59,10 @@ const Product = props => {
                     <h1>Related products</h1>
                     {relatedProduct.map((p, i) => (
                         <div key={i} className="related">
-                            <Card key={i} product={p} />
+                            <Card 
+                            key={i} 
+                            product={p} 
+                            storeCard={true}/>
                         </div>
                     ))}
                 </div>

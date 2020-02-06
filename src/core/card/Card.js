@@ -16,6 +16,8 @@ const Card = ({
   cartUpdate = false,
   showRemoveProductButton = false,
   showStockIcon = true,
+  miniCard = false,
+  storeCard = false,
   setRun = f => f,
   run = undefined,
 }) => {
@@ -87,9 +89,6 @@ const Card = ({
     return (
       cartUpdate && (
         <div className="update-options-container">
-          <div className="update-options">
-            <span className="update-options-text">Quantity</span>
-          </div>
           <input
             aria-label="Product quantity"
             type="number"
@@ -102,8 +101,34 @@ const Card = ({
     );
   };
 
-  return (
-    <div>
+  const minCartCard = miniCard => {
+    return(
+      miniCard && (
+      <div className="product-cart" tabIndex="0">
+        <div className="image-info-container-cart">
+        <div className="image-container-cart">
+        <ShowImage item={product} url="product" />
+        </div>
+        <div className="product-container-cart">
+          <div className="product-header-cart">{product.name}</div>
+          <p className="product-title-cart">
+            {product.description.substring(0, 100)}
+          </p>
+          <p className="product-price-cart">${product.price}</p>
+        </div>
+        </div>
+        <div className="button-holder">
+          {showRemoveButton(showRemoveProductButton)}
+          {showCartUpdateOptions(cartUpdate)}
+        </div>
+        <hr/>
+      </div>
+    ))
+  }
+
+  const storefrontCard = storeCard => {
+    return (
+      storeCard && (
       <div className="product" tabIndex="0">
         <div className="product-header">{product.name}</div>
         <div className="product-container">
@@ -134,8 +159,15 @@ const Card = ({
           {showCartUpdateOptions(cartUpdate)}
         </div>
       </div>
+  ));}
+
+  return (
+    <div>
+    {storefrontCard(storeCard)}
+    {minCartCard(miniCard)}
     </div>
-  );
+  )
+
 };
 
 export default Card;

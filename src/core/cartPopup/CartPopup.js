@@ -72,6 +72,7 @@ const Cart = () => {
               showAddToCartButton={false}
               cartUpdate={true}
               showRemoveProductButton={true}
+              miniCard ={true}
               setRun={setRun}
               run={run}
             />

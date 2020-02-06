@@ -42,7 +42,10 @@ const Home = () => {
             <div className="home-row">
             {productsBySell.map((product, i) => (
                 <div key={i} className="home-layout ">
-                    <Card product={product} />
+                    <Card 
+                        product={product} 
+                        storeCard={true}
+                    />
                 </div>
             ))}
         </div>

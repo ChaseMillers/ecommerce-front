@@ -94,4 +94,7 @@
     .filter h1{
         font-size: 14px;
     }
+    .filter-select{
+        font-size: 13px;
+    }
 }
