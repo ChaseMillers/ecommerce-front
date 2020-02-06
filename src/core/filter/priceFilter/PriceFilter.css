@@ -1,1 +1,13 @@
+.filter-select{
+    margin: auto;
+    height: 35px;
+    border: 2px solid rgba(0, 0, 0, 0.125);
+    font-family: inherit;
+    font-size: inherit;
+}
 
+@media screen and (max-width: 567px){
+    .filter-select{
+        font-size: 13px;
+    }
+}

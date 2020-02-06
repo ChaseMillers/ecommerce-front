@@ -19,6 +19,7 @@
 
 .filter{
     margin-left:10px;
+    float: left;
 }
 
 .filters-layout {
@@ -39,8 +40,8 @@
 }
 
 .filter h1{
-    font-weight: 400;
-    font-size: 30px;
+    font-weight: 500;
+    font-size: 20px;
     line-height: 1.1;
     margin-top: 0;
     margin-bottom: 8px;
@@ -51,8 +52,9 @@
     margin: 0;
 }
 
-.filter-container{
-    float: left;
+.filter-fieldset{
+    display: flex;
+    text-align: center;
 }
 
 @media screen and (max-width: 1350px){
@@ -81,10 +83,15 @@
 }
 
 @media screen and (max-width: 567px){
-    .filter-container{
+    .filter{
         float: none;
         display: flex;
-        justify-content: space-around;
-        display: none;
+        justify-content: center;
+    }
+    .shop-container {
+        padding: 20px 25px;
+    }
+    .filter h1{
+        font-size: 14px;
     }
 }

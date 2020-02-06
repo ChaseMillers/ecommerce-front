@@ -115,36 +115,31 @@ const Shop = () => {
             description="Search and find items of your choice"
             className="shop-container"
         >
-            <div className="filter-container">
                     <div className="filter">
-                    <fieldset>
+                    <fieldset className="filter-fieldset">
                         <legend>
                             <h1>Filter by type</h1>
                         </legend>
-                                <ul>
-                                    <CategoryFilter
-                                        categories={categories}
-                                        handleFilters={filters =>
-                                            handleFilters(filters, "category")
-                                        }
-                                    />
-                                </ul>
+                            <CategoryFilter
+                                categories={categories}
+                                handleFilters={filters =>
+                                    handleFilters(filters, "category")
+                                }
+                            />
                     </fieldset>
-                    <fieldset>
+                    <fieldset className="filter-fieldset">
                         <legend>
                             <h1>Filter by price</h1>
                         </legend>    
-                                <ul>
-                                    <PriceFilter
-                                        prices={prices}
-                                        handleFilters={filters =>
-                                            handleFilters(filters, "price")
-                                        }
-                                    />
-                                </ul>
+                            <PriceFilter
+                                prices={prices}
+                                handleFilters={filters =>
+                                    handleFilters(filters, "price")
+                                }
+                            />
                     </fieldset>
                     </div>
-                </div>
+              
             <div className="row-shop">
 
                 <div className="filters-layout">

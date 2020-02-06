@@ -2,35 +2,30 @@ import React, { useState } from "react";
 import "./CategoryFilter.css"
 
 const Checkbox = ({ categories, handleFilters }) => {
-    const [checked, setCheked] = useState([]);
 
-    const handleToggle = c => () => {
-        // return the first index or -1
-        const currentCategoryId = checked.indexOf(c);
-        const newCheckedCategoryId = [...checked];
-        // if currently checked was not already in checked state > push
-        // else pull/take off
-        if (currentCategoryId === -1) {
-            newCheckedCategoryId.push(c);
-        } else {
-            newCheckedCategoryId.splice(currentCategoryId, 1);
-        }
-        setCheked(newCheckedCategoryId);
-        handleFilters(newCheckedCategoryId);
+    const handleChange = event => {
+        handleFilters(event.target.value);
     };
 
-    return categories.map((c, i) => (
-        <li key={i}>
-            <input
+    const createCategories = ((c, i) =>(
+        <select
+        className="filter-select"
+        onChange={handleChange}
+        >
+            <option value="">All</option>
+            {categories.map((c, i) => (
+                <option 
+                key={i} 
                 aria-label="category type"
-                onChange={handleToggle(c._id)}
-                value={checked.indexOf(c._id === -1)}
-                type="checkbox"
-                className="shop-filters"
-            />
-            <label className="filter-label">{c.name}</label>
-        </li>
+                className="option-values" 
+                value={`${c._id}`}>
+                    {c.name}
+                </option>
+            ))}
+        </select>
     ));
+
+    return createCategories()
 };
 
 export default Checkbox;
