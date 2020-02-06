@@ -4,6 +4,7 @@ import Checkout from "../checkout/Checkout";
 import { itemTotal, getCart } from '../cartHelpers';
 import "./CartSummary.css"
 import ShowImage from "../showImage/ShowImage";
+import Card from "../card/Card"
 
 const Cart = () => {
     const [items, setItems] = useState([]);
@@ -13,45 +14,34 @@ const Cart = () => {
         setItems(getCart());
     }, [run]);    
 
-    const Card = ({ product }) => {
-       
-        return (
-            <div className="product" tabIndex="0">
-                <div className="product-container">
-                <div className="product-header">{product.name}</div>
-                    <ShowImage item={product} url="product" />
-                    <p className="product-title">
-                        {product.description.substring(0, 100)}
-                    </p>
-                    <p className="product-info">
-                        ${product.price}</p>
-                        Quantity: {product.count}
-                </div>
-            </div>
-        );
-    };
-
     const showItems = items => {
         return (
             <div>
                 <h1>Total ${itemTotal()}</h1>
                 <hr />
                 {items.map((product, i) => (
-                    <Card
-                        key={i}
-                        product={product}
-                        setRun={setRun}
-                        run={run}
-                    />
-                ))}
+                <Card
+                key={i}
+                product={product}
+                showStockIcon={false}
+                showAddToCartButton={false}
+                miniCard ={true}
+                setRun={setRun}
+                run={run}
+                />
+            ))}
             </div>
         );
     };
 
     const noItemsMessage = () => (
-        <h1 className="emptyCartMessage-summary">
-            Your cart is empty. <br /> <Link to="/shop">Continue shopping</Link>
-        </h1>
+        <div>
+            <h1 className="emptyCartMessage-summary">
+                Thanks For Your Purchase!
+            </h1>
+            <p>You will recieve an email shortly.</p>
+            <h2 > <Link to="/shop">Continue shopping</Link></h2>
+        </div>
     );
 
     return (
