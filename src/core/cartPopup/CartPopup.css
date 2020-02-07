@@ -65,7 +65,14 @@
 @media (max-width: 440px){
 .cart-layout{
     right: 0px;
+    top: 0;
+    padding-top: 60px;
     left: 0;
     width: 100%;
+}
+.button-exit {
+    top: 12px;
+    background-color: transparent;
+    border: 2px solid #d8d8d8;
 }
 }
