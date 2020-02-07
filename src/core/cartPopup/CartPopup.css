@@ -62,4 +62,10 @@
     background-color: rgb(252, 16, 16, .5);
 }
 
-
+@media (max-width: 440px){
+.cart-layout{
+    right: 0px;
+    left: 0;
+    width: 100%;
+}
+}

@@ -4,8 +4,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import * as types from '../../store/cart/actionTypes';
 import { removeCart } from '../../store/cart/actions';
 import ShowImage from '../showImage/ShowImage';
-// moment removes the need to use the native JavaScript Date object directly
-//import moment from "moment";
 import { addItem, updateItem } from '../cartHelpers';
 import './Card.css';
 

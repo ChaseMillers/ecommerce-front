@@ -33,6 +33,26 @@ const Product = props => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [props]);
 
+    const showRelatedProducts = relatedProduct =>{
+        return(
+            relatedProduct && (
+            <div className="related-products-layout">
+                    <div className="related-product-container">
+                    <h1>Related Products</h1>
+                    {relatedProduct.map((p, i) => (
+                        <div key={i} className="related">
+                            <Card 
+                            key={i} 
+                            product={p} 
+                            storeCard={true}/>
+                        </div>
+                    ))}
+                    </div>
+                </div>
+            ) 
+        )
+    }
+
     return (
         <Layout
             title={product && product.name}
@@ -55,19 +75,9 @@ const Product = props => {
                     )}
                 </div>
                 <hr />
-                <div className="related-products-layout">
-                    <div className="related-product-container">
-                    <h1>Related Products</h1>
-                    {relatedProduct.map((p, i) => (
-                        <div key={i} className="related">
-                            <Card 
-                            key={i} 
-                            product={p} 
-                            storeCard={true}/>
-                        </div>
-                    ))}
-                    </div>
-                </div>
+                
+            {showRelatedProducts(relatedProduct)}
+
             </div>
         </Layout>
     );
