@@ -68,11 +68,9 @@
 }
 .your-cart-title{
     color: rgb(199, 199, 199);
-    font-size: 24px;
+    font-size: 20px;
 }
-.mini-cart-total{
-    
-}
+
 .total-checkout-button-container{
     display: flex;
     justify-content: space-between;
