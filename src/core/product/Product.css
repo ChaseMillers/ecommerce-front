@@ -25,12 +25,9 @@
     
 }
 
-@media (max-width: 800px){
-    .view-product-layout {
-        margin-right: -15px;
-    }  
-    .row-view-product {
-        grid-template-columns: auto;
+@media (max-width: 750px){
+    .product-container-view{
+        flex-direction: column;
     }
 }
 
