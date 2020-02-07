@@ -54,10 +54,10 @@ const Product = props => {
                         />
                     )}
                 </div>
-
-                {/* <div className="related-products-layout">
+                <hr />
+                <div className="related-products-layout">
                     <div className="related-product-container">
-                    <h1>Customers also purchased</h1>
+                    <h1>Related Products</h1>
                     {relatedProduct.map((p, i) => (
                         <div key={i} className="related">
                             <Card 
@@ -67,7 +67,7 @@ const Product = props => {
                         </div>
                     ))}
                     </div>
-                </div> */}
+                </div>
             </div>
         </Layout>
     );

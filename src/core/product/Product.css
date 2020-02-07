@@ -4,14 +4,12 @@
 }
 
 .related-products-layout{
-    display: flex;
-    justify-content: center;
 }
 
 .related-products-layout h1{
-    font-size: 22px;
-    padding-top:8px;
-    text-align: center;
+    font-size: 28px;
+    font-weight: 500;
+    padding: 20px 0 10px;
 }
 
 .product-name{
@@ -20,6 +18,7 @@
 
 .product-container {
     padding: 15px;
+    margin-bottom: 50px;
 }
 
 .related-product-container{
