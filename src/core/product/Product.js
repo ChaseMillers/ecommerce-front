@@ -45,18 +45,19 @@ const Product = props => {
         >
             <div className="row-view-product ">
                 <div className="view-product-layout">
-                    <div className="product-name"><h1>{product.name}</h1></div>
                     {product && product.description && (
                         <Card 
                         product={product}
-                        storeCard={true} 
                         showStockIcon={false}
-                        showViewProductButton={false} />
+                        showViewProductButton={false} 
+                        viewCard={true}
+                        />
                     )}
                 </div>
 
-                <div className="related-products-layout">
-                    <h1>Related products</h1>
+                {/* <div className="related-products-layout">
+                    <div className="related-product-container">
+                    <h1>Customers also purchased</h1>
                     {relatedProduct.map((p, i) => (
                         <div key={i} className="related">
                             <Card 
@@ -65,7 +66,8 @@ const Product = props => {
                             storeCard={true}/>
                         </div>
                     ))}
-                </div>
+                    </div>
+                </div> */}
             </div>
         </Layout>
     );

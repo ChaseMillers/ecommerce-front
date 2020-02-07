@@ -75,7 +75,7 @@ input[type=number]::-webkit-inner-spin-button {
     font-size: 14px;
     font-weight: 500;
     overflow-wrap: break-word;
-    color: rgb(117, 117, 117);
+    color: rgb(148, 148, 148);
     margin: 0;
     line-height: 16px;
 }
@@ -94,4 +94,47 @@ input[type=number]::-webkit-inner-spin-button {
     text-decoration: none;
 }
 
+/********* view item card *******/
 
+.image-info-container-view{
+    display: flex;
+    align-items: center;
+}
+
+.image-container-view{
+    max-width: 500px;
+    display: inline-block;
+}
+
+.product-container-view{
+    display: flex;
+    padding-left: 10px;
+}
+
+.product-title-view{
+    font-size: 18px;
+    font-weight: 500;
+    overflow-wrap: break-word;
+    color: rgb(148, 148, 148);
+    margin-top: 10px;
+}
+
+.product-price-view{
+    font-size: 14px;
+}
+
+.product-header-view{
+    font-weight: bold;
+    font-size: 30px;
+    color: black;
+}
+
+.info-container-view{
+    padding: 15px;;
+}
+
+.product-info-view{
+    font-size: 24px;
+    font-weight: 500;
+    margin-top: 10px;
+}

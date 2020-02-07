@@ -1,26 +1,17 @@
-.row-view-product {
-    justify-content: center;
-    display: grid;
-    grid-template-columns: auto auto;
-}
-
 .view-product-layout{
-    flex: 0 0 60%;
-    max-width: 500px;
-    min-width: 280px;
-    margin-right: 15px
+    display: flex;
+    justify-content: center;
 }
 
-.view-product-layout .product-header{
-    display: none;
-} 
 .related-products-layout{
-    width: 220px;
+    display: flex;
+    justify-content: center;
 }
 
 .related-products-layout h1{
-font-size: 22px;
-padding-top:8px;
+    font-size: 22px;
+    padding-top:8px;
+    text-align: center;
 }
 
 .product-name{
@@ -29,6 +20,10 @@ padding-top:8px;
 
 .product-container {
     padding: 15px;
+}
+
+.related-product-container{
+    
 }
 
 @media (max-width: 800px){

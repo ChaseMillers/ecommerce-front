@@ -18,6 +18,7 @@ const Card = ({
   showStockIcon = true,
   miniCard = false,
   storeCard = false,
+  viewCard = false,
   setRun = f => f,
   run = undefined,
 }) => {
@@ -143,34 +144,44 @@ const Card = ({
             {product.description.substring(0, 100)}
           </p>
           <p className="product-info">${product.price}</p>
-          {/* 
-                To also display category and date added, uncomment
-                
-                <p className="product-info">
-                    Category: {product.category && product.category.name}
-                </p>
-                <p className="product-info">
-                    Added on {moment(product.createdAt).fromNow()}
-                </p> */}
-
           {showStock(product.quantity)}
-
           <div className="button-holder">
             {showViewButton(showViewProductButton)}
-
             {showAddToCart(showAddToCartButton)}
-
-            {showRemoveButton(showRemoveProductButton)}
           </div>
-          {showCartUpdateOptions(cartUpdate)}
         </div>
       </div>
   ));}
+
+  const ViewItemCard = viewCard =>{
+    return (
+      viewCard && (
+      <div className="product-view" tabIndex="0">
+        <div className="product-container-view">
+        <div className="image-container-view">
+          <ShowImage item={product} url="product" />
+        </div>
+        <div className="info-container-view">
+          <div className="product-header-view">{product.name}</div>
+          <p className="product-title-view">
+            {product.description.substring(0, 100)}
+          </p>
+          <p className="product-info-view">${product.price}</p>
+            {showStock(product.quantity)}
+          <div className="button-holder-view">
+            {showAddToCart(showAddToCartButton)}
+          </div>
+        </div>
+        </div>
+      </div>
+  ));
+  }
 
   return (
     <div>
     {storefrontCard(storeCard)}
     {minCartCard(miniCard)}
+    {ViewItemCard(viewCard)}
     </div>
   )
 
