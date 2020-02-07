@@ -62,6 +62,22 @@
     background-color: rgb(252, 16, 16, .5);
 }
 
+.cart-total-container{
+    display: flex;
+    flex-direction: column;
+}
+.your-cart-title{
+    color: rgb(199, 199, 199);
+    font-size: 24px;
+}
+.mini-cart-total{
+    
+}
+.total-checkout-button-container{
+    display: flex;
+    justify-content: space-between;
+}
+
 @media (max-width: 440px){
 .cart-layout{
     right: 0px;
@@ -74,5 +90,9 @@
     top: 12px;
     background-color: transparent;
     border: 2px solid #d8d8d8;
+}
+.your-cart-title{
+    font-size:  20px;
+    color: rgb(199, 199, 199);
 }
 }

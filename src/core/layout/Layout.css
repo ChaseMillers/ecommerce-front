@@ -79,6 +79,9 @@ button:not(:disabled) {
 }
 
 .button-green {
+    width: 100%;
+    margin-left: 30px;
+    max-height: 40px;
     font-weight: normal;
     font-family: inherit;
     display: inline-block;
@@ -86,10 +89,10 @@ button:not(:disabled) {
     color: #3fc380;
     border: 2px solid #3fc380;
     border-style: solid;
-    background-color:transparent;
+    background-color: transparent;
     font-size: 16px;
     padding: 6px 13px;
-    transition:.16s ease-in-out;
+    transition: .16s ease-in-out;
     margin-right: 5px;
     -webkit-appearance: none;
     -webkit-user-select: none;

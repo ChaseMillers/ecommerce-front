@@ -50,9 +50,12 @@ const Cart = () => {
 
         <div className="cart-layout">
           {shouldRedirect(redirect)}
+          <div className="total-checkout-button-container">
           <h1>
-            <span className="you-cart-title">Your Cart - </span>$
-            {itemTotal() ? itemTotal() : 0}
+            <div className="cart-total-container">
+            <span className="your-cart-title">Your Cart</span>
+            <span className="mini-cart-total">${itemTotal() ? itemTotal() : 0}</span>
+            </div>
           </h1>
           <button
             className={items.length > 0 ? 'button-green checkout-button' : 'none'}
@@ -62,6 +65,7 @@ const Cart = () => {
           >
             CHECKOUT
           </button>
+          </div>
           <hr />
           {items.length > 0 ? null : noItemsMessage()}
           {items.map((product, i) => (
