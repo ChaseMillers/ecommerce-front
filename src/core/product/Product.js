@@ -76,7 +76,7 @@ const Product = props => {
                 </div>
                 <hr />
                 
-            {showRelatedProducts(relatedProduct)}
+            {showRelatedProducts()}
 
             </div>
         </Layout>

@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import Checkout from "../checkout/Checkout";
 import { itemTotal, getCart } from '../cartHelpers';
 import "./CartSummary.css"
-import ShowImage from "../showImage/ShowImage";
 import Card from "../card/Card"
 
 const Cart = () => {

@@ -5,7 +5,6 @@
     top: 65px;
     background: white;
     padding: 20px;
-    width: 400px;
     border-radius: 10px;
     border: 1px solid rgb(233, 233, 233);
 }
@@ -22,6 +21,10 @@
     border-radius: 4px;
     color: #fff;
     background-color: #007bff;
+}
+
+.product-cart{
+    display: flex;
 }
 
 .emptyCartMessage{
@@ -68,12 +71,15 @@
 }
 .your-cart-title{
     color: rgb(199, 199, 199);
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .total-checkout-button-container{
     display: flex;
     justify-content: space-between;
+}
+.mini-cart-total{
+    font-weight: 600;
 }
 
 @media (max-width: 440px){

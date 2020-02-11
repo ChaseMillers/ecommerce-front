@@ -69,15 +69,15 @@ export const itemTotal = () => {
     if (typeof window !== "undefined") {
         if (localStorage.getItem("cart")) {
             cart = JSON.parse(localStorage.getItem("cart"));
-            let total = cart.reduce((currentValue, nextValue) => {
+            let itemCount = cart.reduce((currentValue, nextValue) => {
                 return (
                 currentValue + 
                 nextValue.count * 
                 nextValue.price
                 )
             },0)
-            // brings total to money value
-            return Number.parseFloat(total).toFixed(2);
+            // brings itemCount to money value
+            return Number.parseFloat(itemCount).toFixed(2);
         }
     }
 };

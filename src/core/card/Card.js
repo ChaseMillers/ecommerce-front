@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import * as types from '../../store/cart/actionTypes';
 import { removeCart } from '../../store/cart/actions';
 import ShowImage from '../showImage/ShowImage';
-import { addItem, updateItem } from '../cartHelpers';
+import { addItem, updateItem, getCart } from '../cartHelpers';
 import './Card.css';
 
 const Card = ({
@@ -22,7 +22,6 @@ const Card = ({
 }) => {
   const [count, setCount] = useState(product.count);
   const dispatch = useDispatch();
-  const cart = useSelector(state => state.cart);
 
   const showRemoveButton = showRemoveProductButton => {
     return (
@@ -31,9 +30,9 @@ const Card = ({
           onClick={() => {
             dispatch(removeCart(product._id));
           }}
-          className="button-yellow"
+          className="button-remove"
         >
-          Remove Product
+          Remove Item
         </button>
       )
     );
@@ -77,25 +76,53 @@ const Card = ({
     );
   };
 
-  const handleChange = productId => event => {
+  const minusCount = productId => event => {
     setRun(!run); // run useEffect in parent Cart
-    setCount(event.target.value < 1 ? 1 : event.target.value);
+    setCount(event.target.value < 1 ? 1 : event.target.value --);
     if (event.target.value >= 1) {
       updateItem(productId, event.target.value);
     }
   };
+  const plusCount = productId => event => {
+    setRun(!run); // run useEffect in parent Cart
+    setCount(event.target.value ++);
+    updateItem(productId, event.target.value);
+  };
+  useEffect(() => {
+    setCount(count);
+    return () => {};
+  });
+
+  const ShowCount = () =>{
+    return(<input
+    aria-label="Product quantity"
+    type="text"
+    className="card-form-inputs"
+    value={count}
+    />)
+  }
 
   const showCartUpdateOptions = cartUpdate => {
     return (
       cartUpdate && (
         <div className="update-options-container">
-          <input
-            aria-label="Product quantity"
-            type="number"
-            className="card-form-inputs"
-            value={count}
-            onChange={handleChange(product._id)}
-          />
+          <button 
+          type="button" 
+          className="button-counter minus"
+          value={count}
+          onClick={minusCount(product._id)}>
+            -
+          </button>
+          <div>
+          {ShowCount()}
+    </div>
+          <button 
+          type="button" 
+          className="button-counter plus"
+          value={count}
+          onClick={plusCount(product._id)}>
+            +
+          </button>
         </div>
       )
     );
@@ -122,9 +149,9 @@ const Card = ({
         </div>
         </div>
         </Link>
-        <div className="button-holder">
-          {showRemoveButton(showRemoveProductButton)}
+        <div className="button-holder-cart">
           {showCartUpdateOptions(cartUpdate)}
+          {showRemoveButton(showRemoveProductButton)}
         </div>
         <hr/>
       </div>

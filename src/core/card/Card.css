@@ -12,22 +12,8 @@
     background-color: #007bff;
 }
 
-.update-options-container{
-    margin-left: 30px;
-    display: inline-block;
-}
-
 .button-holder{
    display: inline-block;
-}
-
-.card-form-inputs {
-    font-size: 16px;
-    border: 1px solid #ced4da;
-    background-color:#cfe0f1a2;
-    border-radius: 5px;
-    width: 60px;
-    padding: 8px 8px;
 }
 
 .product-header {
@@ -48,10 +34,6 @@
 .product-info {
     margin-top:10px;
     font-size: 21px;
-}
-
-input[type=number]::-webkit-inner-spin-button {
-    opacity: 1
 }
 
 /********* Cart *******/
@@ -92,6 +74,96 @@ input[type=number]::-webkit-inner-spin-button {
 
 .product-link{
     text-decoration: none;
+}
+
+.button-holder-cart{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.button-remove{
+    padding: 0;
+}
+
+.button-remove {
+    font: inherit;
+    font-weight: normal;
+    color: #ffc107;
+    border-color: #ffc107;
+    border-style: solid;
+    background-color:transparent;
+    font-size: 16px;
+    padding: 0 10px;
+    transition:.16s ease-in-out;
+    margin-right: 5px;
+    -webkit-appearance: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+.button-remove:hover {
+    color: #ffffff;
+    background-color:#ffc107;
+}
+
+.button-counter{
+    cursor: pointer;
+    position: absolute;
+    display: block;
+    padding: 0 12px;
+    top: 0px;
+    bottom: 0px;
+    border: 0 none;
+    background: none;
+    text-align: center;
+    overflow: hidden;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    -ms-transition: all 0.2s ease-out;
+    -o-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+}
+.card-form-inputs {
+    display: block;
+    background: none;
+    text-align: center;
+    width: 100%;
+    padding: 5px 30px;
+    margin: 0;
+    border: 1px solid #000;
+    width: 100%;
+    max-width: 100%;
+    display: block;
+    margin: 0 0 1em;
+    background-color: transparent;
+    outline: none;
+}
+.update-options-container{
+    display: inline-block;
+    margin: 0;
+    position: relative;
+    width: 78px;
+    height: 32px;
+    overflow: visible;
+    
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+.minus{
+ left: 0
+}
+.plus{
+ right: 0
 }
 
 /********* view item card *******/
