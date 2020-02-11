@@ -72,15 +72,16 @@ const Card = ({
 
   const minusCount = productId => event => {
     setRun(!run); // run useEffect in parent Cart
-    setCount(event.target.value < 1 ? 1 : event.target.value--);
-    if (event.target.value >= 1) {
-      dispatch(updateCartItem(productId, event.target.value));
-    }
+    let value = count == 1 ? 1 : count - 1;
+    dispatch(updateCartItem(productId, value));
+    setCount(value);
   };
   const plusCount = productId => event => {
     setRun(!run); // run useEffect in parent Cart
-    setCount(event.target.value++);
-    dispatch(updateCartItem(productId, event.target.value));
+    // let count = event.target.value++;
+    let value = count + 1;
+    dispatch(updateCartItem(productId, value));
+    setCount(value);
   };
   useEffect(() => {
     setCount(count);
