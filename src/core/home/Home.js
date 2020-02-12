@@ -82,7 +82,8 @@ const Home = () => {
         <Search />
         <h1 className="margin-bottom" tabIndex="0">New Arrivals</h1>
         {showNewProducts()}
-        {/* {showBestSellers()} */}
+        {showBestSellers()}
+        <br />
         </Layout>
     );
 };

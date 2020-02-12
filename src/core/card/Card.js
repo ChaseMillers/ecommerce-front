@@ -1,6 +1,6 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import * as types from '../../store/cart/actionTypes';
 import { removeCart, updateCartItem } from '../../store/cart/actions';
 import ShowImage from '../showImage/ShowImage';
@@ -9,7 +9,7 @@ import './Card.css';
 
 const Card = ({
   product,
-  showViewProductButton = true,
+  showViewProductButton = false,
   showAddToCartButton = true,
   cartUpdate = false,
   showRemoveProductButton = false,
@@ -72,7 +72,7 @@ const Card = ({
 
   const minusCount = productId => event => {
     setRun(!run); // run useEffect in parent Cart
-    let value = count == 1 ? 1 : count - 1;
+    let value = count === 1 ? 1 : count - 1;
     dispatch(updateCartItem(productId, value));
     setCount(value);
   };
@@ -92,6 +92,7 @@ const Card = ({
       <input
         aria-label="Product quantity"
         type="text"
+        onChange={f => f}
         className="card-form-inputs"
         value={count}
       />
@@ -162,15 +163,20 @@ const Card = ({
         <div className="product" tabIndex="0">
           <div className="product-header">{product.name}</div>
           <div className="product-container">
+          <Link
+            to={`/product/${product._id}`}
+            className="product-link"
+          >
             <ShowImage item={product} url="product" />
             <p className="product-title">
               {product.description.substring(0, 100)}
             </p>
+          </Link>
             <p className="product-info">${product.price}</p>
-            {showStock(product.quantity)}
+              {/* {showStock(product.quantity)} */}
             <div className="button-holder">
               {showViewButton(showViewProductButton)}
-              {showAddToCart(showAddToCartButton)}
+              {/* {showAddToCart(showAddToCartButton)} */}
             </div>
           </div>
         </div>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Suspense, lazy  } from "react";
+import React, { useState, useEffect } from "react";
 import Card from "../card/Card";
 const RenderRelatedProduct = ({ relatedProduct }) =>{
     const [show, setShow] = useState(false)
@@ -23,6 +23,7 @@ const RenderRelatedProduct = ({ relatedProduct }) =>{
                     </div>
                 ))}
                 </div>
+                <br />
             </div>
         ) 
   )
