@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import * as types from '../../store/cart/actionTypes';
 import { removeCart, updateCartItem } from '../../store/cart/actions';
 import ShowImage from '../showImage/ShowImage';
-import { addItem, updateItem, getCart } from '../cartHelpers';
+import { addItem } from '../cartHelpers';
 import './Card.css';
 
 const Card = ({
@@ -32,7 +32,7 @@ const Card = ({
           }}
           className="button-remove"
         >
-          Remove Item
+          Remove
         </button>
       )
     );
@@ -78,7 +78,6 @@ const Card = ({
   };
   const plusCount = productId => event => {
     setRun(!run); // run useEffect in parent Cart
-    // let count = event.target.value++;
     let value = count + 1;
     dispatch(updateCartItem(productId, value));
     setCount(value);

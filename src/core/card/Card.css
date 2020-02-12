@@ -64,6 +64,7 @@
 
 .product-price-cart{
     font-size: 14px;
+    font-weight: 400;
 }
 
 .product-header-cart{
@@ -88,46 +89,37 @@
 }
 
 .button-remove {
+    cursor: pointer;
     font: inherit;
     font-weight: normal;
-    color: #ffc107;
-    border-color: #ffc107;
-    border-style: solid;
+    color: #ffd146;
+    border: none;
     background-color:transparent;
-    font-size: 16px;
+    font-size: 14px;
     padding: 0 10px;
     transition:.16s ease-in-out;
-    margin-right: 5px;
     -webkit-appearance: none;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
 }
 .button-remove:hover {
-    color: #ffffff;
-    background-color:#ffc107;
+    color: #ffc107;
 }
 
 .button-counter{
-    cursor: pointer;
+    cursor: pointer; 
     position: absolute;
-    display: block;
     padding: 0 12px;
     top: 0px;
+    height: 28px;
     bottom: 0px;
     border: 0 none;
     background: none;
-    text-align: center;
-    overflow: hidden;
     -webkit-user-select: none;
     -moz-user-select: none;
-    -ms-user-select: none;
     -o-user-select: none;
     user-select: none;
-    -webkit-transition: all 0.2s ease-out;
-    -moz-transition: all 0.2s ease-out;
-    -ms-transition: all 0.2s ease-out;
-    -o-transition: all 0.2s ease-out;
     transition: all 0.2s ease-out;
 }
 .card-form-inputs {
