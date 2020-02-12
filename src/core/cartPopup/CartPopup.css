@@ -1,5 +1,5 @@
 .cart-layout {
-    position: absolute;
+    position: fixed;
     z-index: 2;
     right: 21px;
     top: 65px;
@@ -43,7 +43,7 @@
 .button-exit{
     font: inherit;
     font-weight: normal;
-    position: absolute;
+    position: fixed;
     z-index: 3;
     top: 47px;
     right: 5px;
