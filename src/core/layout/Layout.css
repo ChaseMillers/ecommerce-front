@@ -139,6 +139,12 @@ hr {
     margin-bottom: 24px; 
 }
 
+.website-description {
+    margin-top:5px;
+    font-size: 17px;
+    font-weight: 300;
+}
+
 .banner-container h2 {
     margin-top: -20px;
 }

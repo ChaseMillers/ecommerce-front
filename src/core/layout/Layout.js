@@ -16,7 +16,7 @@ const Layout = ({
                 <div className="content-container">
                 <div className="banner-container">
                     <h1>{title}</h1>
-                    <p className="product-title">{description}</p>
+                    <p className="website-description">{description}</p>
                 </div>
                 <div className={className}>{children}</div>
                 <Footer />
