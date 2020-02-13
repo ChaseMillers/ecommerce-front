@@ -161,17 +161,16 @@ const Card = ({
     return (
       storeCard && (
         <div className="product" tabIndex="0">
-          <div className="product-header">{product.name}</div>
-          <div className="product-container">
-          <Link
+           <Link
             to={`/product/${product._id}`}
             className="product-link"
           >
+          <div className="product-header">{product.name}</div>
+          <div className="product-container">
             <ShowImage item={product} url="product" />
             <p className="product-title">
               {product.description.substring(0, 100)}
             </p>
-          </Link>
             <p className="product-info">${product.price}</p>
               {/* {showStock(product.quantity)} */}
             <div className="button-holder">
@@ -179,6 +178,7 @@ const Card = ({
               {/* {showAddToCart(showAddToCartButton)} */}
             </div>
           </div>
+          </Link>
         </div>
       )
     );

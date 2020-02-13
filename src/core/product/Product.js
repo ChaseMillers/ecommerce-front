@@ -62,6 +62,7 @@ const Product = props => {
                 <Suspense fallback={<div></div>}>
                     <RenderRelatedProduct relatedProduct={relatedProduct} />
                 </Suspense>
+                <br />
                 </div>
         </Layout>
     );
