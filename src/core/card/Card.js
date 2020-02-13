@@ -165,9 +165,9 @@ const Card = ({
             to={`/product/${product._id}`}
             className="product-link"
           >
-          <div className="product-header">{product.name}</div>
           <div className="product-container">
             <ShowImage item={product} url="product" />
+            <div className="product-header">{product.name}</div>
             <p className="product-title">
               {product.description.substring(0, 100)}
             </p>

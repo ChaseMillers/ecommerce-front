@@ -1,16 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Card from "../card/Card";
 const RenderRelatedProduct = ({ relatedProduct }) =>{
-    const [show, setShow] = useState(false)
-  useEffect(() => {
-    let timeout = setTimeout(() => setShow(true), 1000)
-    return () => {
-      clearTimeout(timeout)
-    }
-  }, [])
 
   return (
-    relatedProduct && show &&(
+    relatedProduct &&(
         <div className="related-products-layout">
                 <div className="related-product-container">
                 <h1>Related Products</h1>
