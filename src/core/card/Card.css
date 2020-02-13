@@ -39,8 +39,10 @@
 }
 
 .product-info {
-    margin-top:10px;
-    font-size: 17px;
+    margin-top: 10px;
+    font-size: 16px;
+    color: #4f4f4f;
+    font-weight: 400;
 }
 
 /********* Cart *******/
@@ -72,6 +74,7 @@
 .product-price-cart{
     font-size: 14px;
     font-weight: 400;
+    color: #4f4f4f;
 }
 
 .product-header-cart{
