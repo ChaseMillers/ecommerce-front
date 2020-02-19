@@ -94,7 +94,7 @@ const Signin = () => {
             </div>
         );
         
-            // is user admin?
+        //ROLES: admin = 1, user = 0, geust = 2
     const redirectUser = () => {
         if (redirectToReferrer) {
             if (user && user.role === 1) {
@@ -107,7 +107,7 @@ const Signin = () => {
                 return <Redirect to="/shop" />;
             }
              else {
-                return <Redirect to="/cart" />;
+                return <Redirect to="/" />;
             }
         }
         if (isAuthenticated()) {

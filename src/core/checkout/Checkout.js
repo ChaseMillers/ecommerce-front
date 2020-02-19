@@ -143,7 +143,7 @@ const Checkout = ({ products, setRun = f => f, run = undefined }) => {
       });
   };
 
-  const showDropIn = () => (
+  const showDropIn = () => data.clientToken && (
     <div onClick={() => setData({ ...data, error: '' })}>
       {data.clientToken !== null && products.length > 0 ? (
         <form onSubmit={HandleSubmit}>
