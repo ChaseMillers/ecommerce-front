@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Suspense, lazy } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   getBraintreeClientToken,
   processPayment,
@@ -10,7 +10,7 @@ import './Checkout.css';
 import AddressForm from './checkoutHelpers/addressForm';
 import SignInAsGuest from './checkoutHelpers/signInAsGuest';
 
-const DropIn = lazy(() => import('braintree-web-drop-in-react'));
+import DropIn from 'braintree-web-drop-in-react';
 
 const Checkout = ({ products, setRun = f => f, run = undefined }) => {
   const [data, setData] = useState({
@@ -143,13 +143,12 @@ const Checkout = ({ products, setRun = f => f, run = undefined }) => {
       });
   };
 
-  const showDropIn = () => data.clientToken && (
+  const showDropIn = () => (
     <div onClick={() => setData({ ...data, error: '' })}>
       {data.clientToken !== null && products.length > 0 ? (
         <form onSubmit={HandleSubmit}>
           <AddressForm setData={setData} data={data} />
           {pleaseSellect(data.error)}
-          <Suspense fallback={<div>Loading...</div>}>
             <DropIn
               options={{
                 authorization: data.clientToken,
@@ -163,7 +162,7 @@ const Checkout = ({ products, setRun = f => f, run = undefined }) => {
               }}
               onInstance={instance => (data.instance = instance)}
             />
-          </Suspense>
+       
           <div className="pay-button-container">
             <input type="submit" className="pay-button" value="Pay" />
           </div>
