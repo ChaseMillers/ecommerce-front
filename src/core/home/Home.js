@@ -39,15 +39,18 @@ const Home = () => {
     const showNewProducts = () =>{
         if (productsByArrival.length >0)
         return(
-            <div className="home-row">
-            {productsBySell.map((product, i) => (
-                <div key={i} className="home-layout ">
-                    <Card 
-                        product={product} 
-                        storeCard={true}
-                    />
+            <div className="new-arrivals-container">
+                <h1 className="margin-bottom" tabIndex="0">New Arrivals</h1>
+                <div className="home-row">
+                {productsBySell.map((product, i) => (
+                    <div key={i} className="home-layout ">
+                        <Card 
+                            product={product} 
+                            storeCard={true}
+                        />
+                    </div>
+                ))}
                 </div>
-            ))}
         </div>
         )
         else{return(<h1 className="loading">Loading...</h1>)}
@@ -80,7 +83,6 @@ const Home = () => {
             className="home-container"
         >
         <Search />
-        <h1 className="margin-bottom" tabIndex="0">New Arrivals</h1>
         {showNewProducts()}
         {showBestSellers()}
         <br />

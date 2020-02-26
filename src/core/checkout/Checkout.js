@@ -198,7 +198,7 @@ const Checkout = ({ products, setRun = f => f, run = undefined }) => {
   );
 
   const showSuccess = success => (
-    <div className="caution" style={{ display: success ? '' : 'none' }}>
+    success && <div className="caution">
       Thanks! Your payment was successful!
     </div>
   );

@@ -68,12 +68,7 @@ const SignInAsGuest = () => {
     // is user admin?
     const redirectUser = () => {
         if (redirectToReferrer) {
-            if (user){
-                return <Redirect to="/checkout" />;
-            }
-             else {
-                return <Redirect to="/signin" />;
-            }
+            window.location.reload();
         }
     };
 

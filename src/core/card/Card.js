@@ -141,7 +141,7 @@ const Card = ({
               <div className="product-container-cart">
                 <div className="product-header-cart">{product.name}</div>
                 <p className="product-title-cart">
-                  {product.description.substring(0, 100)}
+                  {product.brief.substring(0, 100)}
                 </p>
                 <p className="product-price-cart">${product.price}</p>
               </div>
@@ -169,7 +169,7 @@ const Card = ({
             <ShowImage item={product} url="product" />
             <div className="product-header">{product.name}</div>
             <p className="product-title">
-              {product.description.substring(0, 100)}
+              {product.brief.substring(0, 100)}
             </p>
             <p className="product-info">${product.price}</p>
               {/* {showStock(product.quantity)} */}
@@ -194,10 +194,11 @@ const Card = ({
             </div>
             <div className="info-container-view">
               <div className="product-header-view">{product.name}</div>
+              <p className="product-price-view">${product.price}</p>
+              <p className="about-view">About</p>
               <p className="product-title-view">
-                {product.description.substring(0, 100)}
+              {product.description}
               </p>
-              <p className="product-info-view">${product.price}</p>
               {showStock(product.quantity)}
               <div className="button-holder-view">
                 {showAddToCart(showAddToCartButton)}

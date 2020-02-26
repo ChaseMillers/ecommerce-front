@@ -9,6 +9,7 @@ import "./AddProduct.css"
 const AddProduct = () => {
     const [values, setValues] = useState({
         name: "",
+        brief: "",
         description: "",
         price: "",
         categories: [],
@@ -27,6 +28,7 @@ const AddProduct = () => {
     const { user, token } = isAuthenticated();
     const {
         name,
+        brief,
         description,
         price,
         categories,
@@ -75,6 +77,7 @@ const AddProduct = () => {
                 setValues({
                     ...values,
                     name: "",
+                    brief: "",
                     description: "",
                     photo: "",
                     price: "",
@@ -117,6 +120,15 @@ const AddProduct = () => {
                     type="text"
                     className="add-product-inputs"
                     value={name}
+                />
+            </div>
+
+            <div className="add-product-container">
+                <label className="product-text">Brief Description</label>
+                <textarea
+                    onChange={handleChange("brief")}
+                    className="add-product-inputs"
+                    value={brief}
                 />
             </div>
 

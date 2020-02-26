@@ -12,28 +12,26 @@
 
 .home-row {
     display: grid;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: 1fr 1fr 1fr;
 }
 
+.new-arrivals-container{
+    max-width: 1200px;
+    margin: auto;
+}
 .home-margin{
     margin: 24px 0; 
 }
 
-@media screen and (max-width: 1200px){
-    .home-row {
-        grid-template-columns: auto auto auto;
-    }
-}
-
 @media screen and (max-width: 876px){
     .home-row {
-        grid-template-columns: auto auto;
+        grid-template-columns: 1fr 1fr;
     }
 }
 
 @media screen and (max-width: 576px){
     .home-row {
-        grid-template-columns: auto;
+        grid-template-columns: 1fr;
     }
     .home-layout {
         padding-left: 0px;

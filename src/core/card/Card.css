@@ -17,7 +17,7 @@
 }
 
 .product-title{
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 400;
     overflow-wrap: break-word;
     color: rgb(148, 148, 148);
@@ -27,15 +27,14 @@
 
 .product-header {
     border-radius: 4px 4px 0px 0px;
-    padding: 12px 0;
+    padding: 12px 0 8px 0;
     margin-bottom: 0;
     color: rgb(0, 0, 0);
     font-weight: bold;
 }
 
 .product {
-    max-width: 300px;
-    max-height: 345px;
+    max-width: 340px;
 }
 
 .product-info {
@@ -186,11 +185,11 @@
 }
 
 .product-title-view{
-    font-size: 18px;
-    font-weight: 500;
+    font-size: 17px;
     overflow-wrap: break-word;
-    color: rgb(148, 148, 148);
+    color: rgb(0, 0, 0);
     margin-top: 10px;
+    max-width: 350px;
 }
 
 .product-price-view{
@@ -204,11 +203,22 @@
 }
 
 .info-container-view{
-    padding: 15px;;
+    padding-left: 15px;;
 }
-
-.product-info-view{
+.button-holder-view{
+    margin-top: 20px;
+}
+.about-view{
+    font-size: 18px;
+    font-weight: 500;
+    overflow-wrap: break-word;
+    color: rgb(129, 129, 129);
+    border-bottom: solid 1px;
+    margin-top: 20px;
+}
+.product-price-view{
     font-size: 24px;
     font-weight: 500;
     margin-top: 10px;
+    font-size: 24px;
 }

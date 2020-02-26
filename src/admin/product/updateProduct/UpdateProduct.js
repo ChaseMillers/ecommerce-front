@@ -7,6 +7,7 @@ import { getProduct, getCategories, updateProduct } from "../../apiAdmin";
 const UpdateProduct = ({ match }) => {
     const [values, setValues] = useState({
         name: "",
+        brief: "",
         description: "",
         price: "",
         categories: [],
@@ -24,6 +25,7 @@ const UpdateProduct = ({ match }) => {
     const { user, token } = isAuthenticated();
     const {
         name,
+        brief,
         description,
         price,
         categories,
@@ -44,6 +46,7 @@ const UpdateProduct = ({ match }) => {
                 setValues({
                     ...values,
                     name: data.name,
+                    brief: data.brief,
                     description: data.description,
                     price: data.price,
                     category: data.category._id,
@@ -95,6 +98,7 @@ const UpdateProduct = ({ match }) => {
                     setValues({
                         ...values,
                         name: "",
+                        brief: "",
                         description: "",
                         photo: "",
                         price: "",
@@ -130,6 +134,15 @@ const UpdateProduct = ({ match }) => {
                     type="text"
                     className="product-inputs"
                     value={name}
+                />
+            </div>
+
+            <div className="update-product-container">
+                <label className="product-text">Brief Description</label>
+                <textarea
+                    onChange={handleChange("brief")}
+                    className="product-inputs"
+                    value={brief}
                 />
             </div>
 
