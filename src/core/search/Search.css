@@ -56,9 +56,9 @@
 }
 
 .container {
-    width: 100%;
-    padding: 0 14px;
-    margin: 15px auto;
+    width: 100%; 
+    display: flex;
+    justify-content: center;
 }
 
 .search-container {
@@ -111,11 +111,5 @@
     .input-data-text{
         max-width: 350px;
         margin: auto;
-    }
-}
-
-@media screen and (min-width: 1200px){
-    .container {
-        max-width: 1140px;
     }
 }

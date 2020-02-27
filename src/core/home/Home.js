@@ -82,7 +82,7 @@ const Home = () => {
             description="React Node MongoDB"
             className="home-container"
         >
-        <Search />
+        {/* <Search /> */}
         {showNewProducts()}
         {showBestSellers()}
         <br />
