@@ -10,11 +10,18 @@ import { itemTotalCount } from '../cartHelpers';
 import Cart from '../cartPopup/CartPopup';
 import './Menu.css';
 
-const isActive = (history, path) => {
+const isActiveSign = (history, path) => {
   if (history.location.pathname === path) {
     return { color: '#ff9900' };
   } else {
     return { color: '#ffffff' };
+  }
+};
+const isActive = (history, path) => {
+  if (history.location.pathname === path) {
+    return { color: '#ff9900' };
+  } else {
+    return { color: '#000000' };
   }
 };
 
@@ -28,8 +35,42 @@ const Menu = ({ history }) => {
   });
   return (
     <div className="header">
+      <div className="signup-menu">
+      {!isAuthenticated() || isAuthenticated().user.role === 2 ? (
+            <Fragment>
+              <li className="sign-item">
+                <Link
+                  className="sign-link"
+                  style={isActiveSign(history, '/signup')}
+                  to="/signup"
+                >
+                  Create Account
+                </Link>
+              </li>
+
+              <li className="sign-dot"></li>
+
+              <li className="sign-item">
+                <Link
+                  className="sign-link"
+                  onClick={() =>
+                    signout(() => {
+                      history.push('/');
+                    })
+                  }
+                  style={isActiveSign(history, '/signin')}
+                  to="/signin"
+                >
+                  Login
+                </Link>
+              </li>
+            </Fragment>
+          ) : (
+            ''
+          )}
+      </div>
       <a href="/" className="logo">
-        <img src="/images/logo.png" alt="Logo" />
+        <img src="/images/swash-caps.webp" alt="Logo" />
       </a>
       <div className="center">
         <input className="menu-btn" type="checkbox" id="menu-btn" />
@@ -39,7 +80,10 @@ const Menu = ({ history }) => {
 
         <ul className="nav">
           <li className="nav-item">
-            <Link className="nav-link" style={isActive(history, '/')} to="/">
+            <Link 
+            className="nav-link" 
+            style={isActive(history, '/')} 
+            to="/">
               Home
             </Link>
           </li>
@@ -57,7 +101,7 @@ const Menu = ({ history }) => {
           <li className="nav-item number">
             <button
               className="nav-link cartMenuLink"
-              style={{ cursor: 'pointer', color: '#ffffff' }}
+              style={{ cursor: 'pointer', color: '#000000' }}
               onClick={() => disptach({ type: types.OPEN_CART })}
             >
               Cart{''}
@@ -90,36 +134,6 @@ const Menu = ({ history }) => {
                 Dashboard
               </Link>
             </li>
-          )}
-
-          {!isAuthenticated() || isAuthenticated().user.role === 2 ? (
-            <Fragment>
-              <li className="nav-item">
-                <Link
-                  className="nav-link"
-                  onClick={() =>
-                    signout(() => {
-                      history.push('/');
-                    })
-                  }
-                  style={isActive(history, '/signin')}
-                  to="/signin"
-                >
-                  Signin
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link
-                  className="nav-link"
-                  style={isActive(history, '/signup')}
-                  to="/signup"
-                >
-                  Signup
-                </Link>
-              </li>
-            </Fragment>
-          ) : (
-            ''
           )}
 
           {isAuthenticated() && isAuthenticated().user.role !== 2 ? (

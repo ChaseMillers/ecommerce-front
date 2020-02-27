@@ -111,7 +111,7 @@ const AddProduct = () => {
                     />
                 </label>
             </div>
-            <p>Recommended: Web optimised 750 x 750.</p>
+            <p>Recommended: Web optimised 1280 x 720.</p>
 
             <div className="add-product-container">
                 <label className="product-text">Name</label>

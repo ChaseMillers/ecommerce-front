@@ -28,6 +28,7 @@
 
 .search-bar {
     padding: 6px 12px;
+    margin: 0 5px;
     font-size: 16px;
     -ms-flex: 1 1 auto;
     flex: 1 1 auto;
@@ -65,7 +66,7 @@
     width: 100%;
     margin-bottom: 24px; 
     display: grid;
-    grid-template-columns: auto auto auto auto;
+    grid-template: 1fr 1fr 1fr 1fr;
 }
 
 .search-layout {
@@ -79,7 +80,7 @@
 
 @media only screen and (max-width: 600px) {
     .search-container {
-        grid-template-columns: auto ;
+        grid-template-columns: 1fr ;
         margin:0 -15px;
     }
     .search-layout {
@@ -108,7 +109,8 @@
         padding: 0;
     }
     .input-data-text{
-        max-width: 300px;
+        max-width: 350px;
+        margin: auto;
     }
 }
 

@@ -19,8 +19,9 @@
     max-width: 1200px;
     margin: auto;
 }
-.home-margin{
-    margin: 24px 0; 
+.new-best-margin{
+    border-bottom: solid 1.5px;
+    line-height: 50px;
 }
 
 @media screen and (max-width: 876px){

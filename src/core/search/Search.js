@@ -65,15 +65,18 @@ const Search = () => {
 
     const searchedProducts = (results = []) => {
         return (
-            <div id="results">
-                <div className="searchMessage">
+            <div id="results" className="new-arrivals-container">
+                <div className="new-best-margin">
                     {searchMessage(searched, results, search)}
                 </div>
 
                 <div className="row">
                     {results.map((product, i) => (
                         <div key={i} className="search-layout">
-                            <Card key={i} product={product}/>
+                            <Card 
+                            product={product} 
+                            storeCard={true}
+                        />
                         </div>
                     ))}
                 </div>
@@ -131,9 +134,7 @@ const Search = () => {
     return (
         <div className="row">
             <div className="container">{searchForm()}</div>
-            <div className="search-container">
-                {searchedProducts(results)}
-            </div>
+            {searchedProducts(results)}
         </div>
     );
 };
