@@ -67,11 +67,11 @@ const Signin = () => {
         <div className="how-it-works">
             <ul>
                 <li>Create account, then sign in, or used the autofilled demo account</li>
-                <li>From the Homepage the user can view new arrivals and best sellers.</li>
-                <li>From the shop page, a user can choose their filters when browsing products.</li>
-                <li>From the shopping cart, the user can checkout their order.</li>
-                <li>From the dashboard, the user can view cart or update profile.</li>
-                <li>From the dashboard, the admin has ability to add/delete/change products and view orders.</li>
+                <li>From the Home page the user can view new arrivals and best sellers.</li>
+                <li>From the Shop page, a user can choose their filters when browsing products.</li>
+                <li>From the Shopping cart, the user can checkout their order.</li>
+                <li>From the Dashboard, the user can view cart or update profile.</li>
+                <li>From the Dashboard, the admin has ability to add/delete/change products and view orders.</li>
             </ul>
         </div>
       </div>
