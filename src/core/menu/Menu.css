@@ -173,8 +173,6 @@ li.sign-item {
     display: none;
   }
   
- 
-  
   .header .menu-btn:checked ~ .menu-icon .navicon {
     background: transparent;
   }
@@ -194,28 +192,28 @@ li.sign-item {
   li.nav-item {
     line-height: 30px;
   }
-  
-  .header .menu-btn:checked ~ .nav {
+
+  .header .menu-btn ~ .nav {
     max-height: 240px;
     background-color: white;
     padding-bottom: 5px;
     position: absolute;
     top: 115px;
-    right: 0;
-    transition: .5s;
-    -webkit-animation-name: cssAnimation;
-    -webkit-animation-duration:3s;
-    -webkit-animation-iteration-count: 1;
-    -webkit-animation-timing-function: ease;
-    -webkit-animation-fill-mode: forwards;
+    right: -200px;
+    display: none;
   }
-  @-webkit-keyframes cssAnimation {
-    from {
-      -webkit-transform: rotate(0deg) scale(1) skew(0deg) translate(100px);
-    }
-    to {
-      -webkit-transform: rotate(0deg) scale(2) skew(0deg) translate(100px);
-    }
+  .header .menu-btn:checked ~ .nav {
+    -webkit-animation: slide 0.2s forwards;
+    -webkit-animation-delay: .2s;
+    animation: slide 0.2s forwards;
+    animation-delay: .2s;
+    display: initial;
+  }
+  @-webkit-keyframes slide {
+    100% { right: 0; }
+  }
+  @keyframes slide {
+    100% { right: 0; }
   }
 
   @media (min-width: 735px) {
@@ -236,6 +234,5 @@ li.sign-item {
     }  
     .header .menu-btn:checked ~ .nav {
       position: initial;
-      transition: initial;
     }
 }
