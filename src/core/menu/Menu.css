@@ -120,9 +120,6 @@ li.sign-item {
   /* menu */
   .header .nav {
     float: right;
-    clear: both;
-    max-height: 0;
-    
   }
   
   /* menu icon */
@@ -193,13 +190,12 @@ li.sign-item {
     line-height: 30px;
   }
 
-  .nav{
-    overflow: hidden;
-  }
   .header .menu-btn ~ .nav {
     max-height: 240px;
+    border-bottom: .5px solid #6f6f6f;
+    border-left: .5px solid #6f6f6f;
     background-color: white;
-    padding-bottom: 5px;
+    padding-bottom: 20px;
     position: absolute;
     top: 115px;
     right: -200px;
@@ -229,7 +225,6 @@ li.sign-item {
     .header .nav {
       margin-top: 20px;
       clear: none;
-      float: right; 
       max-height: none;
     }
     .header .menu-icon {
@@ -242,5 +237,6 @@ li.sign-item {
       top: 31px;
       right: 0px;
       display: initial;
+      border: none;
     }
 }
