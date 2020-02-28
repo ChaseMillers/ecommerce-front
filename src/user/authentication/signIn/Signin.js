@@ -39,7 +39,7 @@ const Signin = () => {
     };
 
     const signUpForm = () => (
-        <form className="container">
+        <form className="signup-container">
             <div className="sign-in">
                 <label className="email-pass">Email</label>
                 <input
