@@ -193,6 +193,9 @@ li.sign-item {
     line-height: 30px;
   }
 
+  .nav{
+    overflow: hidden;
+  }
   .header .menu-btn ~ .nav {
     max-height: 240px;
     background-color: white;
@@ -200,7 +203,6 @@ li.sign-item {
     position: absolute;
     top: 115px;
     right: -200px;
-    display: none;
   }
   .header .menu-btn:checked ~ .nav {
     -webkit-animation: slide 0.2s forwards;
@@ -234,5 +236,13 @@ li.sign-item {
     }  
     .header .menu-btn:checked ~ .nav {
       position: initial;
+    }
+    .header .menu-btn ~ .nav {
+      max-height: 240px;
+      background-color: white;
+      padding-bottom: 5px;
+      position: absolute;
+      top: 30px;
+      right: 0px;
     }
 }

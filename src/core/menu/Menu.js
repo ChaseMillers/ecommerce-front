@@ -78,8 +78,8 @@ const Menu = ({ history }) => {
           <span className="navicon"></span>
         </label>
 
-        <ul className="nav" id="slide">
-          <li className="nav-item">
+        <ul className="nav">
+          <li className="nav-item" id="slide">
             <Link 
             className="nav-link" 
             style={isActive(history, '/')} 
