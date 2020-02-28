@@ -72,13 +72,13 @@ const Menu = ({ history }) => {
       <a href="/" className="logo">
         <img src="/images/swash-caps.webp" alt="Logo" />
       </a>
-      <div className="center">
+      <div className="menu-container">
         <input className="menu-btn" type="checkbox" id="menu-btn" />
         <label className="menu-icon" htmlFor="menu-btn">
           <span className="navicon"></span>
         </label>
 
-        <ul className="nav">
+        <ul className="nav" id="slide">
           <li className="nav-item">
             <Link 
             className="nav-link" 
