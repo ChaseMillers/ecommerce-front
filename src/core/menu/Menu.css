@@ -203,6 +203,7 @@ li.sign-item {
     position: absolute;
     top: 115px;
     right: -200px;
+    display: none;
   }
   .header .menu-btn:checked ~ .nav {
     -webkit-animation: slide 0.2s forwards;
@@ -238,11 +239,8 @@ li.sign-item {
       position: initial;
     }
     .header .menu-btn ~ .nav {
-      max-height: 240px;
-      background-color: white;
-      padding-bottom: 5px;
-      position: absolute;
-      top: 30px;
+      top: 31px;
       right: 0px;
+      display: initial;
     }
 }
