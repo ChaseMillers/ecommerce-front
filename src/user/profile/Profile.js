@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Layout from "../../core/layout/Layout";
 import { isAuthenticated } from "../../auth";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import { read, update, updateUser } from "../apiUser";
 import './Profile.css'
 
@@ -15,7 +15,7 @@ const Profile = ({ match }) => {
     });
 
     const { token } = isAuthenticated();
-    const { name, email, password, success } = values;
+    const { name, email, password, error, success } = values;
 
     const init = userId => {
         read(userId, token).then(data => {
@@ -41,7 +41,7 @@ const Profile = ({ match }) => {
         update(match.params.userId, token, { name, email, password }).then(
             data => {
                 if (data.error) {
-                    console.log(data.error);
+                    setValues({...values, error: data.error});
                 } else {
                     updateUser(data, () => {
                         setValues({
@@ -56,11 +56,20 @@ const Profile = ({ match }) => {
         );
     };
 
-    const redirectUser = success => {
+    const redirectUser = () => {
         if (success) {
-            return <Redirect to="/cart" />;
+            return <Redirect to="/user/dashboard" />;
         }
     };
+
+    const showError = () => (
+        <div
+            className="caution "
+            style={{ display: error ? "" : "none" }}
+        >
+            {error}
+        </div>
+    );
 
     const profileUpdate = (name, email, password) => (
         <form>
@@ -98,15 +107,36 @@ const Profile = ({ match }) => {
         </form>
     );
 
+    const Routes = () =>(
+        <div className="routes-container">
+        <Link
+        className="route-link"
+        to="/"
+        >
+        HOME 
+        </Link>
+        <div className="seperate">/</div> 
+        <Link
+        className="route-link"
+        to="/user/dashboard"
+        >
+        Dashboard 
+        </Link>
+        <div className="seperate">/</div> 
+        Profile Update 
+      </div>
+    )
+
     return (
         <Layout
-            title="Profile"
-            description="Update your profile"
+            routes={Routes()}
+            imageClassName="no-banner-image"
             className="main-container"
         >
             <h1 className="margin-bottom">Profile update</h1>
+            {showError()}
             {profileUpdate(name, email, password)}
-            {redirectUser(success)}
+            {redirectUser()}
         </Layout>
     );
 };

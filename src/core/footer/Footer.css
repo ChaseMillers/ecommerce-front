@@ -1,11 +1,40 @@
 .footer{
     color: rgb(88, 88, 88);
-    background-color: rgb(238, 238, 238);
     padding: 15px 0 15px 15px;
     font-size: 14px;
     width: 100%;
+    text-align: center;
     position: absolute;
-    bottom: 0;
-
+    bottom: -10;
 }
 
+.social-text{
+    color:rgb(145, 145, 145);
+    font-size:25px; 
+  }
+.email{
+    margin: 10px;
+}
+.contact-icons{
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+.fab{
+    color: rgb(59, 59, 59);
+    font-size: 18px;
+}
+a{ 
+    text-decoration: none;
+ }
+
+.contact-icons ul li {
+    width: 60px;
+    list-style: none;
+    display: inline-block;
+    color: black;
+}
+
+.ul-icons{
+    padding: 0;
+}

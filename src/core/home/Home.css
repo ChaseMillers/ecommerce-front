@@ -1,28 +1,87 @@
 .home-container {
     margin: 0 auto 24px auto;
     width: 100%;
-    padding: 10px 25px;
-}
-
-.home-layout {
-    width: 100%;
-    padding-left: 10px;
-    padding-top:10px;
+    padding: 10px 0;
 }
 
 .home-row {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
 }
+.home-row-new {
+    display: flex;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+}
+.buttons{
+    cursor: pointer;
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 8px;
+}
+.buttons:hover{
+    border: solid rgb(141, 141, 141);
+    border-width: 0 3px 3px 0;
+}
+.right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    margin-right: 10px;
+}
+
+.left {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+    margin-left: 10px;
+}
 
 .new-arrivals-container{
+    display: flex;
+    justify-content: center;
+}
+.best-sellers-container{
     max-width: 1200px;
     margin: auto;
 }
-.new-best-margin{
-    border-bottom: solid 1.5px;
-    line-height: 50px;
+
+.featured-products-title{
+    padding-top: 15px;
+    margin-bottom: -20px;
     text-align: center;
+    font-size: 35px;
+}
+
+.new-best-margin{
+    padding-top: 100px;
+    font-size: 35px;
+    display: flex;
+    align-items: center;
+}
+
+.new-best-margin:before,
+.new-best-margin:after {
+    content: '';
+    border-top: 2px solid;
+    margin: 0 20px 0 0;
+    flex: 1 0 20px;
+}
+.new-best-margin:after {
+    margin: 0 0 0 20px;
+}
+
+.ad-container{
+   /* The image used */
+   background-image: url("/images/lake.webp");
+  
+   /* Set a specific height */
+   height: 400px;
+   /* Create the parallax scrolling effect */
+   background-attachment: fixed;
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
 }
 
 @media screen and (max-width: 876px){
@@ -35,12 +94,7 @@
     .home-row {
         grid-template-columns: 1fr;
     }
-    .home-layout {
-        padding-left: 0px;
-    }
-    .home-container{
-        display: flex;
-        align-items: center;
-        flex-direction: column;
+    .card-layout {
+        margin: 0 auto;
     }
 }

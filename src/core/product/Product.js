@@ -1,12 +1,12 @@
 import React, { useState, useEffect, Suspense, lazy  } from "react";
 import Layout from "../layout/Layout";
+import { Link } from 'react-router-dom';
 import Card from "../card/Card";
 import "./Product.css";
 import { read, listRelated } from "../apiCore";
 const RenderRelatedProduct = lazy(() =>
     import('./RelatedProducts')
 );
-
 
 const Product = props => {
     const [product, setProduct] = useState({});
@@ -37,14 +37,30 @@ const Product = props => {
         });
     };
 
+    const Routes = () =>(
+        <div className="routes-container">
+        <Link
+        className="route-link"
+        to="/"
+        >
+        HOME 
+      </Link>
+        <div className="seperate">/</div> 
+        <Link
+        className="route-link"
+        to="/shop"
+        >
+        Shop 
+      </Link>
+      <div className="seperate">/</div> 
+        Product
+      </div>
+    )
+
     return (
         <Layout
-            title={product && product.name}
-            description={
-                product &&
-                product.description &&
-                product.description.substring(0, 100)
-            }
+            routes={Routes()}
+            imageClassName="no-banner-image"
             className="product-container"
         >
                 <div className="row-view-product ">
@@ -62,7 +78,6 @@ const Product = props => {
                 <Suspense fallback={<div></div>}>
                     <RenderRelatedProduct relatedProduct={relatedProduct} />
                 </Suspense>
-                <br />
                 </div>
         </Layout>
     );

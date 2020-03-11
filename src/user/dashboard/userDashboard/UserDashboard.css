@@ -17,6 +17,10 @@
     width:100%;
 }
 
+.info-list{
+    padding: 10px;
+}
+
 .column {
     padding-left: 0;
     margin-bottom: 0;
@@ -25,11 +29,8 @@
 }
 
 .column-list {
-    padding: 12px 18px;
-    margin-bottom: -1px;
-    position: relative;
+    padding: 12px 0;
     display: block;
-    border: 2px solid rgba(0, 0, 0, 0.125);
 }
 
 .dash-container {
@@ -40,23 +41,29 @@
 }
 
 .user-links-layout{
-    position: relative;
     max-width: 30%;
     width: 100%;
     margin-left:15px;
 }
 
 .user-info-layout{
-    position: relative;
     max-width: 30%;
     width: 100%;
     margin-left:15px;
 }
 
 .dash-header{
-    padding: 12px 20px;
-    margin-bottom: 0;
-    border-bottom: 2px solid rgba(0,0,0,.125);
+    padding: 19px 0 0 0;
+}
+
+.column-links{
+
+}
+.listed-links{
+
+}
+.list-link{
+
 }
 
 @media screen and (max-width:885px){

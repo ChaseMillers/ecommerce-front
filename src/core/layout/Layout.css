@@ -40,6 +40,8 @@ p {
     background-color:transparent;
     font-size: 16px;
     padding: 6px 13px;
+    margin-top: 10px;
+    margin-bottom: 100px;
     transition:.16s ease-in-out;
     margin-right: 5px;
     -webkit-appearance: none;
@@ -139,12 +141,6 @@ hr {
     margin-bottom: 24px; 
 }
 
-.website-description {
-    margin-top:5px;
-    font-size: 17px;
-    font-weight: 300;
-}
-
 .banner-container h2 {
     margin-top: -20px;
 }
@@ -155,59 +151,32 @@ hr {
     padding-bottom: 10px;
 }
 
- /**
-  * holds color animation
-  */
 .banner-container{
-    padding: 32px 16px;
-    padding-top: 50px;
-    margin-top: 115px;
-    color: #fff;
-    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-    background-size: 400% 400%;
-    -webkit-animation: Gradient 15s ease infinite;
-    -moz-animation: Gradient 15s ease infinite;
-    animation: Gradient 15s ease infinite;
+    margin-top: -200px;
+    text-align: center;
+    color: white;
+    padding-bottom: 180px;
 }
 
- @media only screen and (max-width: 600px) {
-    .banner-container h2 {
-        margin-top: 10px;
-    }
+
+.home-parallax {
+    /* The image used */
+    background-image: url("/images/woods-marketing.webp");
+  
+    /* Set a specific height */
+    height: 500px;
+  
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
- @-webkit-keyframes Gradient {
-     0% {
-         background-position: 0% 50%;
-     }
-     50% {
-         background-position: 100% 50%;
-     }
-     100% {
-         background-position: 0% 50%;
-     }
- }
- 
- @-moz-keyframes Gradient {
-     0% {
-         background-position: 0% 50%;
-     }
-     50% {
-         background-position: 100% 50%;
-     }
-     100% {
-         background-position: 0% 50%;
-     }
- }
- 
- @keyframes Gradient {
-     0% {
-         background-position: 0% 50%;
-     }
-     50% {
-         background-position: 100% 50%;
-     }
-     100% {
-         background-position: 0% 50%;
-     }
- }
+.routes{
+    margin-top: 120px;
+    padding-left: 25px;
+    width: 100%;
+    line-height: 40px;
+    background: #f2f2f2;
+}

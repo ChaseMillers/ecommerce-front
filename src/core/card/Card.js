@@ -195,6 +195,9 @@ const Card = ({
             <div className="info-container-view">
               <div className="product-header-view">{product.name}</div>
               <p className="product-price-view">${product.price}</p>
+              <p className="product-brief">
+              {product.brief}
+              </p>
               <p className="about-view">About</p>
               <p className="product-title-view">
               {product.description}

@@ -5,6 +5,7 @@ import { getCategories, getFilteredProducts } from "../apiCore";
 import CategoryFilter from "../filter/categoryFilter/CategoryFilter";
 import PriceFilter from "../filter/priceFilter/PriceFilter";
 import { prices } from "../fixedPrices";
+import { Link } from 'react-router-dom';
 import './Shop.css'
 
 const Shop = () => {
@@ -13,7 +14,7 @@ const Shop = () => {
     });
     const [categories, setCategories] = useState([]);
     const [error, setError] = useState(false);
-    const [limit] = useState(6);
+    const [limit] = useState(7);
     const [skip, setSkip] = useState(0);
     const [size, setSize] = useState(0);
     const [filteredResults, setFilteredResults] = useState([]);
@@ -112,16 +113,29 @@ const Shop = () => {
         else{return(<h1 className="loading">Loading...</h1>)}
     }
 
+    const Routes = () =>(
+        <div className="routes-container">
+        <Link
+        className="route-link"
+        to="/"
+        >
+        HOME 
+      </Link>
+        <div className="seperate">/</div> 
+        Shop 
+      </div>
+    )
+
     return (
         <Layout
-            title="Shop Page"
-            description="Search and find items of your choice"
+            routes={Routes()}
+            imageClassName="no-banner-image"
             className="shop-container"
         >
-                    <div className="filter">
+                    <div className="filter"> 
                     <fieldset className="filter-fieldset">
                         <legend>
-                            <h1>Filter by type</h1>
+                            <h1>Product</h1>
                         </legend>
                             <CategoryFilter
                                 categories={categories}
@@ -132,7 +146,7 @@ const Shop = () => {
                     </fieldset>
                     <fieldset className="filter-fieldset">
                         <legend>
-                            <h1>Filter by price</h1>
+                            <h1>Price</h1>
                         </legend>    
                             <PriceFilter
                                 prices={prices}

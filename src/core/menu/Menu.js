@@ -63,11 +63,56 @@ const Menu = ({ history }) => {
                 >
                   Login
                 </Link>
-              </li>
+              </li> 
             </Fragment>
           ) : (
             ''
           )}
+
+          {isAuthenticated() && isAuthenticated().user.role !== 2 ? (
+                <li className="sign-item">
+                  <div
+                    className="sign-link"
+                    style={{ cursor: 'pointer', color: '#ffffff' }}
+                    onClick={() =>
+                      signout(() => {
+                        history.push('/');
+                      })
+                    }
+                  >
+                    Signout
+                  <li className="signout-dot"></li>
+                  </div>
+                </li>
+              ) : (
+                ''
+            )}
+
+          {isAuthenticated() && isAuthenticated().user.role === 0 && (
+            <li className="sign-item">
+              <Link
+                className="nav-link"
+                style={isActiveSign(history, '/user/dashboard')}
+                to="/user/dashboard"
+              >
+                Dashboard
+              </Link>
+            </li>
+          )}
+
+          {isAuthenticated() && isAuthenticated().user.role === 1 && (
+            <li className="sign-item">
+              <Link
+                className="nav-link"
+                style={isActiveSign(history, '/admin/dashboard')}
+                to="/admin/dashboard"
+              >
+                Dashboard
+              </Link>
+            </li>
+          )}
+
+         
       </div>
       <a href="/" className="logo">
         <img src="/images/swash-caps.webp" alt="Logo" />
@@ -106,53 +151,12 @@ const Menu = ({ history }) => {
             >
               Cart{''}
               <sup>
-                <small className="cart-number">{count}</small>
+              {count >0 ? <small className="cart-number">{count}</small> : null}
               </sup>
             </button>
             <Cart />
           </li>
-
-          {isAuthenticated() && isAuthenticated().user.role === 0 && (
-            <li className="nav-item">
-              <Link
-                className="nav-link"
-                style={isActive(history, '/user/dashboard')}
-                to="/user/dashboard"
-              >
-                Dashboard
-              </Link>
-            </li>
-          )}
-
-          {isAuthenticated() && isAuthenticated().user.role === 1 && (
-            <li className="nav-item">
-              <Link
-                className="nav-link"
-                style={isActive(history, '/admin/dashboard')}
-                to="/admin/dashboard"
-              >
-                Dashboard
-              </Link>
-            </li>
-          )}
-
-          {isAuthenticated() && isAuthenticated().user.role !== 2 ? (
-            <li className="nav-item">
-              <button
-                className="nav-link signoutMenuLink"
-                style={{ cursor: 'pointer', color: '#ffffff' }}
-                onClick={() =>
-                  signout(() => {
-                    history.push('/');
-                  })
-                }
-              >
-                Signout
-              </button>
-            </li>
-          ) : (
-            ''
-          )}
+          
         </ul>
       </div>
     </div>

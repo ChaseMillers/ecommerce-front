@@ -34,12 +34,7 @@ const Dashboard = () => {
                 <h1 className="dash-header">User Links</h1>
                 <ul className="column">
                     <li className="column-list">
-                        <Link className="nav-link" to="/cart">
-                            My Cart
-                        </Link>
-                    </li>
-                    <li className="column-list">
-                        <Link className="nav-link" to={`/profile/${_id}`}>
+                        <Link className="info-list" to={`/profile/${_id}`}>
                             Update Profile
                         </Link>
                     </li>
@@ -53,9 +48,9 @@ const Dashboard = () => {
             <div className="dashboard">
                 <h1 className="dash-header">User Information</h1>
                 <ul className="column">
-                    <li className="column-list">{name}</li>
-                    <li className="column-list">{email}</li>
-                    <li className="column-list">
+                    <li className="info-list">{name}</li>
+                    <li className="info-list">{email}</li>
+                    <li className="info-list">
                         {role === 1 ? "Admin" : "Registered User"}
                     </li>
                 </ul>
@@ -68,7 +63,7 @@ const Dashboard = () => {
             <div className="dashboard">
                 <h1 className="dash-header">Purchase history</h1>
                 <ul className="column">
-                    <li className="column-list">
+                    <li className="info-list">
                         {history.map((h, i) => {
                             return (
                                 <div key={i}>
@@ -97,10 +92,23 @@ const Dashboard = () => {
         );
     };
 
+    const Routes = () =>(
+        <div className="routes-container">
+        <Link
+        className="route-link"
+        to="/"
+        >
+        HOME 
+      </Link>
+        <div className="seperate">/</div> 
+        Dashboard
+      </div>
+    )
+
     return (
         <Layout
-            title="Dashboard"
-            description={`G'day ${name}!`}
+            routes={Routes()}
+            imageClassName="no-banner-image"
             className="dash-container"
         >
             <div className="row">

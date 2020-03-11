@@ -4,6 +4,7 @@ import Layout from "../../../core/layout/Layout";
 import { signin, authenticate, isAuthenticated } from "../../../auth";
 import {itemTotalCount} from '../../../core/cartHelpers';
 import './Signin.css'
+import { Link } from 'react-router-dom';
 
 const Signin = () => {
     const [values, setValues] = useState({
@@ -59,14 +60,14 @@ const Signin = () => {
                     value={password}
                 />
             </div>
-            <button onClick={clickSubmit} className="button">
+            <button onClick={clickSubmit} className="button button-blue">
                 Sign In
             </button>
             <h2>How it works</h2>
        <div className="how-it-works-container">        
         <div className="how-it-works">
             <ul>
-                <li>Create account, then sign in, or used the autofilled demo account</li>
+                <li>Create account, then sign in, or use the autofilled demo account</li>
                 <li>From the Home page the user can view new arrivals and best sellers.</li>
                 <li>From the Shop page, a user can choose their filters when browsing products.</li>
                 <li>From the Shopping cart, the user can checkout their order.</li>
@@ -115,10 +116,24 @@ const Signin = () => {
         }
     };
 
+    const Routes = () =>(
+        <div className="routes-container">
+        <Link
+        className="route-link"
+        to="/"
+        >
+        HOME 
+      </Link>
+      <div className="seperate">/</div> 
+        Login
+      </div>
+    )
+
     return (
         <Layout
-            title="Signin"
-            description="Signin to Node React E-commerce App"
+            routes={Routes()}
+            imageClassName="no-banner-image"
+            className="signup-container"
         >
             {showLoading()}
             {showError()}

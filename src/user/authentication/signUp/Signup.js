@@ -43,7 +43,7 @@ const Signup = () => {
     };
 
     const signUpForm = () => (
-        <form className="signup-container">
+        <form>
             <div className="form-container">
                 <label className="sign-in">Name</label>
                 <input
@@ -103,10 +103,24 @@ const Signup = () => {
     }
 };
 
+const Routes = () =>(
+    <div className="routes-container">
+    <Link
+    className="route-link"
+    to="/"
+    >
+    HOME 
+  </Link>
+  <div className="seperate">/</div> 
+    Create Account
+  </div>
+)
+
     return (
         <Layout
-            title="Signup"
-            description="Signup to Node React E-commerce App"
+            routes={Routes()}
+            imageClassName="no-banner-image"
+            className="signup-container"
         >
             {showSuccess()}
             {showError()}

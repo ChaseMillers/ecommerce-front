@@ -34,7 +34,7 @@ const Cart = () => {
     };
 
     const noItemsMessage = () => (
-        <div>
+        <div className="thanks-container">
             <h1 className="emptyCartMessage-summary">
                 Thanks For Your Purchase!
             </h1>
@@ -46,7 +46,7 @@ const Cart = () => {
     return (
         <div>
         <div className="header">
-            <a href="/" className="logo"><img src="/images/logo.png" alt="Logo"/></a>
+            <a href="/" className="logo"><img src="/images/swash-caps.webp" alt="Logo"/></a>
         </div>
         <div className="cart-row-summary">
                 <Checkout products={items} setRun={setRun} run={run} />

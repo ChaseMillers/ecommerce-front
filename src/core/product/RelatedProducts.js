@@ -5,8 +5,8 @@ const RenderRelatedProduct = ({ relatedProduct }) =>{
   return (
     relatedProduct &&(
         <div className="related-products-layout">
-                <div className="related-product-container">
                 <h1>Related Products</h1>
+                <div className="related-product-container">
                 {relatedProduct.map((p, i) => (
                     <div key={i} className="related">
                         <Card 
