@@ -15,6 +15,7 @@ const Product = props => {
  
     useEffect(() => {
         const productId = props.match.params.productId;
+        window.scrollTo(0, 0)
         loadSingleProduct(productId);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [props]);

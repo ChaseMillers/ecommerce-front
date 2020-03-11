@@ -34,7 +34,7 @@ const Dashboard = () => {
                 <h1 className="dash-header">User Links</h1>
                 <ul className="column">
                     <li className="column-list">
-                        <Link className="info-list" to={`/profile/${_id}`}>
+                        <Link className="info-list-link" to={`/profile/${_id}`}>
                             Update Profile
                         </Link>
                     </li>
