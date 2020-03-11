@@ -40,10 +40,30 @@ const ManageProducts = () => {
         loadProducts();
     }, []);
 
+    const Routes = () =>(
+        <div className="routes-container">
+        <Link
+        className="route-link"
+        to="/"
+        >
+        HOME 
+      </Link>
+      <div className="seperate">/</div> 
+      <Link
+        className="route-link"
+        to="/admin/dashboard"
+        >
+        Dashboard 
+      </Link>
+        <div className="seperate">/</div> 
+        Manage Products
+      </div>
+    )
+
     return (
         <Layout
-            title="Manage Products"
-            description="Perform CRUD on products"
+            routes={Routes()}
+            imageClassName="no-banner-image"
             className="manage-products-container"
         >
             <div className="manage-products-row">

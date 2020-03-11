@@ -111,7 +111,7 @@ const AddProduct = () => {
                     />
                 </label>
             </div>
-            <p>Recommended: Web optimised 1280 x 720.</p>
+            <p>Recommend Web optimised, at least 1280 x 720.</p>
 
             <div className="add-product-container">
                 <label className="product-text">Name</label>
@@ -219,10 +219,31 @@ const AddProduct = () => {
             </div>
         );
 
+        const Routes = () =>(
+            <div className="routes-container">
+            <Link
+            className="route-link"
+            to="/"
+            >
+            HOME 
+          </Link>
+          <div className="seperate">/</div> 
+          <Link
+            className="route-link"
+            to="/admin/dashboard"
+            >
+            Dashboard 
+          </Link>
+          <div className="seperate">/</div> 
+            Post Product
+          </div>
+        )
+
     return (
         <Layout
-            title="Add a new product"
-            description={`G'day ${user.name}, ready to add a new product?`}
+        routes={Routes()}
+        imageClassName="no-banner-image"
+        className="manage-products-container"
         >
             <div className="new-category-row">
                 <div className="new-category-layout ">

@@ -69,7 +69,7 @@ const helpPopup = ({values, setValues}) => {
     return(
         <div>
             <button 
-                className="button-yellow" 
+                className="button-yellow no-margin" 
                 type="button" 
                 onClick={toggleHelp}
             >

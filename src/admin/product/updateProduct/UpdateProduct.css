@@ -1,14 +1,21 @@
 .update-product-container{
-    display: flex;
-    margin-bottom: 24px;  
+   margin: 5px 0;
+   display: flex;
 }
 
 .product-inputs {
     margin-bottom: 5px;
     font-size: 16px;
-    border: 1px solid #ced4da;
-    background-color:#cfe0f1a2;
     border-radius: 5px;
-    width: 100%;
     padding: 8px 8px;
+}
+
+.update-product-form{
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+}
+
+.no-margin{
+    margin-bottom: 0;
 }

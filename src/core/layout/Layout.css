@@ -114,11 +114,6 @@ button:not(:disabled) {
  * Part of User Links 
 */
 
-.cream-color{
-    padding: 5px;
-    background-color: #fcf8e3;
-}
-
 .caution {
     background-color: #d1ecf1;
     border: 1px solid transparent; 

@@ -41,40 +41,28 @@ const Orders = () => {
     const showOrdersLength = () => {
         if (orders.length > 0) {
             return (
-                <h1 className="total-orders">
-                    Total orders: {orders.length}
-                </h1>
+                <div className="total-orders">
+                    <h1>Total orders: </h1>{orders.length}
+                </div>
             );
         } else {
             return <h1 className="total-orders">No orders</h1>;
         }
     };
 
-    const goBack = () => (
-        <Link to="/admin/dashboard" className="back-to-dash">
-            Back to Dashboard
-        </Link>
-    );
-
     const showInput = (key, value) => (
-        <div className="show-input-container">
-            <div className="show-input">
-                <div className="show-input-text">{key}</div>
-            </div>
-            <input
-                type="text"
-                value={value}
-                className="form-orders-inputs"
-                readOnly
-            />
-        </div>
+            <ul className="product-list-container">
+                <li className="product-column-list">
+                <span className="bold">{key} </span>{value}
+                </li>
+            </ul>
     );
 
     const handleStatusChange = (e, orderId) => {
         updateOrderStatus(user._id, token, orderId, e.target.value).then(
             data => {
                 if (data.error) {
-                    console.log("Status update failed",data.error);
+                    alert("Status update failed",data.error);
                 } else {
                     loadOrders();
                 }
@@ -84,9 +72,8 @@ const Orders = () => {
 
     const showStatus = o => (
         <div className="orders-container">
-            <h1 className="cream-color margin-bottom">Status: {o.status}</h1>
             <select
-                className="form-orders-inputs"
+                className="status-input"
                 onChange={e => handleStatusChange(e, o._id)}
             >
                 <option>Update Status</option>
@@ -96,76 +83,90 @@ const Orders = () => {
                     </option>
                 ))}
             </select>
+            <div className="margin-bottom"><span className="bold">Status:</span> {o.status}</div>
         </div>
     );
 
+    const Routes = () =>(
+        <div className="routes-container">
+        <Link
+        className="route-link"
+        to="/"
+        >
+        HOME 
+      </Link>
+      <div className="seperate">/</div> 
+      <Link
+        className="route-link"
+        to="/admin/dashboard"
+        >
+        Dashboard 
+      </Link>
+        <div className="seperate">/</div> 
+       Orders
+      </div>
+    )
+
     return (
         <Layout
-            title="Orders"
-            description={`G'day ${
-                user.name
-            }, you can manage all the orders here`}
+            routes={Routes()}
+            imageClassName="no-banner-image" 
             className="orders-container"
         >
             <div className="orders-row">
                 <div className="orders-layout">
                     {showOrdersLength()}
-                    {goBack()}
                     {orders.map((o, oIndex) => {
                         return (
                             <div
-                                className="order-id"
+                                className="order-container"
                                 key={oIndex}
-                                style={{ borderBottom: "5px solid indigo" }}
                             >
-                                <h1 className="margin-bottom">
-                                    <span className="yellow-highlight">
-                                        Order ID: {o._id}
-                                    </span>
-                                </h1>
+                                <div className="order-id">
+                                    <span className="highlight">Order ID: </span>
+                                    <br/>{o._id}
+                                </div>
+                            
+                                <div className= "order-column">
+                                    <ul className="order-list-container">
+                                        <li className="order-column-list">
+                                            {showStatus(o)}
+                                        </li>
+                                        <li className="order-column-list">
+                                            <span className="bold">Transaction ID:</span>{o.transaction_id}
+                                        </li>
+                                        <li className="order-column-list">
+                                            <span className="bold">Amount:</span> ${o.amount}
+                                        </li>
+                                        <li className="order-column-list">
+                                            <span className="bold">Ordered by:</span> {o.name}
+                                        </li>
+                                        <li className="order-column-list">
+                                            <span className="bold">Order Date: </span>{" "}
+                                            {moment(o.createdAt).fromNow()}
+                                        </li>
+                                        <li className="order-column-list">
+                                            <span className="bold">Delivery address:</span> {o.address}
+                                        </li>
+                                    </ul>
 
-                                <ul className="order-column">
-                                    <li className="order-column-list">
-                                        {showStatus(o)}
-                                    </li>
-                                    <li className="order-column-list">
-                                        Transaction ID: {o.transaction_id}
-                                    </li>
-                                    <li className="order-column-list">
-                                        Amount: ${o.amount}
-                                    </li>
-                                    <li className="order-column-list">
-                                        Ordered by: {o.user.name}
-                                    </li>
-                                    <li className="order-column-list">
-                                        Ordered on:{" "}
-                                        {moment(o.createdAt).fromNow()}
-                                    </li>
-                                    <li className="order-column-list">
-                                        Delivery address: {o.address}
-                                    </li>
-                                </ul>
-
-                                <h1 className="orders-margin">
-                                    Total products in the order:{" "}
-                                    {o.products.length}
-                                </h1>
-
-                                {o.products.map((p, pIndex) => (
-                                    <div
-                                        className="order-id-container"
-                                        key={pIndex}
-                                        style={{
-                                            padding: "20px",
-                                            border: "1px solid indigo"
-                                        }}
-                                    >
-                                        {showInput("Product name", p.name)}
-                                        {showInput("Product price", p.price)}
-                                        {showInput("Product total", p.count)}
-                                        {showInput("Product Id", p._id)}
+                                    <div className="total-products-title">
+                                        <span className="bold">Total products:</span>{" "}
+                                        {o.products.length}
                                     </div>
-                                ))}
+
+                                    {o.products.map((p, pIndex) => (
+                                        <div
+                                            className="order-id-container"
+                                            key={pIndex}
+                                        >
+                                            {showInput("Name:", p.name)}
+                                            {showInput("Price:", p.price)}
+                                            {showInput("Count:", p.count)}
+                                            {showInput("Id:", p._id)}
+                                        </div>
+                                    ))}
+                                </div>
                             </div>
                         );
                     })}

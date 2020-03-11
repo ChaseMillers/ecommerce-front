@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Layout from "../../../core/layout/Layout";
 import { isAuthenticated } from "../../../auth";
+import { Link } from "react-router-dom";
 import { Redirect } from "react-router-dom";
 import { getProduct, getCategories, updateProduct } from "../../apiAdmin";
-
+import "./UpdateProduct.css"
 const UpdateProduct = ({ match }) => {
     const [values, setValues] = useState({
         name: "",
@@ -114,10 +115,10 @@ const UpdateProduct = ({ match }) => {
     };
 
     const newPostForm = () => (
-        <form className="margin-bottom" onSubmit={clickSubmit}>
-            <h1>Post Photo</h1>
+        <form className="update-product-form" onSubmit={clickSubmit}>
+            <h1>Update Product</h1>
             <div className="update-product-container">
-                <label className="button button-yellow">
+                <label className="button button-yellow no-margin">
                     <input
                         onChange={handleChange("photo")}
                         type="file"
@@ -139,7 +140,7 @@ const UpdateProduct = ({ match }) => {
 
             <div className="update-product-container">
                 <label className="product-text">Brief Description</label>
-                <textarea
+                <input
                     onChange={handleChange("brief")}
                     className="product-inputs"
                     value={brief}
@@ -240,13 +241,41 @@ const UpdateProduct = ({ match }) => {
         }
     };
 
+    const Routes = () =>(
+        <div className="routes-container">
+        <Link
+        className="route-link"
+        to="/"
+        >
+        HOME 
+      </Link>
+      <div className="seperate">/</div> 
+      <Link
+        className="route-link"
+        to="/admin/dashboard"
+        >
+        Dashboard 
+      </Link>
+        <div className="seperate">/</div> 
+        <Link
+        className="route-link"
+        to="/admin/products"
+        >
+        Manage Products
+      </Link>
+      <div className="seperate">/</div> 
+        Edit Product
+      </div>
+    )
+
     return (
         <Layout
-            title="Add a new product"
-            description={`G'day ${user.name}, ready to add a new product?`}
+        routes={Routes()}
+        imageClassName="no-banner-image"
+        className=""
         >
             <div className="row">
-                <div className="filters-layout show-off">
+                <div className="update-products-layout">
                     {showLoading()}
                     {showSuccess()}
                     {showError()}

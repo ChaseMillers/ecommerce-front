@@ -15,22 +15,22 @@ const AdminDashboard = () => {
                 <h1 className="dash-header">Admin Links</h1>
                 <ul className="column">
                     <li className="column-list">
-                        <Link className="nav-link" to="/create/category">
+                        <Link className="info-list-link" to="/create/category">
                             Create Category
                         </Link>
                     </li>
                     <li className="column-list">
-                        <Link className="nav-link" to="/create/product">
+                        <Link className="info-list-link" to="/create/product">
                             Create Product
                         </Link>
                     </li>
                     <li className="column-list">
-                        <Link className="nav-link" to="/admin/orders">
+                        <Link className="info-list-link" to="/admin/orders">
                             View Orders
                         </Link>
                     </li>
                     <li className="column-list">
-                        <Link className="nav-link" to="/admin/products">
+                        <Link className="info-list-link" to="/admin/products">
                             Manage Products
                         </Link>
                     </li>
@@ -54,11 +54,24 @@ const AdminDashboard = () => {
         );
     };
 
+    const Routes = () =>(
+        <div className="routes-container">
+        <Link
+        className="route-link"
+        to="/"
+        >
+        HOME 
+      </Link>
+        <div className="seperate">/</div> 
+        Dashboard
+      </div>
+    )
+
     return (
         <Layout
-            title="Dashboard"
-            description={`G'day ${name}!`}
-            className="main-container"
+            routes={Routes()}
+            imageClassName="no-banner-image"
+            className="dash-container"
         >
             <div className="row">
                 <div className="user-links-layout">{adminLinks()}</div>

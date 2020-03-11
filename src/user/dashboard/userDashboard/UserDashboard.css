@@ -63,16 +63,6 @@
     padding: 19px 0 0 0;
 }
 
-.column-links{
-
-}
-.listed-links{
-
-}
-.list-link{
-
-}
-
 @media screen and (max-width:885px){
     .user-info-layout{
         max-width: 90%;
