@@ -63,19 +63,6 @@ const Signin = () => {
             <button onClick={clickSubmit} className="button button-blue">
                 Sign In
             </button>
-            <h2>How it works</h2>
-       <div className="how-it-works-container">        
-        <div className="how-it-works">
-            <ul>
-                <li>Create account, then sign in, or use the autofilled demo account</li>
-                <li>From the Home page the user can view new arrivals and best sellers.</li>
-                <li>From the Shop page, a user can choose their filters when browsing products.</li>
-                <li>From the Shopping cart, the user can checkout their order.</li>
-                <li>From the Dashboard, the user can view cart or update profile.</li>
-                <li>From the Dashboard, the admin has ability to add/delete/change products and view orders.</li>
-            </ul>
-        </div>
-      </div>
         </form>
     );
 
