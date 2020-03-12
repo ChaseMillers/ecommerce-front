@@ -24,11 +24,12 @@ This e-commerce website was created to be a starting point template for my clien
  - When logged in as Admin, user has the ability to create products, categories, manage products and view orders from their dashboard.
  ![](https://i.imgur.com/Z2TRd4W.png)
  
-- From the Order page, Admin can change order status, and view all information about each purchase. 
+- From the OrderS page, Admin can change order status, and view all information about each purchase. 
  ![](https://i.imgur.com/R0GVV7I.png)
  
-- As Admin you have the ability to post new products as well as update them. 
+- As Admin you have the ability to post new products as well as update/delete them. 
  ![](https://i.imgur.com/90Jdz0L.png)
+- You can update anything about the product. 
  ![](https://i.imgur.com/YWyKBEO.png)
  
  - After a purchase, the buyer will be notified with a custom email and so will the Admin 
